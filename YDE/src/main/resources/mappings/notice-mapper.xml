@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeDAO">
+
+	<insert id="insert" parameterType="NoticeVO">
+		<!-- insert into notice values () -->
+		insert into notice (notice_w_date, notice_content) values(sysdate, #{noticeContent})
+	</insert>
+	
+	<update id="update" parameterType="NoticeVO">
+		<!-- update ? where notice_no = #{noticeNo} -->
+		update notice set notice_content = #{noticeContent}
+	</update>
+	
+	<delete id="delete" parameterType="NoticeVO">
+		delete from notice where notice_no = #{noticeNo}
+	</delete>
+
+	<select id="selectOne" parameterType="NoticeVO" resultType="NoticeVO">
+		select * from notice where notice_no = #{noticeNo}
+	</select>
+	
+	<select id="selectList" resultType="NoticeVO">
+		select * from notice
+	</select>
+</mapper>

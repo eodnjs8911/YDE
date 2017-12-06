@@ -4,18 +4,39 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head></head>
+<head>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
 <body>
-	<div class="container">
-		<nav>
-			<tiles:insertAttribute name="header" />
-		</nav>
-		<article>
-			<tiles:insertAttribute name="content" />
-		</article>
-		<footer>
-			<tiles:insertAttribute name="footer" />
-		</footer>
+	<header class="container-fluid col-md-8 col-md-offset-2"
+		style="background-color: red;">
+		<tiles:insertAttribute name="header" />
+	</header>
+
+	<div class="container-fluid ">
+		<div class="row content">
+			<div class="col-md-8 col-md-offset-2"
+				style="background-color: yellow;">
+				<tiles:insertAttribute name="content" />
+			</div>
+			<div class="col-md-2 sidenav text-center" style="background-color: blue;">
+				<tiles:insertAttribute name="side" />
+			</div>
+		</div>
 	</div>
+
+	<footer class="container-fluid text-center col-md-8 col-md-offset-2"
+		style="background-color: green;">
+		<tiles:insertAttribute name="footer" />
+	</footer>
 </body>
 </html>
+

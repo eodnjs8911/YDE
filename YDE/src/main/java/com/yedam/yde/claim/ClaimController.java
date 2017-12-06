@@ -24,6 +24,6 @@ public class ClaimController {
 		System.out.println("[ClaimController][selectList]");
 		model.addAttribute("claimList", claimService.selectList());
 		
-		return "claim/selectOne";
+		return "claim/selectList";
 	}
 }

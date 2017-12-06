@@ -14,15 +14,15 @@ public class SmsDAO {
 	private SqlSessionTemplate mybatis;
 
 	public void insert(SmsVO vo) {
-		mybatis.insert("SmsDAO.insertSms", vo);
+		mybatis.insert("SmsDAO.insert", vo);
 	}
 	
 	public void delete(SmsVO vo) {
-		mybatis.delete("SmsDAO.deleteSms",vo);
+		mybatis.delete("SmsDAO.delete",vo);
 	}
 	
 	public void update(SmsVO vo) {
-		mybatis.update("SmsDAO.updateSms", vo);
+		mybatis.update("SmsDAO.update", vo);
 	}
 
 	public SmsVO selectOne(SmsVO vo) {

@@ -11,6 +11,7 @@
 	<typeAliases>
 		<typeAlias alias="SmsVO" type="com.yedam.yde.sms.SmsVO" />
 		<typeAlias alias="NoticeVO" type="com.yedam.yde.notice.NoticeVO" />
+		<typeAlias alias="ClaimVO" type="com.yedam.yde.claim.ClaimVO" />
 	</typeAliases>
 	
 </configuration>

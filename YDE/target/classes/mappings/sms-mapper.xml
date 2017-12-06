@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SmsDAO">
+
+	<insert id="insert" parameterType="SmsVO">
+		<!-- insert into sms values () -->
+	</insert>
+	
+	<update id="update" parameterType="SmsVO">
+		<!-- update ? where sms_no = #{smsNo} -->
+	</update>
+	
+	<delete id="delete" parameterType="SmsVO">
+		delete from sms where sms_no = #{smsNo}
+	</delete>
+
+	<select id="selectOne" parameterType="SmsVO" resultType="SmsVO">
+		select * from sms where sms_no = #{smsNo}
+	</select>
+	
+	<select id="selectList" resultType="SmsVO">
+		select * from sms where sms_no
+	</select>
+</mapper>

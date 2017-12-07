@@ -6,7 +6,7 @@
 <html>
 <head>
 
-<script type="text/ecmascript" src="/mvc/resources/jquery-3.2.1.min.js"></script>
+<script type="text/ecmascript" src="/yde/resources/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"

@@ -10,5 +10,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<img src="../resources/images/Main_menubar.png" width="100%">
 </body>
 </html>

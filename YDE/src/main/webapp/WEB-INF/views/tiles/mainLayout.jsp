@@ -5,15 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- 합쳐지고 최소화된 최신 CSS -->
+
+<script type="text/ecmascript" src="/mvc/resources/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<!-- 부가적인 테마 -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<header class="container-fluid col-md-8 col-md-offset-2"
@@ -27,7 +27,8 @@
 				style="background-color: yellow;">
 				<tiles:insertAttribute name="content" />
 			</div>
-			<div class="col-md-2 sidenav text-center" style="background-color: blue;">
+			<div class="col-md-2 sidenav text-center"
+				style="background-color: blue;">
 				<tiles:insertAttribute name="side" />
 			</div>
 		</div>

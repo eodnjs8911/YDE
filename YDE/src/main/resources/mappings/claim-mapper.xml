@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
 <mapper namespace="ClaimDAO">
 
 	<insert id="insert" parameterType="ClaimVO">
 		<!-- insert into claim values () -->
+		<![CDATA[
+			INSERT INTO CLAIM(CLAIM_NO, CLAIM_CONTENT, CLAIM_W_DATE, CLAIM_CUSTOMER, CLAIM_PHONE,  
+			VALUES(#{claimNo}, #{claimContent}, NOW(), #{claimCustomer}, #{claimPhone},'1')
+		]]>
 	</insert>
 	
 	<update id="update" parameterType="ClaimVO">
 		<!-- update ? where claim_no = #{claimNo} -->
+		<![CDATA[
+			UPDATE CLAIM SET 
+				CLAIM_STATE = '2'
+		]]>
 	</update>
 	
 	<delete id="delete" parameterType="ClaimVO">
@@ -19,7 +28,9 @@
 		select * from claim where claim_no = #{claimNo}
 	</select>
 	
-	<select id="selectList" resultType="ClaimVO">
+<select id="selectList" resultType="ClaimVO">
 		select * from claim
 	</select>
+	
+
 </mapper>

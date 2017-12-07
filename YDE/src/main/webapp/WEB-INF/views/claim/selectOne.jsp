@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Insert title here</title>
+<title>관리자 신고 단건 조회 페이지</title>
 </head>
 <body>
 ONE

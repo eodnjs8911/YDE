@@ -41,3 +41,6 @@ local.properties
 *.MF
 YDE/target/
 .YDE/target/
+YDE/target/m2e-wtp/web-resources/META-INF/maven/com.yedam/yde/pom.xml
+YDE/target/m2e-wtp/web-resources/META-INF/maven/com.yedam/yde/pom.properties
+YDE/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF

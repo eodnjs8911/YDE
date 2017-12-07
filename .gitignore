@@ -40,3 +40,4 @@ local.properties
 *.properties
 *.MF
 YDE/target/
+.YDE/target/

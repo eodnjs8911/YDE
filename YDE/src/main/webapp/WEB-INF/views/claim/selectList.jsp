@@ -18,9 +18,9 @@ LIST<br>
 처리상태: ${claimList[0].claimState}
 <br/>
 
-<a href="insert.do">등록</a>
-<a href="update.do">상태수정</a>
-<a href="delete.do">삭제</a>
+<a href="go.do?go=claim/insert">등록</a>
+<a href="go.do?go=claim/update">상태수정</a>
+<a href="go.do?go=claim/delete">삭제</a>
 <br/>
  <c:forEach items="${claimList}" var="claim">
  	${claim.claimNo} ${claim.claimContent} ${claim.claimWDate} ${claim.claimCustomer} ${claim.claimPhone} ${claim.claimState}

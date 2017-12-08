@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yedam.yde.sms.SmsVO;
 
 @Controller
-@RequestMapping("/claim/")
+@RequestMapping("/go.do?/")
 public class ClaimController {
 
 	@Autowired

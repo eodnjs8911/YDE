@@ -13,32 +13,37 @@
 	$(document).ready(function() {
 		$("#claimjqGrid").jqGrid({
 			url : '/yde/claim/selectList2.do',
+			
+			
+			/* 데이터 못가져옴 */
+			
+			
 			mtype : "GET",
 			styleUI : 'Bootstrap',
 			datatype : "json",
 			colModel : [ {
-				label : 'smsNo',
+				label : '불편신고 번호',
 				name : 'claimNo',
 				key : true,
 				width : 75
 			}, {
-				label : 'smsSendAddr',
+				label : '신고자',
 				name : 'claimCustomer',
 				width : 150
 			}, {
-				label : 'smsReceiveAddr',
+				label : '신고내용',
 				name : 'claimContent',
 				width : 150
 			}, {
-				label : 'smsSDate',
+				label : '신고날짜',
 				name : 'claimWDate',
 				width : 150
 			}, {
-				label : 'smsRsDate',
+				label : '연락처',
 				name : 'claimPhone',
 				width : 150
 			}, {
-				label : 'smsState',
+				label : '불편신고 처리상태',
 				name : 'claimState',
 				width : 150
 			} ],

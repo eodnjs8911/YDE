@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ExpressDAO">
+
+
+
+	<insert id="insert" parameterType="ExpressVO">
+
+		<selectKey keyProperty="expressNo" resultType="int" order="BEFORE">
+		SELECT IFNULL(MAX(express_no), 0) + 1 FROM express
+		</selectKey>
+
+		insert into express
+		(
+		express_no,
+		express_req_date,
+		express_date,
+		express_departure_addr1,
+		express_departure_size,
+		express_departure_floor,
+		express_arrive_addr1,
+		<!-- express_arrive_size, -->
+		express_arrive_Floor,
+		express_speicial_item,
+		express_estimate_amount,
+		express_state
+		)
+		values
+		(
+		#{expressNo},
+		<!-- #{expressReqDate}, -->
+		NOW(),
+		#{expressDate},
+		#{expressDepartureAddr1},
+		#{expressDepartureSize},
+		#{expressDepartureFloor},
+		#{expressArriveAddr1},
+		<!-- #{expressArriveSize}, -->
+		#{expressArriveFloor},
+		#{expressSpeicialItem},
+		#{expressEstimateAmount},
+		1
+		<!-- #{expressState} -->
+		)
+	</insert>
+
+	<update id="update" parameterType="ExpressVO">
+		<!-- update ? where sms_no = #{smsNo} -->
+	</update>
+
+	<delete id="delete" parameterType="ExpressVO">
+		delete from express where
+		express_no = #{expressNo}
+	</delete>
+
+	<select id="selectOne" parameterType="ExpressVO" resultType="ExpressVO">
+		select * from express where express_no = #{expressNo}
+	</select>
+
+	<select id="selectList" resultType="ExpressVO">
+		select * from express
+	</select>
+
+</mapper>

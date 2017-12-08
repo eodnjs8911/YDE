@@ -3,13 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
 
 
 	<typeAliases>
+		<typeAlias alias="ExpressVO" type="com.yedam.yde.express.ExpressVO" />
 		<typeAlias alias="SmsVO" type="com.yedam.yde.sms.SmsVO" />
+		<typeAlias alias="NoticeVO" type="com.yedam.yde.notice.NoticeVO" />
+		<typeAlias alias="ClaimVO" type="com.yedam.yde.claim.ClaimVO" />
 	</typeAliases>
+
 </configuration>

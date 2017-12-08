@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface SmsService {
 	
-	public void insert(SmsVO smsVO);
-	public void update(SmsVO smsVO);
-	public void delete(SmsVO smsVO);
-	public SmsVO selectOne(SmsVO smsVO);
+	public void insert(SmsVO vo);
+	public void update(SmsVO vo);
+	public void delete(SmsVO vo);
+	public SmsVO selectOne(SmsVO vo);
 	public List<SmsVO> selectList();
 }

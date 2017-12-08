@@ -6,12 +6,12 @@
 	href="/yde/resources/ui.jqgrid.css" />
 
 <div>
-	<table id="jqGrid"></table>
-	<div id="jqGridPager"></div>
+	<table id="smsjqGrid"></table>
+	<div id="smsjqGridPager"></div>
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#jqGrid").jqGrid({
+		$("#smsjqGrid").jqGrid({
 			url : '/yde/sms/selectList.do',
 			mtype : "GET",
 			styleUI : 'Bootstrap',
@@ -53,7 +53,7 @@
 			viewrecords : true,
 			height : 250,
 			rowNum : 10,
-			pager : "#jqGridPager"
+			pager : "#smsjqGridPager"
 		});
 	});
 </script>

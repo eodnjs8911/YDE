@@ -29,7 +29,7 @@ public class ClaimController {
 		@RequestMapping(value="/claim/insert.do", method=RequestMethod.POST)
 		public String insert(ClaimVO vo) {
 			claimService.insert(vo);
-			return "forward:insert.do";
+			return "redirect:/claim/insert.do";
 		}
 	
 	//단건조회

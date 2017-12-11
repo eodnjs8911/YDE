@@ -8,7 +8,14 @@ public class ClaimVO {
 	String claimCustomer;
 	String claimPhone;
 	String claimState;
+	String check1;
 	
+	public String getCheck1() {
+		return check1;
+	}
+	public void setCheck1(String check1) {
+		this.check1 = check1;
+	}
 	public int getClaimNo() {
 		return claimNo;
 	}

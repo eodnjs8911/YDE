@@ -4,7 +4,7 @@
 <script type="text/ecmascript" src="/yde/resources/grid.locale-kr.js"></script>
 <link rel="stylesheet" type="text/css" media="screen"
 	href="/yde/resources/ui.jqgrid.css" />
-
+<!-- http://localhost/yde/go.do?go=claim/claim -->
 <div>
 	<table id="claimjqGrid"></table>
 	<div id="claimjqGridPager"></div>
@@ -14,47 +14,24 @@
 		$("#claimjqGrid").jqGrid({
 			url : '/yde/claim/selectList2.do',
 			
-			<!-- http://localhost/yde/go.do?go=claim/claim -->
+			/* http://localhost/yde/go.do?go=claim/selectListTest */
 			/* 데이터 못가져옴 */
 			
 			
 			mtype : "GET",
 			styleUI : 'Bootstrap',
 			datatype : "json",
-			colModel : [ {
-				label : '불편신고 번호',
-				name : 'claimNo',
-				key : true,
-				width : 75
-			}, {
-				label : '신고자',
-				name : 'claimCustomer',
-				width : 150
-			}, {
-				label : '신고자',
-				name : 'claimCustomer',
-				width : 150
-			}, {
-				label : '신고내용',
-				name : 'claimContent',
-				width : 150
-			}, {
-				label : '신고날짜',
-				name : 'claimWDate',
-				width : 150
-			}, {
-				label : '연락처',
-				name : 'claimPhone',
-				width : 150
-			}, {
-				label : '불편신고 처리상태',
-				name : 'claimState',
-				width : 150
-			} ],
+			colNames: ['체크','불편신고번호','신고자','신고내용','연락처','날짜','처리상태'],
+			colModel : [
+				{name:'check1', formatter:'checkbox', formatoptions: { value:"yes:no" }, editable:true, edittype:'checkbox', editoptions: { value:"yes:no" }},
+				{name:'claimNo'},{name:'claimCustomer'},{name:'claimContent'},
+				{name:'claimPhone'},{name:'claimWDate'},{name:'claimState'}
+			],
 			viewrecords : true,
 			height : 250,
 			rowNum : 10,
 			pager : "#claimjqGridPager"
+			
 		});
 	});
 </script>

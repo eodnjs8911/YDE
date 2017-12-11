@@ -34,7 +34,7 @@
 	</select>
 	
 <select id="selectList" resultType="ClaimVO">
-		select * from claim
+		select a.* ,'no' as check1 from claim a
 	</select>
 	
 

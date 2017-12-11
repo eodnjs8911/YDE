@@ -5,6 +5,11 @@
 <mapper namespace="ClaimDAO">
 
 	<insert id="insert" parameterType="ClaimVO">
+	
+	<selectKey keyProperty="claimNo" resultType="int" order="BEFORE">	<!-- 가장큰 claimNo찾아 다음값으로 입력 -->
+		SELECT IFNULL(MAX(claim_no), 0) + 1 FROM claim
+		</selectKey>
+	
 		<!-- insert into claim values () -->
 		<![CDATA[
 			INSERT INTO CLAIM(CLAIM_NO, CLAIM_CONTENT, CLAIM_W_DATE, CLAIM_CUSTOMER, CLAIM_PHONE, CLAIM_STATE)  

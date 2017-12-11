@@ -4,7 +4,7 @@
 <script type="text/ecmascript" src="/yde/resources/grid.locale-kr.js"></script>
 <link rel="stylesheet" type="text/css" media="screen"
 	href="/yde/resources/ui.jqgrid.css" />
-
+<!-- http://localhost/yde/go.do?go=claim/claim -->
 <div>
 	<table id="claimjqGrid"></table>
 	<div id="claimjqGridPager"></div>

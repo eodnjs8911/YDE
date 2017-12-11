@@ -26,7 +26,7 @@
 		var f = document.getElementById("myForm")
 		f.onsubmit = function(){
 			
-			var strName = document.getElementById("customer");
+			var strName = document.getElementById("claimCustomer");
 			
 			if(strName.value.length > 0){
 				return true;
@@ -51,7 +51,7 @@
 </head>
 <body>
 
-	<form class="form-horizontal" id="myForm" action="insert.do">
+	<form class="form-horizontal" id="myForm" action="insert.do" method="post">
 		<div>
 			<img src="<c:url value='/'/>resources/images/claim.png" width=100%>
 		</div>
@@ -59,7 +59,7 @@
 		<div class="form-group">
 			<label for="inputName" class="col-md-2 col-xs-2 control-label">성명</label>
 			<div class="col-md-5 col-xs-6">
-				<input type="text" class="form-control" id="customer" name="customer"
+				<input type="text" class="form-control" id="claimCustomer" name="claimCustomer"
 					placeholder="성명" >
 					<span id="nameSpan"></span>
 			</div>
@@ -67,7 +67,7 @@
 		<div class="form-group">
 			<label for="inputPhone" class="col-md-2 col-xs-2 control-label">연락처</label>
 			<div class="col-md-8 col-xs-6">
-				<input type="text" class="input-medium bfh-phone" id="inputPhone" 
+				<input type="text" class="input-medium bfh-phone" id="claimPhone" name="claimPhone"
 				data-format="ddd-dddd-dddd" placeholder="(-)없이 입력해주십시오" width="1000px" required>
 			</div>
 			
@@ -75,7 +75,7 @@
 		<div class="form-group">
 			<label for="inputEmail3" class="col-md-2 control-label">내용</label>
 			<div class="col-md-9 col-xs-12">
-				<textarea class="form-control" rows="15" required></textarea>
+				<textarea class="form-control" name="claimContent" rows="15" required></textarea>
 			</div>
 		</div>
 		<div>

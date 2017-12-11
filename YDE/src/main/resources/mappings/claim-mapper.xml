@@ -7,7 +7,7 @@
 	<insert id="insert" parameterType="ClaimVO">
 		<!-- insert into claim values () -->
 		<![CDATA[
-			INSERT INTO CLAIM(CLAIM_NO, CLAIM_CONTENT, CLAIM_W_DATE, CLAIM_CUSTOMER, CLAIM_PHONE,  
+			INSERT INTO CLAIM(CLAIM_NO, CLAIM_CONTENT, CLAIM_W_DATE, CLAIM_CUSTOMER, CLAIM_PHONE, CLAIM_STATE)  
 			VALUES(#{claimNo}, #{claimContent}, NOW(), #{claimCustomer}, #{claimPhone},'1')
 		]]>
 	</insert>

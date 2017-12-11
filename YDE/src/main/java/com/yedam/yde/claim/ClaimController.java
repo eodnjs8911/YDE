@@ -13,27 +13,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.yedam.yde.sms.SmsVO;
 
 @Controller
-@RequestMapping("/go.do?/")
+
 public class ClaimController {
 
 	@Autowired
 	ClaimService claimService;
 	
 	//등록폼
-	@RequestMapping(value="insert.do", method=RequestMethod.GET)
+	@RequestMapping(value="/claim/insert.do", method=RequestMethod.GET)
 	public String insertForm(ClaimVO vo) {
 		return "claim/insert";
 	}
 	
 	//등록
-		@RequestMapping(value="insert.do", method=RequestMethod.POST)
+		@RequestMapping(value="/claim/insert.do", method=RequestMethod.POST)
 		public String insert(ClaimVO vo) {
-			
+			claimService.insert(vo);
 			return "forward:insert.do";
 		}
 	
 	//단건조회
-	@RequestMapping("selectOne.do")
+	@RequestMapping("/claim/selectOne.do")
 	public String selectOne(ClaimVO vo, Model model) {
 		System.out.println("[ClaimController][selectOne]");
 		model.addAttribute("claim", claimService.selectOne(vo));
@@ -42,7 +42,7 @@ public class ClaimController {
 	}
 	
 	//전체조회
-	@RequestMapping("selectList.do")
+	@RequestMapping("/claim/selectList.do")
 	public String selectList(Model model) {
 		System.out.println("[ClaimController][selectList]");
 		model.addAttribute("claimList", claimService.selectList());
@@ -50,10 +50,10 @@ public class ClaimController {
 		return "claim/selectList";
 	}
 	
-	@RequestMapping("selectList2.do")
+	@RequestMapping("/claim/selectList2.do")
 	@ResponseBody
 	public List<ClaimVO> claim(Model model) {
-		System.out.println("[claimController][selectList]");
+		System.out.println("[claimController][selectList2]");
 		return claimService.selectList();
 	}
 }

@@ -28,29 +28,9 @@ function addrDialog(addr) {
 				fullRoadAddr += extraRoadAddr;
 			}
 
-			// 우편번호와 주소 정보를 해당 필드에 넣는다.
-			/*
-			 * document.getElementById(addr).value = data.zonecode; //5자리 새우편번호
-			 * 사용 document.getElementById(addr).value = fullRoadAddr;
-			 * document.getElementById(addr).value = data.jibunAddress;
-			 */
 			addr.value = fullRoadAddr;
 
-			// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-			if (data.autoRoadAddress) {
-				// 예상되는 도로명 주소에 조합형 주소를 추가한다.
-				var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-				document.getElementById('guide').innerHTML = '(예상 도로명 주소 : '
-						+ expRoadAddr + ')';
 
-			} else if (data.autoJibunAddress) {
-				var expJibunAddr = data.autoJibunAddress;
-				document.getElementById('guide').innerHTML = '(예상 지번 주소 : '
-						+ expJibunAddr + ')';
-
-			} else {
-				document.getElementById('guide').innerHTML = '';
-			}
 		}
 	}).open();
 }

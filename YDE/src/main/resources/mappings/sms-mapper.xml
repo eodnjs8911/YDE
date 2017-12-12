@@ -4,22 +4,51 @@
 <mapper namespace="SmsDAO">
 
 	<insert id="insert" parameterType="SmsVO">
-		<!-- insert into sms values () -->
+		<selectKey keyProperty="smsNo" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(sms_no), 0) + 1 FROM sms
+		</selectKey>
+		insert into sms
+		(
+		sms_no,
+		sms_content,
+		sms_send_addr,
+		sms_receive_addr,
+		sms_w_date,
+		sms_s_date,
+		sms_rs_date,
+		sms_state,
+		express_no
+		)
+		values
+		(
+		#{smsNo},
+		#{smsContent},
+		#{smsSendAddr},
+		#{smsReceiveAddr},
+		NOW(),
+		#{smsSDate},
+		#{smsRsDate},
+		1,
+		#{expressNo}
+		)
 	</insert>
-	
+
 	<update id="update" parameterType="SmsVO">
 		<!-- update ? where sms_no = #{smsNo} -->
 	</update>
-	
+
 	<delete id="delete" parameterType="SmsVO">
-		delete from sms where sms_no = #{smsNo}
+		delete from sms where sms_no =
+		#{smsNo}
 	</delete>
 
 	<select id="selectOne" parameterType="SmsVO" resultType="SmsVO">
-		select * from sms where sms_no = #{smsNo}
+		select *
+		from sms where sms_no = #{smsNo}
 	</select>
-	
+
 	<select id="selectList" resultType="SmsVO">
-		select * from sms where sms_no
+		select * from sms where
+		sms_no
 	</select>
 </mapper>

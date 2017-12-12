@@ -20,33 +20,72 @@
 		express_departure_size,
 		express_departure_floor,
 		express_arrive_addr1,
-		<!-- express_arrive_size, -->
 		express_arrive_Floor,
 		express_speicial_item,
 		express_estimate_amount,
-		express_state
+		express_state,
+		express_category,
+		express_add_service,
+		express_departure_addr2,
+		express_phone,
+		express_customer,
+		express_visit_time,
+		express_pay_category,
+		express_deposit,
+		express_remainder,
+		express_c_date,
+		express_arrive_addr2
 		)
 		values
 		(
 		#{expressNo},
-		<!-- #{expressReqDate}, -->
 		NOW(),
 		#{expressDate},
 		#{expressDepartureAddr1},
 		#{expressDepartureSize},
 		#{expressDepartureFloor},
 		#{expressArriveAddr1},
-		<!-- #{expressArriveSize}, -->
 		#{expressArriveFloor},
 		#{expressSpeicialItem},
 		#{expressEstimateAmount},
-		1
-		<!-- #{expressState} -->
+		1,
+		#{expressCategory},
+		#{expressAddService},
+		#{expressDepartureAddr2},
+		#{expressPhone},
+		#{expressCustomer},
+		#{expressVisitTime},
+		#{expressPayCategory},
+		#{expressDeposit},
+		#{expressRemainder},
+		#{expressCDate},
+		#{expressArriveAddr2}
 		)
 	</insert>
 
 	<update id="update" parameterType="ExpressVO">
-		<!-- update ? where sms_no = #{smsNo} -->
+		update express set
+		express_date              =#{expressDate},
+		express_departure_addr1   =#{expressDepartureAddr1},
+		express_departure_size    =#{expressDepartureSize},
+		express_departure_floor   =#{expressDepartureFloor},
+		express_arrive_addr1      =#{expressArriveAddr1},
+		express_arrive_Floor      =#{expressArriveFloor},
+		express_speicial_item     =#{expressSpeicialItem},
+		express_estimate_amount   =#{expressEstimateAmount},
+		express_state             =#{expressState},
+		express_category          =#{expressCategory},
+		express_add_service       =#{expressAddService},
+		express_departure_addr2   =#{expressDepartureAddr2},
+		express_phone             =#{expressPhone},
+		express_customer          =#{expressCustomer},
+		express_visit_time        =#{expressVisitTime},
+		express_pay_category	  =#{expressPayCategory},
+		express_deposit           =#{expressDeposit},
+		express_remainder         =#{expressRemainder},
+		express_c_date            =#{expressCDate},
+		express_arrive_addr2      =#{expressArriveAddr2}
+		where express_no = #{expressNo}
 	</update>
 
 	<delete id="delete" parameterType="ExpressVO">

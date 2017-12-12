@@ -33,9 +33,15 @@
 		select * from claim where claim_no = #{claimNo}
 	</select>
 	
-<select id="selectList" resultType="ClaimVO">
-		select a.* ,'no' as check1 from claim a
+<select id="selectList" parameterType="com.yedam.yde.claim.ClaimSearchVO" resultType="ClaimVO">
+		select * from claim 
+		<where>
+			<if test="claimState != null">
+			claim_state = #{claimState}
+			</if>
+		</where>
 	</select>
+	
 	
 
 </mapper>

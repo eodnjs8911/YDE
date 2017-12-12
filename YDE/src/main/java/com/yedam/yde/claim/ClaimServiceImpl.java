@@ -32,8 +32,9 @@ public class ClaimServiceImpl implements ClaimService {
 	}
 	
 	@Override
-	public List<ClaimVO> selectList() {
-		return claimDAO.selectList();
+	public List<ClaimVO> selectList(ClaimSearchVO csvo) {
+		return claimDAO.selectList(csvo);
 	}
+
 	
 }

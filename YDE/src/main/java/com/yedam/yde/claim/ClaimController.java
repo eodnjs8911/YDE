@@ -43,17 +43,20 @@ public class ClaimController {
 	
 	//전체조회
 	@RequestMapping("/claim/selectList.do")
-	public String selectList(Model model) {
+	public String selectList(Model model,ClaimSearchVO csvo) {
 		System.out.println("[ClaimController][selectList]");
-		model.addAttribute("claimList", claimService.selectList());
+		model.addAttribute("claimList", claimService.selectList(csvo));
 		
 		return "claim/selectList";
 	}
 	
+	//전체조회
 	@RequestMapping("/claim/selectList2.do")
 	@ResponseBody
-	public List<ClaimVO> claim(Model model) {
-		System.out.println("[claimController][selectList2]");
-		return claimService.selectList();
+	public List<ClaimVO> claim(ClaimSearchVO csvo,Model model) {
+		System.out.println("[claimController][selectList2]"+csvo);
+		return claimService.selectList(csvo);
 	}
+	
+	
 }

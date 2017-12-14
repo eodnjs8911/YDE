@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="/yde/resources/daumAddr.js"></script>
+<script src="${pageContext.request.contextPath}/resources/daumaddr/daumAddr.js"></script>
 
 <%
 	response.setHeader("Cache-Control", "no-store");

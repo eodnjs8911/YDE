@@ -34,7 +34,15 @@
 	</insert>
 
 	<update id="update" parameterType="SmsVO">
-		<!-- update ? where sms_no = #{smsNo} -->
+		update sms set 
+		sms_content=#{smsContent}, 
+		sms_send_addr=#{smsSendAddr},
+		sms_receive_addr=#{smsReceiveAddr},
+		sms_s_date=#{smsSDate},
+		sms_rs_date=#{smsRsDate},
+		sms_state=#{smsState},
+		express_no=#{expressNo}
+		where sms_no = #{smsNo}
 	</update>
 
 	<delete id="delete" parameterType="SmsVO">

@@ -44,13 +44,21 @@ public class SmsVO {
 		return smsSDate;
 	}
 	public void setSmsSDate(String smsSDate) {
-		this.smsSDate = smsSDate;
+		if(smsSDate != null && smsSDate.length() == 0) {
+			this.smsSDate = null;
+		}else {
+			this.smsSDate = smsSDate;
+		}
 	}
 	public String getSmsRsDate() {
 		return smsRsDate;
 	}
 	public void setSmsRsDate(String smsRsDate) {
-		this.smsRsDate = smsRsDate;
+		if(smsRsDate != null && smsRsDate.length() == 0) {
+			this.smsRsDate = null;
+		}else {
+			this.smsRsDate = smsRsDate;
+		}
 	}
 	public String getSmsState() {
 		return smsState;

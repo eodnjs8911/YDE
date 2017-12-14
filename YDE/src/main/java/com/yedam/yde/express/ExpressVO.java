@@ -1,7 +1,7 @@
 package com.yedam.yde.express;
 
 public class ExpressVO {
-	int expressNo;
+	Integer expressNo;
 	String expressReqDate;
 	String expressDate;
 	String expressDepartureAddr1;
@@ -11,8 +11,9 @@ public class ExpressVO {
 	int expressArriveSize;
 	int expressArriveFloor;
 	String expressSpeicialItem;
-	String expressEstimateAmount;
+	int expressEstimateAmount;
 	String expressState;
+	int expressDistant;
 	//
 	String  expressCategory;
 	String expressAddService;
@@ -34,7 +35,7 @@ public class ExpressVO {
 	//
 	
 	
-	public int getExpressNo() {
+	public Integer getExpressNo() {
 		return expressNo;
 	}
 	public void setExpressNo(int expressNo) {
@@ -94,10 +95,10 @@ public class ExpressVO {
 	public void setExpressSpeicialItem(String expressSpeicialItem) {
 		this.expressSpeicialItem = expressSpeicialItem;
 	}
-	public String getExpressEstimateAmount() {
+	public int getExpressEstimateAmount() {
 		return expressEstimateAmount;
 	}
-	public void setExpressEstimateAmount(String expressEstimateAmount) {
+	public void setExpressEstimateAmount(int expressEstimateAmount) {
 		this.expressEstimateAmount = expressEstimateAmount;
 	}
 	public String getExpressState() {
@@ -171,6 +172,12 @@ public class ExpressVO {
 	}
 	public void setExpressArriveAddr2(String expressArriveAddr2) {
 		this.expressArriveAddr2 = expressArriveAddr2;
+	}
+	public int getExpressDistant() {
+		return expressDistant;
+	}
+	public void setExpressDistant(int expressDistant) {
+		this.expressDistant = expressDistant;
 	}
 	@Override
 	public String toString() {

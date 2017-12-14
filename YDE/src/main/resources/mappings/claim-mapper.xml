@@ -5,9 +5,14 @@
 <mapper namespace="ClaimDAO">
 
 	<insert id="insert" parameterType="ClaimVO">
+	
+	<selectKey keyProperty="claimNo" resultType="int" order="BEFORE">	<!-- 가장큰 claimNo찾아 다음값으로 입력 -->
+		SELECT IFNULL(MAX(claim_no), 0) + 1 FROM claim
+		</selectKey>
+	
 		<!-- insert into claim values () -->
 		<![CDATA[
-			INSERT INTO CLAIM(CLAIM_NO, CLAIM_CONTENT, CLAIM_W_DATE, CLAIM_CUSTOMER, CLAIM_PHONE,  
+			INSERT INTO CLAIM(CLAIM_NO, CLAIM_CONTENT, CLAIM_W_DATE, CLAIM_CUSTOMER, CLAIM_PHONE, CLAIM_STATE)  
 			VALUES(#{claimNo}, #{claimContent}, NOW(), #{claimCustomer}, #{claimPhone},'1')
 		]]>
 	</insert>
@@ -28,9 +33,15 @@
 		select * from claim where claim_no = #{claimNo}
 	</select>
 	
-<select id="selectList" resultType="ClaimVO">
-		select * from claim
+<select id="selectList" parameterType="com.yedam.yde.claim.ClaimSearchVO" resultType="ClaimVO">
+		select * from claim 
+		<where>
+			<if test="claimState != null">
+			claim_state = #{claimState}
+			</if>
+		</where>
 	</select>
+	
 	
 
 </mapper>

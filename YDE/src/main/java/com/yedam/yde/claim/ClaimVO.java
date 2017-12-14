@@ -8,6 +8,8 @@ public class ClaimVO {
 	String claimCustomer;
 	String claimPhone;
 	String claimState;
+
+	
 	
 	public int getClaimNo() {
 		return claimNo;
@@ -44,6 +46,12 @@ public class ClaimVO {
 	}
 	public void setClaimState(String claimState) {
 		this.claimState = claimState;
+	}
+	@Override
+	public String toString() {
+		return "ClaimVO [claimNo=" + claimNo + ", claimContent=" + claimContent + ", claimWDate=" + claimWDate
+				+ ", claimCustomer=" + claimCustomer + ", claimPhone=" + claimPhone + ", claimState=" + claimState
+				+ "]";
 	}
 	
 	

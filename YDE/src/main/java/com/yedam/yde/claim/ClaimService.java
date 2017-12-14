@@ -13,5 +13,5 @@ public interface ClaimService {
 	//단건조회
 	public ClaimVO selectOne(ClaimVO claimVO);
 	//전체조회
-	public List<ClaimVO> selectList();
+	public List<ClaimVO> selectList(ClaimSearchVO csvo);
 }

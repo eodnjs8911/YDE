@@ -28,7 +28,7 @@ public class ClaimDAO {
 		return mybatis.selectOne("ClaimDAO.selectOne", vo);
 	}
 	
-	public List<ClaimVO> selectList() {
-		return mybatis.selectList("ClaimDAO.selectList");
+	public List<ClaimVO> selectList(ClaimSearchVO csvo) {
+		return mybatis.selectList("ClaimDAO.selectList",csvo);
 	}
 }

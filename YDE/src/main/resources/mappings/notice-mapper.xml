@@ -5,7 +5,12 @@
 
 	<insert id="insert" parameterType="NoticeVO">
 		<!-- insert into notice values () -->
-		insert into notice (notice_w_date, notice_content) values(sysdate, #{noticeContent})
+		
+		<selectKey keyProperty="noticeNo" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(express_no), 0) + 1 FROM notice
+		</selectKey>
+		
+		insert into notice (notice_no, notice_w_date, notice_content) values(#{noticeNo}, NOW(), #{noticeContent})
 	</insert>
 	
 	<update id="update" parameterType="NoticeVO">

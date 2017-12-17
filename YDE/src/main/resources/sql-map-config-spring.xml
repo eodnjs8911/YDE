@@ -13,6 +13,7 @@
 		<typeAlias alias="SmsVO" type="com.yedam.yde.sms.SmsVO" />
 		<typeAlias alias="NoticeVO" type="com.yedam.yde.notice.NoticeVO" />
 		<typeAlias alias="ClaimVO" type="com.yedam.yde.claim.ClaimVO" />
+		<typeAlias alias="EpilogueVO" type="com.yedam.yde.claim.EpilogueVO" />
 	</typeAliases>
 
 </configuration>

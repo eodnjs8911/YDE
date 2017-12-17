@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class NoticeVO {
 	int noticeNo;
-	String noticeDate;
+	String noticeWDate;
 	String noticeContent;
 	
 	public int getNoticeNo() {
@@ -13,11 +13,11 @@ public class NoticeVO {
 	public void setNoticeNo(int noticeNo) {
 		this.noticeNo = noticeNo;
 	}
-	public String getNoticeDate() {
-		return noticeDate;
+	public String getNoticeWDate() {
+		return noticeWDate;
 	}
-	public void setNoticeDate(String noticeDate) {
-		this.noticeDate = noticeDate;
+	public void setNoticeWDate(String noticeWDate) {
+		this.noticeWDate = noticeWDate;
 	}
 	public String getNoticeContent() {
 		return noticeContent;
@@ -28,8 +28,10 @@ public class NoticeVO {
 	
 	@Override
 	public String toString() {
-		return "NoticeVO [noticeNo=" + noticeNo + ", noticeDate=" + noticeDate + ", noticeContent=" + noticeContent
+		return "NoticeVO [noticeNo=" + noticeNo + ", noticeWDate=" + noticeWDate + ", noticeContent=" + noticeContent
 				+ "]";
 	}
-
+	
+	
+	
 }

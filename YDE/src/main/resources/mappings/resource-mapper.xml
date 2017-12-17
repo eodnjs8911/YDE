@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ResourceDAO">
+
+	<insert id="insert" parameterType="resourceVO">
+		<selectKey keyProperty="resourceNo" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(resource_no), 0) + 1 FROM resource
+		</selectKey>
+		INSERT INTO resource (resource_no, resource_name, resource_category, resource_state)
+		VALUES(#{resourceNo},#{resourceName},#{resourceCategory}, #resourceState)
+	</insert>
+
+	<update id="update" parameterType="resourceVO">
+		UPDATE resource
+		SET
+		resource_state=#{resourceState}
+		WHERE
+		resource_no = #{resourceNo}
+	</update>
+
+	<delete id="delete" parameterType="resourceVO">
+		DELETE FROM resource WHERE
+		resource_no = #{resourceNo}
+	</delete>
+
+	<select id="selectOne" parameterType="resourceVO" resultType="resourceVO">
+		SELECT
+		*
+		FROM resource
+		WHERE resource_no = #{resourceNo}
+	</select>
+
+	<select id="selectList" resultType="resourceVO">
+		SELECT * FROM resource
+	</select>
+	
+</mapper>

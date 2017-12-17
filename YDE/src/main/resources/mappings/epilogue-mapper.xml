@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="EpilogueDAO">
+
+	<insert id="insert" parameterType="EpilogueVO">
+		<selectKey keyProperty="epilogueNo" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(epilogue_no), 0) + 1 FROM epilogue
+		</selectKey>
+		INSERT INTO epilogue (epilogue_no, epilogue_writer, epilogue_pw, epilogue_content, epilogue_w_date)
+		VALUES(#{epilogueNo}, #{epilogueWriter}, #{epiloguePw}, #{epilogueContent}, NOW())
+	</insert>
+	
+	<update id="update" parameterType="EpilogueVO">
+		UPDATE epilogue
+		SET
+		epilogue_content=#{epilogueContent}
+		WHERE
+		epilogue_no = #{epilogueNo}
+	</update>
+	
+	<delete id="delete" parameterType="EpilogueVO">
+		DELETE FROM epilogue WHERE
+		epilogue_no = #{epilogueNo}
+	</delete>
+	
+	<select id="selectOne" parameterType="int" resultType="#package.#modelname">
+		SELECT
+		*
+		FROM epilogue
+		WHERE epilogue_no = #{epilogueNo}
+	</select>
+
+	<select id="selectList" resultType="epilogueVO">
+		SELECT * FROM epilogue
+	</select>
+
+</mapper>

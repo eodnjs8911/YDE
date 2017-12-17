@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GalleryDAO">
+
+	<insert id="insert" parameterType="GalleryVO">
+		<selectKey keyProperty="galleryNo" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(gallery_no), 0) + 1 FROM gallery
+		</selectKey>
+		INSERT INTO gallery (gallery_no, gallery_content, gallery_w_date)
+		VALUES(#{galleryNo},#{galleryContent}, NOW())
+	</insert>
+
+	<update id="update" parameterType="GalleryVO">
+		UPDATE gallery
+		SET
+		gallery_content=#{galleryContent}
+		WHERE
+		gallery_no = #{galleryNo}
+	</update>
+
+	<delete id="delete" parameterType="GalleryVO">
+		DELETE FROM gallery WHERE
+		gallery_no = #{galleryNo}
+	</delete>
+
+	<select id="selectOne" parameterType="GalleryVO" resultType="GalleryVO">
+		SELECT
+		*
+		FROM gallery
+		WHERE gallery_no = #{galleryNo}
+	</select>
+
+	<select id="selectList" resultType="GalleryVO">
+		SELECT * FROM gallery
+	</select>
+
+</mapper>

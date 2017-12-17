@@ -28,8 +28,8 @@ public class NoticeDAO {
 		return mybatis.selectOne("NoticeDAO.selectOne", vo);
 	}
 	
-	public List<NoticeVO> selectList(NoticeVO vo) {
-		return mybatis.selectList("NoticeDAO.selectList", vo);
+	public List<NoticeVO> selectList() {
+		return mybatis.selectList("NoticeDAO.selectList");
 	}
 
 }

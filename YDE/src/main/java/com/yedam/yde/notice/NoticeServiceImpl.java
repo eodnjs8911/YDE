@@ -36,9 +36,9 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public List<NoticeVO> selectList(NoticeVO vo) {
+	public List<NoticeVO> selectList() {
 		// TODO Auto-generated method stub
-		return noticeDAO.selectList(vo); 
+		return noticeDAO.selectList(); 
 	}
 
 }

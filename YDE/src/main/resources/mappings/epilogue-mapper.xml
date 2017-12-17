@@ -25,14 +25,14 @@
 		epilogue_no = #{epilogueNo}
 	</delete>
 	
-	<select id="selectOne" parameterType="int" resultType="#package.#modelname">
+	<select id="selectOne" parameterType="EpilogueVO" resultType="EpilogueVO">
 		SELECT
 		*
 		FROM epilogue
 		WHERE epilogue_no = #{epilogueNo}
 	</select>
 
-	<select id="selectList" resultType="epilogueVO">
+	<select id="selectList" resultType="EpilogueVO">
 		SELECT * FROM epilogue
 	</select>
 

@@ -154,11 +154,20 @@
 	<map id="menu_select" name="menu_select">
 		<area shape="rect" alt="MD1_1" title="일반이사" coords="26,74,168,218" href="go.do?go=MD1/MD1_1"
 			target="" />
-		<area shape="rect" alt="MD1_2" title="원룸이사" coords="198,76,336,218" href="go.do?go=MD1/MD1_2"
+		<area shape="rect" alt="MD1_2" title="원룸이사" coords="198,74,336,218" href="go.do?go=MD1/MD1_2"
 			target="" />
-		<area shape="rect" alt="MD1_4" title="기업이사" coords="376,74,516,220" href="go.do?go=MD1/MD1_4"
+		<area shape="rect" alt="MD1_4" title="기업이사" coords="376,74,516,218" href="go.do?go=MD1/MD1_4"
 			target="" />
 		<area shape="rect" alt="MD1_5" title="포장이사" coords="542,74,690,218" href="go.do?go=MD1/MD1_5"
+			target="" />
+		
+		<area shape="rect" alt="MI1_5" title="이사체크리스트" coords="718,66,858,212" href="#"
+			target="" />
+		<area shape="rect" alt="MI1_5" title="계약시유의사항" coords="890,66,1030,212" href="#"
+			target="" />
+		<area shape="rect" alt="MI1_5" title="이사하기좋은날" coords="1066,66,1206,212" href="#"
+			target="" />
+		<area shape="rect" alt="MI1_5" title="이사가격산정방식" coords="1232,66,1388,212" href="#"
 			target="" />
 	</map>
 	<script>

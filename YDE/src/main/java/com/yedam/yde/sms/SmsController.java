@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SmsController {
 	@Autowired
 	SmsService smsService;
+	
+	@RequestMapping("/sms/smsAdminPage.do")
+	public String smsAdminPage(SmsVO vo) {
+		System.out.println("[SmsController][smsAdminPage]");
+		return "admin_sms/sms";
+	}
 
 	@RequestMapping("/sms/insert.do")
 	public void insert(SmsVO vo) {

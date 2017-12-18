@@ -3,8 +3,6 @@
 
 
 <script
-	src='${pageContext.request.contextPath}/resources/fullcalendar/moment-with-locales.js'></script>
-<script
 	src='${pageContext.request.contextPath}/resources/fullcalendar/fullcalendar.min.js'></script>
 <link rel='stylesheet'
 	href='${pageContext.request.contextPath}/resources/fullcalendar/fullcalendar.min.css' />

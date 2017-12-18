@@ -43,7 +43,7 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/jquery/jquery-ui.css">
-	
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
@@ -58,8 +58,12 @@
 <script
 	src="${pageContext.request.contextPath}/resources/sbadmin2/vendor/bootstrap/js/bootstrap.min.js"></script>
 
+<script
+	src='${pageContext.request.contextPath}/resources/fullcalendar/moment-with-locales.js'></script>
+	
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
-
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.css" />
 </head>
 
 <body>

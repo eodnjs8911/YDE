@@ -63,14 +63,15 @@
 			}, {
 				label : 'smsSDate',
 				name : 'smsSDate',
-				width : 120,
+				width : 200,
 				editable : true,
 				editoptions : {
 					dataInit : function(element) {
-						$(element).datepicker({
-							autoclose : true,
-							dateFormat : 'yy-mm-dd',
-							orientation : 'auto bottom'
+						$(element).datetimepicker({
+							format : 'YYYY-MM-DD hh:mm',
+							showClose : true,
+							showClear : true,
+							showTodayButton : true
 						});
 					}
 				},
@@ -78,6 +79,7 @@
 				searchoptions : {
 					dataInit : function(element) {
 						$(element).datepicker({
+							locale : 'ko',
 							autoclose : true,
 							dateFormat : 'yy-mm-dd',
 							orientation : 'bottom'
@@ -88,24 +90,30 @@
 			}, {
 				label : 'smsRsDate',
 				name : 'smsRsDate',
-				width : 120,
+				width : 200,
 				editable : true,
 				editoptions : {
 					dataInit : function(element) {
-						$(element).datepicker({
-							autoclose : true,
-							dateFormat : 'yy-mm-dd',
-							orientation : 'auto bottom'
+						$(element).datetimepicker({
+							format : 'YYYY-MM-DD hh:mm',
+							showClose : true,
+							showClear : true,
+							showTodayButton : true
 						});
 					}
 				},
 				sorttype : 'date',
 				searchoptions : {
 					dataInit : function(element) {
-						$(element).datepicker({
-							autoclose : true,
-							dateFormat : 'yy-mm-dd',
-							orientation : 'bottom'
+						$(element).datetimepicker({
+							format : 'YYYY-MM-DD hh:mm',
+							showClose : true,
+							showClear : true,
+							showTodayButton : true,
+							widgetPositioning: {
+					            horizontal: 'left',
+					            vertical: 'bottom'
+					         }
 						});
 					},
 					sopt : [ "ge", "le", "eq" ]

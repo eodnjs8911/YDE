@@ -1,6 +1,7 @@
 package com.yedam.yde.express;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ public class ExpressServiceImpl implements ExpressService {
 	public int consultReg(ExpressVO vo) {
 		String consultString;
 		System.out.println("bb");
+		System.out.println(vo);
 		if(vo.getExpressNo() !=null && vo.getExpressNo() > 0) {
 			expressDAO.update(vo);
 			consultString = "[상담신청] 이름 : " + vo.getExpressCustomer() + "\n";
@@ -99,5 +101,32 @@ public class ExpressServiceImpl implements ExpressService {
 	@Override
 	public List<ExpressVO> selectList() {
 		return expressDAO.selectList();
+	}
+
+	@Override
+	public List<Map<String, Object>> selectCalendarList() {
+		List<Map<String, Object>> l = expressDAO.selectCalendarList();
+		for(Map<String, Object>m:l) {
+			
+			String state = (String) m.get("express_state");
+			String color = "#FFFFCC";
+			String start = (String) m.get("express_date");
+			if(state.equals("A02")) {
+				color = "#FFFF33";
+			}else if(state.equals("A03")) {
+				color = "#FFCC33";
+				start = (String) m.get("visit_time");
+			}else if(state.equals("A04")) {
+				color = "#FF9933";
+			}else if(state.equals("A05")) {
+				color = "#66FF99";
+			}else if(state.equals("A05")) {
+				color = "#66FF00";
+			}
+			 m.put("color", color);
+			 m.put("start", start);
+			 m.put("textColor", "black");
+		}
+		return l;
 	}
 }

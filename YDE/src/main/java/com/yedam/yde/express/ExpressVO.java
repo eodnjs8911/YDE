@@ -20,6 +20,7 @@ public class ExpressVO {
 	String expressPhone;
 	String expressCustomer;
 	String expressVisitTime;
+	int expressVisitEstimate;
 	String expressPayCategory;
 	int expressDeposit;
 	int expressRemainder;
@@ -38,7 +39,7 @@ public class ExpressVO {
 	public Integer getExpressNo() {
 		return expressNo;
 	}
-	public void setExpressNo(int expressNo) {
+	public void setExpressNo(Integer expressNo) {
 		this.expressNo = expressNo;
 	}
 	public String getExpressReqDate() {
@@ -135,7 +136,11 @@ public class ExpressVO {
 		return expressVisitTime;
 	}
 	public void setExpressVisitTime(String expressVisitTime) {
-		this.expressVisitTime = expressVisitTime;
+		if(expressVisitTime!= null && expressVisitTime.length() ==0) {
+			this.expressVisitTime = null;
+		}else {
+			this.expressVisitTime = expressVisitTime;
+		}
 	}
 	public String getExpressPayCategory() {
 		return expressPayCategory;
@@ -159,7 +164,11 @@ public class ExpressVO {
 		return expressCDate;
 	}
 	public void setExpressCDate(String expressCDate) {
-		this.expressCDate = expressCDate;
+		if(expressCDate!= null && expressCDate.length() ==0) {
+			this.expressCDate = null;
+		}else {
+			this.expressCDate = expressCDate;
+		}
 	}
 	public String getExpressDepartureAddr2() {
 		return expressDepartureAddr2;
@@ -178,6 +187,12 @@ public class ExpressVO {
 	}
 	public void setExpressDistant(int expressDistant) {
 		this.expressDistant = expressDistant;
+	}
+	public int getExpressVisitEstimate() {
+		return expressVisitEstimate;
+	}
+	public void setExpressVisitEstimate(int expressVisitEstimate) {
+		this.expressVisitEstimate = expressVisitEstimate;
 	}
 	@Override
 	public String toString() {

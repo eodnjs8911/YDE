@@ -2,6 +2,7 @@ package com.yedam.yde.express;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,9 @@ public class ExpressDAO {
 	
 	public List<ExpressVO> selectList() {
 		return mybatis.selectList("ExpressDAO.selectList");
+	}
+
+	public List<Map<String, Object>>selectCalendarList() {
+		return mybatis.selectList("ExpressDAO.selectCalendarList");
 	}
 }

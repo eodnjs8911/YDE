@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="#package.#mapperinterfacename">
+
+	<insert id="insert" parameterType="EmployeeVO">
+		<selectKey keyProperty="employeeNo" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(employee_no), 0) + 1 FROM employee
+		</selectKey>
+		INSERT INTO tablename1 (employee_no, employee_name, employee_position, employee_phone)
+		VALUES(#{employeeNo}, #{employeeName}, #{employeePosition}, #{employeePhone})
+	</insert>
+
+	<update id="update" parameterType="EmployeeVO">
+		UPDATE employee
+		SET
+		employee_position=#{employeePosition}
+		employee_phone=#{employeePhone}
+		WHERE
+		employee_no=#{employeeNo}
+	</update>
+
+	<delete id="delete" parameterType="EmployeeVO">
+		DELETE FROM employee WHERE
+		employee_no=#{employeeNo}
+	</delete>
+	<select id="selectOne" parameterType="EmployeeVO" resultType="EmployeeVO">
+		SELECT
+		*
+		FROM employee
+		WHERE employee_no=#{employeeNo}
+	</select>
+
+	<select id="selectList" resultType="EmployeeVO">
+		SELECT * FROM employee
+	</select>
+
+</mapper>

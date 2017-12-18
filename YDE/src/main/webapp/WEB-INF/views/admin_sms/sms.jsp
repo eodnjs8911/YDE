@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 
 <script type="text/ecmascript"
 	src="${pageContext.request.contextPath}/resources/jqgrid/jquery.jqGrid.min.js"></script>
-<script type="text/ecmascript" src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
- <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
+<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
 
 <div>
 	<table id="smsjqGrid"></table>
@@ -34,8 +36,11 @@
 				name : 'smsContent',
 				width : 450,
 				editable : true,
-				edittype:"textarea", 
-				editoptions:{rows:"4",cols:"60"},
+				edittype : "textarea",
+				editoptions : {
+					rows : "4",
+					cols : "50"
+				},
 				searchoptions : {
 					sopt : [ "cn" ]
 				}
@@ -60,6 +65,15 @@
 				name : 'smsSDate',
 				width : 120,
 				editable : true,
+				editoptions : {
+					dataInit : function(element) {
+						$(element).datepicker({
+							autoclose : true,
+							dateFormat : 'yy-mm-dd',
+							orientation : 'auto bottom'
+						});
+					}
+				},
 				sorttype : 'date',
 				searchoptions : {
 					dataInit : function(element) {
@@ -123,7 +137,7 @@
 			} ],
 			viewrecords : true,
 			loadonce : true,
-			onSelectRow : editRow,
+			//onSelectRow : editRow,
 			rowNum : 10,
 			height : 750,
 			pager : "#smsjqGridPager"
@@ -138,15 +152,46 @@
 
 		$('#smsjqGrid').jqGrid('navGrid', "#smsjqGridPager", {
 			search : false, // show search button on the toolbar
-            edit: false, 
-            add: false, 
-            del: true, 
-            cancel: true,
-            addParams: {
-                keys: true
-            },
+			edit : false,
+			add : false,
+			del : true,
+			cancel : true,
+			addParams : {
+				keys : true
+			},
 			refresh : true
 		});
+
+		$('#smsjqGrid').inlineNav('#smsjqGridPager',
+		// the buttons to appear on the toolbar of the grid
+		{
+			edit : true,
+			add : true,
+			del : true,
+			cancel : true,
+			editParams : {
+				keys : true,
+			},
+			addParams : {
+				keys : true
+			}
+		});
+
+		$('#smsjqGrid').inlineNav('#smsjqGridPager',
+		// the buttons to appear on the toolbar of the grid
+		{
+			edit : true,
+			add : false,
+			del : true,
+			cancel : true,
+			editParams : {
+				keys : true,
+			},
+			addParams : {
+				keys : true
+			}
+		});
+
 		var lastSelection;
 
 		function editRow(id) {

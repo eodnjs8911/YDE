@@ -9,7 +9,7 @@ public class SmsVO {
 	String smsSDate;
 	String smsRsDate;
 	String smsState;
-	int expressNo;
+	Integer expressNo;
 	public int getSmsNo() {
 		return smsNo;
 	}
@@ -66,10 +66,10 @@ public class SmsVO {
 	public void setSmsState(String smsState) {
 		this.smsState = smsState;
 	}
-	public int getExpressNo() {
+	public Integer getExpressNo() {
 		return expressNo;
 	}
-	public void setExpressNo(int expressNo) {
+	public void setExpressNo(Integer expressNo) {
 		this.expressNo = expressNo;
 	}
 	@Override

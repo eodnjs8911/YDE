@@ -11,6 +11,13 @@
 	<table id="claimjqGrid"></table>
 	<div id="claimjqGridPager"></div>
 </div>
+
+
+<!-- http://localhost/yde/claim/claimAdminPage.do -->
+<!-- 삭제 안됨 -->
+
+
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#claimjqGrid").jqGrid({
@@ -23,7 +30,7 @@
 				label : '불편신고 번호',
 				name : 'claimNo',
 				key : true,
-				width : 75,
+				width : 90,
 				sorttype : 'integer',
 				searchoptions : {
 					sopt : [ "eq" ]
@@ -39,41 +46,16 @@
 			}, {
 				label : '신고내용',
 				name : 'claimContent',
-				width : 150,
+				width : 570,
 				sorttype : 'string',
 				searchoptions : {
 					sopt : [ "cn" ]
 				}
 			}, {
-					label : '신고날짜(시작)',
+					label : '신고날짜',
 					name : 'claimWDate',
-					width : 120,
+					width : 170,
 					editable : true,
-					sorttype : 'date',
-					searchoptions : {
-						dataInit : function(element) {
-							$(element).datepicker({
-								autoclose : true,
-								dateFormat : 'yy-mm-dd',
-								orientation : 'bottom'
-							});
-						},
-						sopt : [ "ge", "le", "eq" ]
-					}
-				}, {
-					label : '신고날짜(끝)',
-					name : 'claimWRDate',
-					width : 120,
-					editable : true,
-					editoptions : {
-						dataInit : function(element) {
-							$(element).datepicker({
-								autoclose : true,
-								dateFormat : 'yy-mm-dd',
-								orientation : 'auto bottom'
-							});
-						}
-					},
 					sorttype : 'date',
 					searchoptions : {
 						dataInit : function(element) {
@@ -100,18 +82,18 @@
 				editable : true,
 				edittype : "select",
 				editoptions : {
-					value : "1:미처리;2:처리완료;"
+					value : "1:미처리;2:처리완료"
 				},
 				stype : "select",
 				searchoptions : {
-					value : ":[All];1:미처리;2:처리완료;"
+					value : ":[전체];1:미처리;2:처리완료"
 				}
 			} ],
 			viewrecords : true,
 			loadonce : true,
 			//onSelectRow : editRow,
 			height : 750,
-			rowNum : 10,
+			rowNum : 20,
 			pager : "#claimjqGridPager"
 		});
 		
@@ -133,7 +115,12 @@
                 keys: true
             },
 			refresh : true
-		});
+		},
+		{},{},{serializeDelData: function(postdata){
+			return "oper=del&claimNo="+postdata.id
+	}}
+		
+		);
 		
 		$('#claimjqGrid').inlineNav('#claimjqGridPager',
 		// the buttons to appear on the toolbar of the grid

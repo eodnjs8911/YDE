@@ -269,7 +269,7 @@
 						<li class="sidebar-search">
 							<div class="input-group custom-search-form">
 								<input type="text" class="form-control"
-									placeholder="Search${pageContext.request.contextPath}/resources/sbadmin2.">
+									placeholder="Search">
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="button">
 										<i class="fa fa-search"></i>
@@ -277,15 +277,15 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="/yde/express/expressAdminPage.do"><i
+						<li><a href="${pageContext.request.contextPath}/express/expressAdminPage.do"><i
 								class="fa fa-dashboard fa-fw"></i> 일정관리</a></li>
-						<li><a href="/yde/sms/smsAdminPage.do"><i
+						<li><a href="${pageContext.request.contextPath}/sms/smsAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> SMS 관리</a></li>
-						<li><a href="/yde/sms/smsAdminPage2.do"><i
+						<li><a href="${pageContext.request.contextPath}/claim/claimAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 신고 관리</a></li>
-						<li><a href="/yde/sms/smsAdminPage3.do"><i
+						<li><a href="${pageContext.request.contextPath}/sms/smsAdminPage3.do"><i
 								class="fa fa-table fa-fw"></i> 직원 관리</a></li>
-						<li><a href="/yde/sms/smsAdminPage4.do"><i
+						<li><a href="${pageContext.request.contextPath}/sms/smsAdminPage4.do"><i
 								class="fa fa-table fa-fw"></i> 자재 관리</a></li>
 								
 									

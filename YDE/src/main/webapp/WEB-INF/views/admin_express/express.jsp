@@ -32,7 +32,7 @@
 										$("#expressDetailForm").get(0).reset();
 										$("#expressDate").val(
 												moment().format(
-														"YYYY-MM-DDTHH:")
+														"YYYY-MM-DD HH:")
 														+ "00");
 										$("#expressDate").get(0).step = 60 * 10;
 										$('#expressDetailModal').modal('show');
@@ -267,10 +267,11 @@
 
 									<script>
 										$("#expressDate").datetimepicker({
-											format : 'YYYY-MM-DD hh:mm',
+											format : 'YYYY-MM-DD HH:mm',
 											showClose : true,
 											showClear : true,
 											showTodayButton : true,
+											stepping:10,
 											sideBySide : true
 										});
 									</script>
@@ -408,10 +409,11 @@
 
 									<script>
 										$("#expressVisitTime").datetimepicker({
-											format : 'YYYY-MM-DD hh:mm',
+											format : 'YYYY-MM-DD HH:mm',
 											showClose : true,
 											showClear : true,
 											showTodayButton : true,
+											stepping:10,
 											sideBySide : true
 										});
 									</script>

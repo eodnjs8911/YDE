@@ -18,6 +18,15 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+<script
+	src='${pageContext.request.contextPath}/resources/fullcalendar/moment-with-locales.js'></script>
+
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.css" />
+
 </head>
 <body>
 	<header class="container-fluid col-md-8 col-md-offset-2"

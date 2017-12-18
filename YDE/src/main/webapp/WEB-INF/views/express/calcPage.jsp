@@ -14,10 +14,6 @@
 %>
 
 <script>
-	$(function() {
-		var d = new Date();
-		$("#expressDate").get(0).valueAsDate = new Date();
-	});
 
 	var expressNo = 0;
 	function priceCalc() {
@@ -84,8 +80,21 @@
 		<div class="form-group">
 			<label for="expressDate" class="col-md-3 control-label">이사날짜</label>
 			<div class="col-md-9">
-				<input type="date" class="form-control" id="expressDate"
+				<input type="text" class="form-control" id="expressDate"
 					name="expressDate">
+
+				<script>
+					$("#expressDate").datetimepicker({
+						locale:'ko',
+						format : 'YYYY-MM-DD HH:mm',
+						showClose : true,
+						showClear : true,
+						showTodayButton : true,
+						stepping:30,
+						defaultDate:new Date(),
+						sideBySide : true
+					});
+				</script>
 			</div>
 		</div>
 

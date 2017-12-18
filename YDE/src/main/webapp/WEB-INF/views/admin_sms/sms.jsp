@@ -68,7 +68,7 @@
 				editoptions : {
 					dataInit : function(element) {
 						$(element).datetimepicker({
-							format : 'YYYY-MM-DD hh:mm',
+							format : 'YYYY-MM-DD HH:mm',
 							showClose : true,
 							showClear : true,
 							showTodayButton : true
@@ -95,7 +95,7 @@
 				editoptions : {
 					dataInit : function(element) {
 						$(element).datetimepicker({
-							format : 'YYYY-MM-DD hh:mm',
+							format : 'YYYY-MM-DD HH:mm',
 							showClose : true,
 							showClear : true,
 							showTodayButton : true
@@ -106,7 +106,7 @@
 				searchoptions : {
 					dataInit : function(element) {
 						$(element).datetimepicker({
-							format : 'YYYY-MM-DD hh:mm',
+							format : 'YYYY-MM-DD HH:mm',
 							showClose : true,
 							showClear : true,
 							showTodayButton : true,

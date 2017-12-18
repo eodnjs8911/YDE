@@ -81,14 +81,16 @@
 					required placeholder="내용"></textarea>
 			</div>
 		</div>
-		<div>
-			<input type="checkbox" value="정보제공동의" required>정보제공동의 <input
-				type="checkbox" value="개인정보제3자제공동의" required>개인정보제3자제공동의
+		<div style="margin-left:17%">
+			<input type="checkbox" value="정보제공동의" required>정보제공동의 &nbsp;&nbsp;&nbsp;
+			<input type="checkbox" value="개인정보제3자제공동의" required>개인정보제3자제공동의
 		</div>
-		<div style="align: center">
+		<br/>
+		<div style="align:center; margin-left : 17%">
 			<input type="submit" value="불편신고접수" align="center" required>
 			<!-- submit시 db 입력되도록  -->
 		</div>
+		<br/>
 	</form>
 </body>
 </html>

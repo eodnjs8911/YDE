@@ -68,8 +68,8 @@
 		<div class="form-group">
 			<label for="inputPhone" class="col-md-2 col-xs-2 control-label">연락처</label>
 			<div class="col-md-8 col-xs-6">
-				<input type="text" class="input-medium bfh-phone" id="claimPhone"
-					name="claimPhone" data-format="ddd-dddd-dddd"
+				<input type="number" class="form-control" id="claimPhone"
+					name="claimPhone" 
 					placeholder="(-)없이 입력해주십시오" width="1000px" required>
 			</div>
 
@@ -82,8 +82,8 @@
 			</div>
 		</div>
 		<div style="margin-left:17%">
-			<input type="checkbox" value="정보제공동의" required>정보제공동의 &nbsp;&nbsp;&nbsp;
-			<input type="checkbox" value="개인정보제3자제공동의" required>개인정보제3자제공동의
+			<label class="checkbox-inline"><input type="checkbox" class="checkbox-inline" value="정보제공동의" required>정보제공동의</label> &nbsp;&nbsp;&nbsp;
+			<label class="checkbox-inline"><input type="checkbox" class="checkbox-inline" value="개인정보제3자제공동의" required>개인정보제3자제공동의</label>
 		</div>
 		<br/>
 		<div style="align:center; margin-left : 17%">

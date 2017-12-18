@@ -7,7 +7,6 @@
 <script type="text/ecmascript" src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
  <link rel="stylesheet" type="text/css" media="screen" href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
 
-${pageContext.request.contextPath}
 <div>
 	<table id="smsjqGrid"></table>
 	<div id="smsjqGridPager"></div>
@@ -126,7 +125,7 @@ ${pageContext.request.contextPath}
 			loadonce : true,
 			onSelectRow : editRow,
 			rowNum : 10,
-			height : 800,
+			height : 750,
 			pager : "#smsjqGridPager"
 		});
 

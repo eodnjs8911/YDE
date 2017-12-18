@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" media="screen"
-	href="/yde/resources/ui.jqgrid.css" />
+	href="/yde/resources/jqgrid/ui.jqgrid.css" />
 	
 <!-- jquery ui -->	
 <link rel="stylesheet"
@@ -9,13 +9,21 @@
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	
-<script type="text/ecmascript" src="/yde/resources/jquery.jqGrid.min.js"></script>
-<script type="text/ecmascript" src="/yde/resources/grid.locale-kr.js"></script>
+<script type="text/ecmascript" src="/yde/resources/jqgrid/jquery.jqGrid.min.js"></script>
+<script type="text/ecmascript" src="/yde/resources/jqgrid/grid.locale-kr.js"></script>
 
 <!-- http://localhost/yde/go.do?go=claim/claim -->
 <div>
 	<form>  <!-- 171212 하다 맘 -->
-	<input id="all" type="radio" name="전체 조회" value="전체 조회" />
+	<input id="claimNo" type="text" name="번호" value="번호" />
+	<input id="claimContent" type="text" name="내용" value="내용" />
+	<input id="claimWDate" type="calender" name="날짜" value="날짜" />
+	<input id="claimCustomer" type="text" name="이름" value="이름" />
+	<input id="claimPhone" type="text" name="연락처" value="연락처" />
+	<input id="claimState" type="radio" name="전체" value="전체" />
+	<input id="claimState" type="radio" name="미처리" value="미처리" />
+	<input id="claimState" type="radio" name="처리완료" value="처리완료" />
+	<input id="" type="button" name="" value=""/>
 	</form>
 	<table id="claimjqGrid"></table>
 	<div id="claimjqGridPager"></div>

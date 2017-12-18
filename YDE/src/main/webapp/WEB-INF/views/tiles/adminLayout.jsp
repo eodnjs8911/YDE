@@ -41,27 +41,24 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-
-
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/jquery/jquery-ui.css">
-<script type="text/ecmascript"
-	src="${pageContext.request.contextPath}/resources/jquery/jquery-3.2.1.min.js"></script>
-<script type="text/ecmascript"
-	src="${pageContext.request.contextPath}/resources/jquery/jquery-ui.js"></script>
+	
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- jQuery -->
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	src="${pageContext.request.contextPath}/resources/sbadmin2/vendor/jquery/jquery.min.js"></script>
+
+<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jquery/jquery-ui.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script
+	src="${pageContext.request.contextPath}/resources/sbadmin2/vendor/bootstrap/js/bootstrap.min.js"></script>
 
 
-<!-- Metis Menu Plugin JavaScript -->
-<script
-	src="${pageContext.request.contextPath}/resources/sbadmin2/vendor/metisMenu/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script
-	src="${pageContext.request.contextPath}/resources/sbadmin2/dist/js/sb-admin-2.js"></script>
 
 </head>
 
@@ -268,8 +265,7 @@
 					<ul class="nav" id="side-menu">
 						<li class="sidebar-search">
 							<div class="input-group custom-search-form">
-								<input type="text" class="form-control"
-									placeholder="Search">
+								<input type="text" class="form-control" placeholder="Search">
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="button">
 										<i class="fa fa-search"></i>
@@ -277,18 +273,23 @@
 								</span>
 							</div> <!-- /input-group -->
 						</li>
-						<li><a href="${pageContext.request.contextPath}/express/expressAdminPage.do"><i
+						<li><a
+							href="${pageContext.request.contextPath}/express/expressAdminPage.do"><i
 								class="fa fa-dashboard fa-fw"></i> 일정관리</a></li>
-						<li><a href="${pageContext.request.contextPath}/sms/smsAdminPage.do"><i
+						<li><a
+							href="${pageContext.request.contextPath}/sms/smsAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> SMS 관리</a></li>
-						<li><a href="${pageContext.request.contextPath}/claim/claimAdminPage.do"><i
+						<li><a
+							href="${pageContext.request.contextPath}/claim/claimAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 신고 관리</a></li>
-						<li><a href="${pageContext.request.contextPath}/sms/smsAdminPage3.do"><i
+						<li><a
+							href="${pageContext.request.contextPath}/sms/smsAdminPage3.do"><i
 								class="fa fa-table fa-fw"></i> 직원 관리</a></li>
-						<li><a href="${pageContext.request.contextPath}/sms/smsAdminPage4.do"><i
+						<li><a
+							href="${pageContext.request.contextPath}/sms/smsAdminPage4.do"><i
 								class="fa fa-table fa-fw"></i> 자재 관리</a></li>
-								
-									
+
+
 						<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>
 								Dashboard</a></li>
 						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
@@ -355,6 +356,17 @@
 
 	</div>
 	<!-- /#wrapper -->
+
+
+
+
+	<!-- Metis Menu Plugin JavaScript -->
+	<script
+		src="${pageContext.request.contextPath}/resources/sbadmin2/vendor/metisMenu/metisMenu.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script
+		src="${pageContext.request.contextPath}/resources/sbadmin2/dist/js/sb-admin-2.js"></script>
 
 </body>
 

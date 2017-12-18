@@ -7,7 +7,7 @@
 		<!-- insert into notice values () -->
 		
 		<selectKey keyProperty="noticeNo" resultType="int" order="BEFORE">
-			SELECT IFNULL(MAX(express_no), 0) + 1 FROM notice
+			SELECT IFNULL(MAX(notice_no), 0) + 1 FROM notice
 		</selectKey>
 		
 		insert into notice (notice_no, notice_w_date, notice_content) values(#{noticeNo}, NOW(), #{noticeContent})

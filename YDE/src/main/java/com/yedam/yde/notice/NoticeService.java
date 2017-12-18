@@ -7,5 +7,5 @@ public interface NoticeService {
 	public void delete(NoticeVO vo); 
 	public void update(NoticeVO vo);
 	public NoticeVO selectOne(NoticeVO vo); 
-	public List<NoticeVO> selectList(NoticeVO vo);
+	public List<NoticeVO> selectList();
 }

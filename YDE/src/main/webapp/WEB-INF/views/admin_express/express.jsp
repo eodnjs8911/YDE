@@ -95,10 +95,10 @@
 															.val(
 																	moment(
 																			data.expressDate,
-																			'YYYY-MM-DD HH:mm:ss.S')
+																			'YYYY-MM-DD HH:mm:ss.SZZ')
 																			.format(
-																					"YYYY-MM-DDTHH:mm"));
-													$("#expressDate").get(0).step = 60 * 10;
+																					"YYYY-MM-DD HH:mm"));
+
 													$("#expressState").val(
 															data.expressState);
 
@@ -141,13 +141,28 @@
 															.val(
 																	data.expressPayCategory);
 
-													$("#expressCDate")
-															.val(
-																	moment(
-																			data.expressCDate,
-																			'YYYY-MM-DD HH:mm:ss.S')
-																			.format(
-																					"YYYY-MM-DD"));
+													if (data.expressVisitTime != null
+															&& data.expressVisitTime.length > 0) {
+														$("#expressVisitTime")
+																.val(
+																		moment(
+																				data.expressVisitTime,
+																				'YYYY-MM-DD HH:mm:ss.SZZ')
+																				.format(
+																						"YYYY-MM-DD HH:mm"));
+
+													}
+
+													if (data.expressCDate != null
+															&& data.expressCDate.length > 0) {
+														$("#expressCDate")
+																.val(
+																		moment(
+																				data.expressCDate,
+																				'YYYY-MM-DD HH:mm:ss.SZZ')
+																				.format(
+																						"YYYY-MM-DD"));
+													}
 
 													var str = data.expressSpeicialItem;
 
@@ -247,8 +262,18 @@
 							<div class="form-group">
 								<label for="expressDate" class="col-md-3 control-label">이사날짜</label>
 								<div class="col-md-9">
-									<input type="datetime-local" class="form-control"
-										id="expressDate" name="expressDate">
+									<input type="text" class="form-control" id="expressDate"
+										name="expressDate">
+
+									<script>
+										$("#expressDate").datetimepicker({
+											format : 'YYYY-MM-DD hh:mm',
+											showClose : true,
+											showClear : true,
+											showTodayButton : true,
+											sideBySide : true
+										});
+									</script>
 								</div>
 							</div>
 
@@ -378,8 +403,18 @@
 							<div class="form-group">
 								<label for="expressVisitTime" class="col-md-3 control-label">방문시간</label>
 								<div class="col-md-9">
-									<input type="datetime-local" class="form-control"
-										id="expressVisitTime" name="expressVisitTime">
+									<input type="text" class="form-control" id="expressVisitTime"
+										name="expressVisitTime">
+
+									<script>
+										$("#expressVisitTime").datetimepicker({
+											format : 'YYYY-MM-DD hh:mm',
+											showClose : true,
+											showClear : true,
+											showTodayButton : true,
+											sideBySide : true
+										});
+									</script>
 								</div>
 							</div>
 
@@ -414,8 +449,19 @@
 
 								<label for="expressCDate" class="col-md-2 control-label">계약일</label>
 								<div class="col-md-4">
-									<input class="form-control" type="date" id="expressCDate"
+									<input class="form-control" type="text" id="expressCDate"
 										name="expressCDate" />
+
+									<script>
+										$("#expressCDate").datetimepicker({
+											format : 'YYYY-MM-DD',
+											showClose : true,
+											showClear : true,
+											showTodayButton : true,
+											enabledHours : false,
+											sideBySide : true
+										});
+									</script>
 								</div>
 
 							</div>

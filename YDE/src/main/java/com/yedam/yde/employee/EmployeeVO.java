@@ -12,6 +12,9 @@ public class EmployeeVO {
 	public void setEmployeeNo(int employeeNo) {
 		this.employeeNo = employeeNo;
 	}
+	public void setEmployeeNo(String emp) {
+		this.employeeNo = (Integer) null;
+	}
 	public String getEmployeeName() {
 		return employeeName;
 	}

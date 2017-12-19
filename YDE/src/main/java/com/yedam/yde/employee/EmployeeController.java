@@ -75,8 +75,9 @@ public class EmployeeController {
 
 	@RequestMapping("/employee/edit.do")
 	@ResponseBody
-	public void edit(@RequestParam(value = "oper", defaultValue = "", required = false) String oper,
-			@RequestParam(value = "id", defaultValue = "", required = false) String id, EmployeeVO vo) {
+
+	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,
+			@RequestParam(value="id",defaultValue="",required=false)String id, EmployeeVO vo) {
 		System.out.println("[EmployeeController][edit]");
 		System.out.println(vo);
 		if (oper.equals("add")) {

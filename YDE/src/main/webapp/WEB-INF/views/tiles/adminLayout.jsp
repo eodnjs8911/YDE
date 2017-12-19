@@ -12,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Bootstrap Admin Theme</title>
+<title>YDE 관리페이지</title>
 
 <!-- Bootstrap Core CSS -->
 <link
@@ -80,7 +80,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+				<a class="navbar-brand" href="index.html">YDE 관리페이지</a>
 			</div>
 			<!-- /.navbar-header -->
 

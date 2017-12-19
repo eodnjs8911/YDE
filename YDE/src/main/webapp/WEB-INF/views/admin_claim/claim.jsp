@@ -12,11 +12,18 @@
 	<div id="claimjqGridPager"></div>
 </div>
 
-
 <!-- http://localhost/yde/claim/claimAdminPage.do -->
-<!-- 삭제 안됨 -->
 
-
+<style>
+tr.jqgrow>td>div {
+    max-height: 80px;
+    overflow: auto;
+}
+td.form-view-data>span>div {
+    max-height: 150px;
+    overflow: auto
+}
+</style>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -47,7 +54,13 @@
 				label : '신고내용',
 				name : 'claimContent',
 				width : 570,
-				sorttype : 'string',
+				editable : true,	//태그생김
+				edittype : "textarea",
+				editoptions : {
+					rows : "5",
+					//cols : "50"
+				},
+				//sorttype : 'string',
 				searchoptions : {
 					sopt : [ "cn" ]
 				}

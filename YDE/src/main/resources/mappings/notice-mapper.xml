@@ -5,7 +5,6 @@
 
 	<insert id="insert" parameterType="NoticeVO">
 		<!-- insert into notice values () -->
-		
 		<selectKey keyProperty="noticeNo" resultType="int" order="BEFORE">
 			SELECT IFNULL(MAX(notice_no), 0) + 1 FROM notice
 		</selectKey>

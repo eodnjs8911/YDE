@@ -31,5 +31,4 @@ public class NoticeDAO {
 	public List<NoticeVO> selectList() {
 		return mybatis.selectList("NoticeDAO.selectList");
 	}
-
 }

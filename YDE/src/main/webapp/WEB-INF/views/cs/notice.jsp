@@ -131,7 +131,6 @@ $(function() {
 					return 'Error: ' + data.responseText
 				}
 			});
-			
 	 */
 		$('#noticejqGrid').jqGrid('navGrid', "#noticejqGridPager", {
 			search : false, // show search button on the toolbar

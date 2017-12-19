@@ -24,6 +24,5 @@ public class HomeController {
 	public String home(String go) {
 		return go;
 	}
-	
 }
 

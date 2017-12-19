@@ -9,5 +9,5 @@ public interface EpilogueService {
 	public void delete(EpilogueVO vo); 
 	public void update(EpilogueVO vo);
 	public EpilogueVO selectOne(EpilogueVO vo); 
-	public List<EpilogueVO> selectList(EpilogueVO vo);
+	public List<EpilogueVO> selectList();
 }

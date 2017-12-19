@@ -267,6 +267,7 @@
 
 									<script>
 										$("#expressDate").datetimepicker({
+											locale : 'ko',
 											format : 'YYYY-MM-DD HH:mm',
 											showClose : true,
 											showClear : true,
@@ -409,6 +410,7 @@
 
 									<script>
 										$("#expressVisitTime").datetimepicker({
+											locale : 'ko',
 											format : 'YYYY-MM-DD HH:mm',
 											showClose : true,
 											showClear : true,
@@ -456,6 +458,7 @@
 
 									<script>
 										$("#expressCDate").datetimepicker({
+											locale : 'ko',
 											format : 'YYYY-MM-DD',
 											showClose : true,
 											showClear : true,

@@ -38,7 +38,6 @@ public class ExpressController {
 
 		HashMap<String, Integer> rhm = new HashMap<String, Integer>();
 		rhm.put("price", estimateAmount);
-		rhm.put("price", 10000);
 		rhm.put("expressNo", vo.getExpressNo());
 		return rhm;
 	}

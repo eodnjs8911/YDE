@@ -111,7 +111,7 @@
 			<label for="departureSize" class="col-md-3 control-label">평형</label>
 			<div class="col-md-3">
 				<input class="form-control" type="number" id="expressDepartureSize"
-					name="expressDepartureSize" min="1" max="500" value="1" />
+					name="expressDepartureSize" min="1" max="500" value="32" />
 			</div>
 			<label for="departureFloor" class="col-md-2 control-label">층수</label>
 			<div class="col-md-4">
@@ -135,7 +135,7 @@
 			<label for="arriveSize" class="col-md-3 control-label">평형</label>
 			<div class="col-md-3">
 				<input class="form-control" type="number" id="expressArriveSize"
-					name="expressArriveSize" min="1" max="500" value="1" />
+					name="expressArriveSize" min="1" max="500" value="32" />
 			</div>
 			<label for="arriveFloor" class="col-md-2 control-label">층수</label>
 			<div class="col-md-4">

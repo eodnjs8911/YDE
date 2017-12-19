@@ -8,7 +8,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
-	<%@ include file="menu.jsp"%>
+	<%@ include file="menu_MD1.jsp"%>  
+	<br/>
 	<img src="${pageContext.request.contextPath}/resources/images/MD1_3.jpg" width="100%">
 </body>
 </html>

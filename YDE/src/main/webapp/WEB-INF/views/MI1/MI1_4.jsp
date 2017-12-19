@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,8 +8,10 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
-	<%@ include file="menu_MD1.jsp"%>  
+	<%@ include file="menu_MI1.jsp"%>  
 	<br/>
-	<img src="${pageContext.request.contextPath}/resources/images/MD1_2.jpg" width="100%">
+	<img src="${pageContext.request.contextPath}/resources/images/MI1_4.png" width="100%">
+	<img src="${pageContext.request.contextPath}/resources/images/MI1_4_2.png" width="100%">
+	<img src="${pageContext.request.contextPath}/resources/images/MI1_4_3.png" width="100%">
 </body>
 </html>

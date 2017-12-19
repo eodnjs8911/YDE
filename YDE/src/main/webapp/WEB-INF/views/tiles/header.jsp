@@ -2,4 +2,4 @@
 	pageEncoding="UTF-8"%>
 <img
 	src="${pageContext.request.contextPath}/resources/images/YDExpressCI.png"
-	onclick="location.href='go.do?go=index/home'" style="cursor: pointer;" width="35%">
+	onclick="location.href='go.do?go=index/home'" style="cursor: pointer;" width="330px">

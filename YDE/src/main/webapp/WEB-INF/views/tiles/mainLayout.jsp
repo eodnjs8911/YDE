@@ -30,7 +30,7 @@
 </head>
 <body>
 	<header class="container-fluid col-md-8 col-md-offset-2"
-		style="background-color: red;">
+		style="background-color: #F2F2F2;">
 		<tiles:insertAttribute name="header" />
 	</header>
 
@@ -40,14 +40,14 @@
 				<tiles:insertAttribute name="content" />
 			</div>
 			<div class="col-md-2 sidenav text-center"
-				style="background-color: blue;">
+				style="background-color: #D8D8D8;">
 				<tiles:insertAttribute name="side" />
 			</div>
 		</div>
 	</div>
 
 	<footer class="container-fluid text-center col-md-8 col-md-offset-2"
-		style="background-color: green;">
+		style="background-color: #A4A4A4;">
 		<tiles:insertAttribute name="footer" />
 	</footer>
 </body>

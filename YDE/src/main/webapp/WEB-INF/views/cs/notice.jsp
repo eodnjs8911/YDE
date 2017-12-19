@@ -46,28 +46,30 @@
 $(function() {
 	
 	$("#noticejqGrid").jqGrid({
-		url : '/cs/notice/selectList.do',
-		editurl : '/cs/notice/edit.do',
+		url : '/yde/cs/notice/selectList.do',
+		editurl : '/yde/cs/notice/edit.do',
 		datatype : "json",
 		colModel : [
 			{
-				label : 'noticeNo',
+				label : '공지번호',
 				name : 'noticeNo',
 				key : true,
 				width : 55,
 				editable : false,
-				editrules : {
-					required : true
-				}
+				readonly : true,
+				sorttype : 'integer'
+				/* editrules : {
+					readonly : readonly
+				} */
 			},
 			{
-				label : 'noticeContent',
+				label : '공지내용',
 				name : 'noticeContent',
 				width : 450,
 				editable : true,
 			},
 			{
-				label : 'noticeWDate',
+				label : '공지날짜',
 				name : 'noticeWDate',
 				width : 75,
 				editable : false,
@@ -75,24 +77,26 @@ $(function() {
 			}
 		],
 		viewrecords : true,
+		loadonce : true,
 		width : 900,
 		height : 550,
-		rowNum : 10,
+		rowNum : 5,
 		pager : "#noticejqGridPager",
 		sortname: "noticeNo",
 		sortorder: "asc"
 	});
 	
-	$('#noticejqGrid').navGrid('#noticejqGridPager',
+	/* $('#noticejqGrid').navGrid('#noticejqGridPager',
 			// the buttons to appear on the toolbar of the grid
 			{
-				edit : false,
-				add : false,
-				del : false,
+				edit : true,
+				add : true,
+				del : true,
 				refresh : false,
 				view : false,
 				position : "left",
-				cloneToTop : false
+				cloneToTop : false,
+				viewrecords : true
 			},
 			// options for the Edit Dialog
 			{
@@ -127,6 +131,35 @@ $(function() {
 					return 'Error: ' + data.responseText
 				}
 			});
+			
+	 */
+		$('#noticejqGrid').jqGrid('navGrid', "#noticejqGridPager", {
+			search : false, // show search button on the toolbar
+			edit : false,
+			add : false,
+			del : true,
+			cancel : true,
+			addParams : {
+				keys : true
+			},
+			refresh : true
+		});
+
+		$('#noticejqGrid').inlineNav('#noticejqGridPager',
+		// the buttons to appear on the toolbar of the grid
+		{
+			edit : true,
+			add : true,
+			del : true,
+			cancel : true,
+			editParams : {
+				keys : true,
+			},
+			addParams : {
+				keys : true
+			}
+		});
+
 		
 
 	$("#tabs").tabs();

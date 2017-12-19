@@ -13,7 +13,7 @@ public class NoticeDAO {
 	private SqlSessionTemplate mybatis;
 	
 	public void insert(NoticeVO vo) {
-		mybatis.insert("NoticeDAO.insert", vo);
+		mybatis.insert("NoticeDAO.insert",  vo);
 	}
 	
 	public void delete(NoticeVO vo) {

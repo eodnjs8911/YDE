@@ -112,7 +112,12 @@ public class ExpressController {
 		System.out.println("[ExpressController][expressDragNDrop]");
 		HashMap<String, String> rhm = new HashMap<String, String>();
 		ExpressVO e = expressService.selectOne(vo);
-		e.setExpressDate(vo.getExpressDate());
+		if(e.getExpressState().equals("A03")) {
+			e.setExpressVisitTime(vo.getExpressDate());
+		}else {
+			e.setExpressDate(vo.getExpressDate());
+		}
+
 		expressService.update(e);
 		rhm.put("result", "success");
 		return rhm;

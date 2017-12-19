@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yedam.yde.express.ExpressVO;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
@@ -38,6 +40,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<EmployeeVO> selectList() {
 		// TODO Auto-generated method stub
 		return 	employeeDAO.selectList();
+	}
+
+	@Override
+	public List<EmployeeVO> selectListByExpress(ExpressVO vo) {
+		// TODO Auto-generated method stub
+		return employeeDAO.selectListByExpress(vo);
+	}
+
+	@Override
+	public List<EmployeeVO> selectListByNoExpress(ExpressVO vo) {
+		// TODO Auto-generated method stub
+		return employeeDAO.selectListByNoExpress(vo);
 	}
 
 }

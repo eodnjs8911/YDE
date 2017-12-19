@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yedam.yde.employee.EmployeeVO;
+import com.yedam.yde.express.ExpressVO;
 
 @Repository
 public class EmployeeDAO {
@@ -32,5 +33,13 @@ public class EmployeeDAO {
 	
 	public List<EmployeeVO> selectList() {
 		return mybatis.selectList("EmployeeDAO.selectList");
+	}
+
+	public List<EmployeeVO> selectListByExpress(ExpressVO vo) {
+		return mybatis.selectList("EmployeeDAO.selectListByExpress",vo);
+	}
+	
+	public List<EmployeeVO> selectListByNoExpress(ExpressVO vo) {
+		return mybatis.selectList("EmployeeDAO.selectListByNoExpress",vo);
 	}
 }

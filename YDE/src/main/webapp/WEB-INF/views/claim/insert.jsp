@@ -48,6 +48,24 @@
 <script
 	src="http://vincentlamanna.com/BootstrapFormHelpers/assets/js/bootstrap-formhelpers-phone.js"></script>
 
+	<script>
+		function onlyNumber(event){
+			event = event || window.event;
+			var keyID = (event.which) ? event.which : event.keyCode;
+			if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+				return;
+			else
+				return false;
+		}
+		function removeChar(event) {
+			event = event || window.event;
+			var keyID = (event.which) ? event.which : event.keyCode;
+			if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 ) 
+				return;
+			else
+				event.target.value = event.target.value.replace(/[^0-9]/g, "");
+		}
+	</script>
 
 </head>
 <body>
@@ -68,9 +86,11 @@
 		<div class="form-group">
 			<label for="inputPhone" class="col-md-2 col-xs-2 control-label">연락처</label>
 			<div class="col-md-8 col-xs-6">
-				<input type="number" class="form-control" id="claimPhone"
-					name="claimPhone" 
+				<input type="tel" class="form-control" id="claimPhone"
+					name="claimPhone" minlength="10" maxlength="11" 
+					onkeydown='return onlyNumber(event)' onkeyup='removeChar(event)' style='ime-mode:disabled;'
 					placeholder="(-)없이 입력해주십시오" width="1000px" required>
+					<span id="keyinfo"></span>
 			</div>
 
 		</div>

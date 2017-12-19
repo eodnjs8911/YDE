@@ -13,15 +13,15 @@ public class NoticeDAO {
 	private SqlSessionTemplate mybatis;
 	
 	public void insert(NoticeVO vo) {
-		mybatis.insert("NoticeDAO.insertNotice", vo);
+		mybatis.insert("NoticeDAO.insert", vo);
 	}
 	
 	public void delete(NoticeVO vo) {
-		mybatis.delete("NoticeDAO.deleteNotice", vo);
+		mybatis.delete("NoticeDAO.delete", vo);
 	}
 	
 	public void update(NoticeVO vo) {
-		mybatis.update("NoticeDAO.updateNotice", vo);
+		mybatis.update("NoticeDAO.update", vo);
 	}
 	
 	public NoticeVO selectOne(NoticeVO vo) {

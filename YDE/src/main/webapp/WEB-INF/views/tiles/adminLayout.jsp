@@ -287,10 +287,10 @@
 							href="${pageContext.request.contextPath}/claim/claimAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 신고 관리</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/sms/smsAdminPage3.do"><i
+							href="${pageContext.request.contextPath}/employee/employeeAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 직원 관리</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/sms/smsAdminPage4.do"><i
+							href="${pageContext.request.contextPath}/resource/resourceAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 자재 관리</a></li>
 
 

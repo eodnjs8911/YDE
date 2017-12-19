@@ -35,9 +35,9 @@ public class EpilogueServiceImpl implements EpilogueService {
 	}
 
 	@Override
-	public List<EpilogueVO> selectList(EpilogueVO vo) {
+	public List<EpilogueVO> selectList() {
 		// TODO Auto-generated method stub
-		return epilogueDAO.selectList(vo);
+		return epilogueDAO.selectList();
 	}
 
 }

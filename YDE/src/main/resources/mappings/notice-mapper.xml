@@ -5,7 +5,6 @@
 
 	<insert id="insert" parameterType="NoticeVO">
 		<!-- insert into notice values () -->
-		
 		<selectKey keyProperty="noticeNo" resultType="int" order="BEFORE">
 			SELECT IFNULL(MAX(notice_no), 0) + 1 FROM notice
 		</selectKey>
@@ -15,7 +14,7 @@
 	
 	<update id="update" parameterType="NoticeVO">
 		<!-- update ? where notice_no = #{noticeNo} -->
-		update notice set notice_content = #{noticeContent}
+		update notice set notice_content = #{noticeContent}	where notice_no = #{noticeNo}
 	</update>
 	
 	<delete id="delete" parameterType="NoticeVO">

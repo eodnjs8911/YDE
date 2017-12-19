@@ -29,8 +29,8 @@ public class EpilogueDAO {
 		return mybatis.selectOne("EpilogueDAO.selectOne", vo);
 	}
 	
-	public List<EpilogueVO> selectList(EpilogueVO vo) {
-		return mybatis.selectList("EpilogueDAO.selectList", vo);
+	public List<EpilogueVO> selectList() {
+		return mybatis.selectList("EpilogueDAO.selectList");
 	}
 
 }

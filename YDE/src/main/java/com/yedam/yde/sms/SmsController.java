@@ -54,7 +54,8 @@ public class SmsController {
 	
 	@RequestMapping("/sms/edit.do")
 	@ResponseBody
-	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,SmsVO vo) {
+	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,
+			@RequestParam(value="id",defaultValue="",required=false)String id,SmsVO vo) {
 		System.out.println("[SmsController][edit]");
 		System.out.println(vo);
 		if(oper.equals("add")) {
@@ -62,7 +63,13 @@ public class SmsController {
 		}else if(oper.equals("edit")) {
 			smsService.update(vo);
 		}else if(oper.equals("del")) {
-			smsService.delete(vo);
+			System.out.println(id);
+			if(id.length()>0) {
+				for(String i : id.split(",")) {
+					vo.setSmsNo(Integer.parseInt(i));
+					smsService.delete(vo);
+				}
+			}
 		}
 	}
 }

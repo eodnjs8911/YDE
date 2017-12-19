@@ -27,6 +27,7 @@
 				label : '번호',
 				name : 'smsNo',
 				key : true,
+				editable : false,
 				width : 80,
 				sorttype : 'integer',
 				searchoptions : {
@@ -39,8 +40,7 @@
 				editable : true,
 				edittype : "textarea",
 				editoptions : {
-					rows : "4",
-					cols : "50"
+					rows : "4"
 				},
 				searchoptions : {
 					sopt : [ "cn" ]
@@ -149,6 +149,7 @@
 			//onSelectRow : editRow,
 			rowNum : 10,
 			height : 750,
+			multiselect : true,
 			pager : "#smsjqGridPager"
 		});
 
@@ -171,6 +172,7 @@
 			refresh : true
 		});
 
+
 		$('#smsjqGrid').inlineNav('#smsjqGridPager',
 		// the buttons to appear on the toolbar of the grid
 		{
@@ -178,25 +180,10 @@
 			add : true,
 			del : true,
 			cancel : true,
-			editParams : {
-				keys : true,
-			},
 			addParams : {
 				keys : true
-			}
-		});
-
-		$('#smsjqGrid').inlineNav('#smsjqGridPager',
-		// the buttons to appear on the toolbar of the grid
-		{
-			edit : true,
-			add : false,
-			del : true,
-			cancel : true,
-			editParams : {
-				keys : true,
 			},
-			addParams : {
+			editParams : {
 				keys : true
 			}
 		});

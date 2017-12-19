@@ -29,8 +29,8 @@
 		<div id="noticejqGridPager2"></div>
 	</div>
 	<div id="tabs-3">
-		<table id="noticejqGrid3"></table>
-		<div id="noticejqGridPager3"></div>
+		<table id="epiloguejqGrid"></table>
+		<div id="epiloguejqGridPager"></div>
 	</div>
 	<div id="tabs-4">
 		<table id="noticejqGrid4"></table>
@@ -157,10 +157,90 @@ $(function() {
 			addParams : {
 				keys : true
 			}
+		}
+	);
+
+	$("#epiloguejqGrid").jqGrid({
+			url : '/yde/cs/epilogue/selectList.do',
+			editurl : '/yde/cs/epilogue/edit.do',
+			datatype : "json",
+			colModel : [
+				{
+					label : '후기번호',
+					name : 'epilogueNo',
+					key : true,
+					width : 55,
+					editable : false,
+					readonly : true,
+					sorttype : 'integer'
+					/* editrules : {
+						readonly : readonly
+					} */
+				},
+				{
+					label : '작성자',
+					name : 'epilogueWriter',
+					width : 55,
+					editable : false,
+				},
+				{
+					label : '비밀번호',
+					name : 'epiloguePw',
+					width : 55,
+					editable : false,
+					hidden:true
+				},
+				{
+					label : '후기',
+					name : 'epilogueContent',
+					width : 450,
+					editable : true,
+				},
+				{
+					label : '작성일',
+					name : 'epilogueWDate',
+					width : 75,
+					editable : false,
+					
+				}
+			],
+			viewrecords : true,
+			loadonce : true,
+			width : 900,
+			height : 550,
+			rowNum : 5,
+			pager : "#epiloguejqGridPager",
+			sortname: "epilogueNo",
+			sortorder: "asc"
 		});
-
 		
+		$('#epiloguejqGrid').jqGrid('navGrid', "#epiloguejqGridPager", {
+				search : false, // show search button on the toolbar
+				edit : false,
+				add : false,
+				del : true,
+				cancel : true,
+				addParams : {
+					keys : true
+				},
+				refresh : true
+			});
 
+			$('#epiloguejqGrid').inlineNav('#epiloguejqGridPager',
+			// the buttons to appear on the toolbar of the grid
+			{
+				edit : true,
+				add : true,
+				del : true,
+				cancel : true,
+				editParams : {
+					keys : true,
+				},
+				addParams : {
+					keys : true
+				}
+			});
+	
 	$("#tabs").tabs();
 });
 </script>

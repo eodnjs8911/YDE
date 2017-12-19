@@ -1,15 +1,70 @@
 /* https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_hover */
+
+/* table */
+#checklist table {
+	width: 100%;
+	padding: 0;
+	border-spacing: 0px;
+	border: 0;
+	border-collapse: collapse;
+}
+
+#checklist table thead th {
+	padding: 10px 0 10px 30px;
+	background: #E6F9FF;
+	color: #333;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+	border-top: 1px solid #BCBABB;
+	border-bottom: 1px solid #BCBABB;
+	/* border-right: 1px solid #BCBABB; */
+}
+
+#checklist table tbody td {
+	font-size: 14px;
+	color: #555;
+	font-weight: bold;
+	padding: 10px 0 10px 15px;
+	line-height: 1.5em;
+	word-break: break-all;
+	border-top: 1px solid #BCBABB;
+	border-bottom: 1px solid #BCBABB;
+	/* border-right: 1px solid #BCBABB; */
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+
+/* title */
+#checklist .check_title {
+    width: 130px;
+    margin: auto;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 7px 0 7px;
+    background: #fff;
+    border-top: 1px solid #0BC3F7;
+    border-bottom: 1px solid #0BC3F7;
+}
+
+/* button */
 .button {
 	background-color: #4CAF50; /* Green */
 	border: none;
 	color: white;
-	/* width: 19%; */
+	width: 19%;
 	height: 55px;
-/* 	padding: 14px 50px; */
+	padding: 14px 50px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-/* 	margin: 0.5px 2px; */
+	/* 	margin: 0.5px 2px; */
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 	cursor: pointer;

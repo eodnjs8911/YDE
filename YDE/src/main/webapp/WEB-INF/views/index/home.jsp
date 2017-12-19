@@ -149,6 +149,7 @@
 </script>
 </head>
 <body>
+	<%@ include file="Main_banner.html"%>
 	<img src="${pageContext.request.contextPath}/resources/images/Main_menubar.png"
 		alt="menu_select" usemap="#menu_select" width="100%" >
 	<map id="menu_select" name="menu_select">

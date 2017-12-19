@@ -29,8 +29,7 @@
 
 </head>
 <body>
-	<header class="container-fluid col-md-8 col-md-offset-2"
-		style="background-color: #F2F2F2;">
+	<header class="container-fluid col-md-8 col-md-offset-2">
 		<tiles:insertAttribute name="header" />
 	</header>
 

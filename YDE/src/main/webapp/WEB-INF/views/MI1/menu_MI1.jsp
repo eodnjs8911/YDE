@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="width: 100%; text-align: center;">
+	<div style="width: 100%; text-align: center; border-top: 1px solid #0BC3F7; border-bottom: 1px solid #0BC3F7;">
 		<button class="button button2" type="button"
 			onclick="location.href='go.do?go=MI1/MI1_1'">이사체크리스트</button>
 		<button class="button button2" type="button"

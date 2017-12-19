@@ -15,10 +15,10 @@
 	<update id="update" parameterType="EmployeeVO">
 		UPDATE employee
 		SET
-		employee_position=#{employeePosition}
+		employee_position=#{employeePosition},
 		employee_phone=#{employeePhone}
 		WHERE
-		employee_no=#{employeeNo}
+		employee_no = #{employeeNo}
 	</update>
 
 	<delete id="delete" parameterType="EmployeeVO">

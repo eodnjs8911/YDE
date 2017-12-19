@@ -50,7 +50,8 @@ public class EpilogueController {
 	
 	@RequestMapping("/cs/epilogue/edit.do")
 	@ResponseBody
-	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,EpilogueVO vo) {
+	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,
+			@RequestParam(value="id",defaultValue="",required=false)String id, EpilogueVO vo) {
 		System.out.println("[epilogueController][edit]");
 		System.out.println(vo);
 		if(oper.equals("add")) {
@@ -58,7 +59,13 @@ public class EpilogueController {
 		}else if(oper.equals("edit")) {
 			epilogueService.update(vo);
 		}else if(oper.equals("del")) {
-			epilogueService.delete(vo);
+			System.out.println(id);
+			if(id.length()>0) {
+				for(String i : id.split(",")) {
+					vo.setEpilogueNo(Integer.parseInt(i));
+					epilogueService.delete(vo);
+				}
+			}
 		}
 	}
 

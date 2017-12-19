@@ -51,7 +51,8 @@ public class NoticeController {
 	
 	@RequestMapping("/cs/notice/edit.do")
 	@ResponseBody
-	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,NoticeVO vo) {
+	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper, 
+			@RequestParam(value="id",defaultValue="",required=false)String id, NoticeVO vo) {
 		System.out.println("[NoticeController][edit]");
 		System.out.println(vo);
 		if(oper.equals("add")) {
@@ -59,7 +60,13 @@ public class NoticeController {
 		}else if(oper.equals("edit")) {
 			noticeService.update(vo);
 		}else if(oper.equals("del")) {
-			noticeService.delete(vo);
+			System.out.println(id);
+			if(id.length()>0) {
+				for(String i : id.split(",")) {
+					vo.setNoticeNo(Integer.parseInt(i));
+					noticeService.delete(vo);
+				}
+			}
 		}
 	}
 }

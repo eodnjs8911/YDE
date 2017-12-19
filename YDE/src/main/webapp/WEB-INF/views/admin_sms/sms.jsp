@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
 
+
 <div>
 	<table id="smsjqGrid"></table>
 	<div id="smsjqGridPager"></div>
@@ -23,7 +24,7 @@
 			styleUI : 'Bootstrap',
 			datatype : "json",
 			colModel : [ {
-				label : 'smsNo',
+				label : '번호',
 				name : 'smsNo',
 				key : true,
 				width : 80,
@@ -32,7 +33,7 @@
 					sopt : [ "eq" ]
 				}
 			}, {
-				label : 'smsContent',
+				label : '문자내용',
 				name : 'smsContent',
 				width : 450,
 				editable : true,
@@ -45,7 +46,7 @@
 					sopt : [ "cn" ]
 				}
 			}, {
-				label : 'smsSendAddr',
+				label : '보내는번호',
 				name : 'smsSendAddr',
 				width : 120,
 				editable : true,
@@ -53,7 +54,7 @@
 					sopt : [ "cn" ]
 				}
 			}, {
-				label : 'smsReceiveAddr',
+				label : '받는번호',
 				name : 'smsReceiveAddr',
 				width : 120,
 				editable : true,
@@ -61,7 +62,7 @@
 					sopt : [ "cn" ]
 				}
 			}, {
-				label : 'smsSDate',
+				label : '발송시간',
 				name : 'smsSDate',
 				width : 200,
 				editable : true,
@@ -88,7 +89,7 @@
 					sopt : [ "ge", "le", "eq" ]
 				}
 			}, {
-				label : 'smsRsDate',
+				label : '예약발송시간',
 				name : 'smsRsDate',
 				width : 200,
 				editable : true,
@@ -110,16 +111,16 @@
 							showClose : true,
 							showClear : true,
 							showTodayButton : true,
-							widgetPositioning: {
-					            horizontal: 'left',
-					            vertical: 'bottom'
-					         }
+							widgetPositioning : {
+								horizontal : 'left',
+								vertical : 'bottom'
+							}
 						});
 					},
 					sopt : [ "ge", "le", "eq" ]
 				}
 			}, {
-				label : 'smsState',
+				label : '상태',
 				name : 'smsState',
 				width : 130,
 				formatter : 'select',
@@ -133,7 +134,7 @@
 					value : ":[All];1:대기;2:발송예약;3:발송정지;4:발송완료"
 				}
 			}, {
-				label : 'expressNo',
+				label : '이사번호',
 				name : 'expressNo',
 				width : 80,
 				editable : true,

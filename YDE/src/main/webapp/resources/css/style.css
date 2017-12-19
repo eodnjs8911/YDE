@@ -72,8 +72,8 @@ tr:nth-child(even) {
 
 .button2 {
 	background-color: white;
-	color: black;
-	border: 2px solid #1BB1EC;
+	color: #555;
+	/* border: 2px solid #1BB1EC; */
 }
 
 .button2:hover {

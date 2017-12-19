@@ -59,8 +59,13 @@
 
 
 <div class="col-md-6">
-	<img src="/yde/resources/images/calcpage.jpg" alt="가격산정방식"
+		<img src="/yde/resources/images/MI1_4.png" alt="가격산정방식"
 		class="img-responsive">
+		<img src="/yde/resources/images/MI1_4_2.png" alt="가격산정방식"
+		class="img-responsive">
+		<img src="/yde/resources/images/MI1_4_3.png" alt="가격산정방식"
+		class="img-responsive">
+	
 </div>
 <div class="col-md-6">
 	<form class="form-horizontal" id="calcForm">

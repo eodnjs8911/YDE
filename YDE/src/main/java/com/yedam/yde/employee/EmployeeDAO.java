@@ -1,6 +1,7 @@
 package com.yedam.yde.employee;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,13 @@ public class EmployeeDAO {
 	
 	public List<EmployeeVO> selectListByNoExpress(ExpressVO vo) {
 		return mybatis.selectList("EmployeeDAO.selectListByNoExpress",vo);
+	}
+
+	public void insertEmployeeExpress(Map<String, Object> vo) {
+		mybatis.insert("EmployeeDAO.insertEmployeeExpress",vo);
+	}
+
+	public void deleteEmployeeExpress(Integer expressNo) {
+		mybatis.delete("EmployeeDAO.deleteEmployeeExpress", expressNo);
 	}
 }

@@ -1,0 +1,26 @@
+@charset "EUC-KR";
+#tabs-4 {
+  margin: 40px;
+}
+
+.box {
+  background-color: #ccc;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+.box:nth-child(even) {
+  background-color: #777;
+  color: #000;
+}
+
+.wrapper {
+  width: 960px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(5, 200px);
+  grid-template-rows: 150px 150px 150px;
+  grid-auto-flow: row;
+}

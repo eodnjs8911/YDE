@@ -8,13 +8,15 @@
 		<selectKey keyProperty="galleryNo" resultType="int" order="BEFORE">
 			SELECT IFNULL(MAX(gallery_no), 0) + 1 FROM gallery
 		</selectKey>
-		INSERT INTO gallery (gallery_no, gallery_content, gallery_w_date)
-		VALUES(#{galleryNo},#{galleryContent}, NOW())
+		INSERT INTO gallery (gallery_no, gallery_title, gallery_image, gallery_content, gallery_w_date)
+		VALUES(#{galleryNo},#{galleryTitle}, #{gallery_image}, #{galleryContent}, NOW())
 	</insert>
 
 	<update id="update" parameterType="GalleryVO">
 		UPDATE gallery
 		SET
+		gallery_title=#{galleryTitle},
+		gallery_image=#{gallerImage},
 		gallery_content=#{galleryContent}
 		WHERE
 		gallery_no = #{galleryNo}

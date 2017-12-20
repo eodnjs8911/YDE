@@ -45,7 +45,7 @@ $("#epiloguejqGrid").jqGrid({
 				label : '작성자',
 				name : 'epilogueWriter',
 				width : 55,
-				editable : false,
+				editable : true,
 			},
 			{
 				label : '비밀번호',

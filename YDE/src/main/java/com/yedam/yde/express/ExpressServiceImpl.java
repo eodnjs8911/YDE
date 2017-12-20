@@ -75,6 +75,19 @@ public class ExpressServiceImpl implements ExpressService {
 			price += 100000;
 		}
 		
+		String specialItems = vo.getExpressSpeicialItem();
+		if(specialItems!= null && specialItems.length()>0) {
+			for(String item : specialItems.split(",")) {
+				if(item.equals("tv")) {
+					price += 50000;
+				}else if(item.equals("aircon")) {
+					price += 80000;
+				}else if(item.equals("clean")) {
+					price += 100000;
+				}
+			}
+		}
+		
 		return price;
 	}
 	

@@ -35,5 +35,14 @@
 	<select id="selectList" resultType="EmployeeVO">
 		SELECT * FROM employee
 	</select>
+	
+	<select id="selectListByNoExpress" parameterType="ExpressVO" resultType="EmployeeVO">
+		SELECT * FROM employee where employee_no not in (SELECT e.employee_no FROM express_employee ee join employee e on ee.employee_no = e.employee_no where ee.express_no = #{expressNo})
+	</select>
+	
+	<select id="selectListByExpress" parameterType="ExpressVO" resultType="EmployeeVO">
+		SELECT * FROM express_employee ee join employee e on ee.employee_no = e.employee_no where ee.express_no = #{expressNo}
+	</select>
 
 </mapper>
+

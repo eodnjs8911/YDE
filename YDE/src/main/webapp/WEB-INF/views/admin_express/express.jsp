@@ -13,10 +13,21 @@
 <script
 	src="${pageContext.request.contextPath}/resources/daumaddr/daumAddr.js"></script>
 
+<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jqgrid/jquery.jqGrid.min.js"></script>
+<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
+
 <div>
 	<div id="calendar"></div>
 
 	<script type='text/javascript'>
+		$(function() {
+
+		});
+
 		$('#calendar')
 				.fullCalendar(
 						{
@@ -86,6 +97,8 @@
 													"expressNo" : calEvent.id
 												},
 												function(data) {
+													$("#expressNo").val(
+															data.expressNo);
 													$("#expressDetailForm")
 															.get(0).reset();
 													$("#expressCategory")
@@ -240,6 +253,154 @@
 				$('#calendar').fullCalendar('refetchEvents')
 			});
 		}
+
+		function rightClick(v) {
+			if (v == 'e') {
+				var fromGrid = $("#employeeGrid");
+				var toGrid = $("#manageEmployeeGrid");
+			} else {
+				var fromGrid = $("#resourceGrid");
+				var toGrid = $("#manageResourceGrid");
+			}
+
+			var rowKey = fromGrid.getGridParam("selrow");
+
+			if (rowKey) {
+				var selectedIDs = fromGrid.getGridParam("selarrrow");
+
+				while (selectedIDs.length > 0) {
+					var data = fromGrid.jqGrid('getRowData', selectedIDs[0]);
+					toGrid.jqGrid('addRowData', selectedIDs[0], data);
+					fromGrid.jqGrid('delRowData', selectedIDs[0]);
+				}
+			}
+		}
+
+		function leftClick(v) {
+			if (v == 'e') {
+				var fromGrid = $("#manageEmployeeGrid");
+				var toGrid = $("#employeeGrid");
+			} else {
+				var fromGrid = $("#manageResourceGrid");
+				var toGrid = $("#resourceGrid");
+			}
+
+			var rowKey = fromGrid.getGridParam("selrow");
+
+			if (rowKey) {
+				var selectedIDs = fromGrid.getGridParam("selarrrow");
+
+				while (selectedIDs.length > 0) {
+					var data = fromGrid.jqGrid('getRowData', selectedIDs[0]);
+					toGrid.jqGrid('addRowData', selectedIDs[0], data);
+					fromGrid.jqGrid('delRowData', selectedIDs[0]);
+				}
+			}
+		}
+		
+		function workSave(){
+			var expressNo = "?expressNo="+$("#expressNo").val();
+			var rowData = $('#manageEmployeeGrid').getRowData();
+			console.log(rowData);
+			
+	/* 		$.getJSON('/yde/employee/insertEmployeeExpress.do', {"expressNo":expressNo,"employeeNo",}, function(
+					data) {
+				if (data.result == "success") {
+
+				} else {
+					
+				}
+				$('#calendar').fullCalendar('refetchEvents')
+			}); */
+		}
+
+		function manageWork() {
+			var expressNo = "?expressNo="+$("#expressNo").val();
+			$("#employeeGrid").jqGrid({
+				url : '/yde/employee/selectListByNoExpress.do'+expressNo,
+				mtype : "GET",
+				styleUI : 'Bootstrap',
+				datatype : "json",
+				height : 250,
+				colModel : [ {
+					label : '번호',
+					name : 'employeeNo',
+					width : 60,
+					key : true
+				}, {
+					label : '이름',
+					name : 'employeeName',
+					width : 100
+				} ],
+				viewrecords : true,
+				multiselect : true
+			});
+			
+			$("#manageEmployeeGrid").jqGrid({
+				url : '/yde/employee/selectListByExpress.do' + expressNo,
+				mtype : "GET",
+				styleUI : 'Bootstrap',
+				datatype : "json",
+				height : 250,
+				colModel : [ {
+					label : '번호',
+					name : 'employeeNo',
+					width : 60,
+					key : true
+				}, {
+					label : '이름',
+					name : 'employeeName',
+					width : 100
+				} ],
+				viewrecords : true,
+				multiselect : true
+			});
+			/*
+			$("#resourceGrid").jqGrid({
+				url : '/yde/resource/selectList.do',
+				mtype : "GET",
+				styleUI : 'Bootstrap',
+				datatype : "json",
+				height : 250,
+				colModel : [ {
+					label : '번호',
+					name : 'resourceNo',
+					width : 60,
+					key : true
+				}, {
+					label : '이름',
+					name : 'resourceName',
+					width : 100
+				} ],
+				viewrecords : true,
+				multiselect : true
+			});
+			
+			$("#manageResourceGrid").jqGrid({
+				url : '/yde/resource/selectList.do',
+				mtype : "GET",
+				styleUI : 'Bootstrap',
+				datatype : "json",
+				height : 250,
+				colModel : [ {
+					label : '번호',
+					name : 'resourceNo',
+					width : 60,
+					key : true
+				}, {
+					label : '이름',
+					name : 'resourceName',
+					width : 100
+				} ],
+				viewrecords : true,
+				multiselect : true
+			});
+			 */
+
+			$("#employeeGrid").trigger("reloadGrid");
+			$("#manageEmployeeGrid").trigger("reloadGrid");
+			$("#manageWorkModal").modal('show')
+		}
 	</script>
 
 	<div class="modal fade" role="dialog"
@@ -258,7 +419,8 @@
 					<div class="container-fluid">
 
 						<form class="form-horizontal" id="expressDetailForm">
-							<input type="hidden" id="dialogType">
+							<input type="hidden" id="dialogType"> <input
+								type="hidden" id="expressNo">
 							<div class="form-group">
 								<label for="expressDate" class="col-md-3 control-label">이사날짜</label>
 								<div class="col-md-9">
@@ -272,7 +434,7 @@
 											showClose : true,
 											showClear : true,
 											showTodayButton : true,
-											stepping:10,
+											stepping : 10,
 											sideBySide : true
 										});
 									</script>
@@ -415,7 +577,7 @@
 											showClose : true,
 											showClear : true,
 											showTodayButton : true,
-											stepping:10,
+											stepping : 10,
 											sideBySide : true
 										});
 									</script>
@@ -489,6 +651,8 @@
 					</div>
 				</div>
 				<div class="modal-footer">
+					<button type="button" class="btn btn-default pull-left"
+						onclick="manageWork()">인원관리</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 					<button type="button" class="btn btn-primary" id="expressSaveBtn"
 						onclick="detailSave()">저장</button>
@@ -524,6 +688,79 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+	<div class="modal fade" role="dialog"
+		aria-labelledby="gridSystemModalLabel" aria-hidden="true"
+		id="manageWorkModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="gridSystemModalLabel">인원관리</h4>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+
+						<div id="manageTabs" role="tabpanel">
+							<ul class="nav nav-tabs" role="tablist">
+								<li role="presentation" class="active"><a
+									href="#employeeTab" aria-controls="home" role="tab"
+									data-toggle="tab">인원</a></li>
+								<li role="presentation"><a href="#resourceTab"
+									aria-controls="profile" role="tab" data-toggle="tab">장비</a></li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div id="employeeTab" role="tabpanel" class="tab-pane active">
+									<div class="form-group">
+										<div class="col-md-5">
+											<table id="employeeGrid"></table>
+											<div id="employeeGridPager"></div>
+										</div>
+										<div class="col-md-2">
+											<button onclick="rightClick('e')">&gt;</button>
+											<button onclick="leftClick('e')">&lt;</button>
+										</div>
+										<div class="col-md-5">
+											<table id="manageEmployeeGrid"></table>
+											<div id="manageEmployeeGridPager"></div>
+										</div>
+									</div>
+								</div>
+								<div id="resourceTab" role="tabpanel" class="tab-pane">
+									<div class="form-group">
+										<div class="col-md-5">
+											<table id="resourceGrid"></table>
+											<div id="resourceGridPager"></div>
+										</div>
+										<div class="col-md-2">
+											<button onclick="rightClick('t')">&gt;</button>
+											<button onclick="leftClick('t')">&lt;</button>
+										</div>
+										<div class="col-md-5">
+											<table id="resourceEmployeeGrid"></table>
+											<div id="resourceEmployeeGridPager"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+					<button type="button" class="btn btn-default" onclick="workSave()">확인</button>
 				</div>
 			</div>
 			<!-- /.modal-content -->

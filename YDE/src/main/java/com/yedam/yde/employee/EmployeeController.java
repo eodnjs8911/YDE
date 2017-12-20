@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.yde.employee.EmployeeService;
 import com.yedam.yde.employee.EmployeeVO;
+import com.yedam.yde.express.ExpressVO;
 import com.yedam.yde.employee.EmployeeService;
 import com.yedam.yde.employee.EmployeeVO;
 
@@ -19,7 +20,7 @@ public class EmployeeController {
 
 	@Autowired
 	EmployeeService employeeService;
-	
+
 	@RequestMapping("/employee/employeeAdminPage.do")
 	public String employeeAdminPage(EmployeeVO vo) {
 		System.out.println("[EmployeeController][employeeAdminPage]");
@@ -57,21 +58,36 @@ public class EmployeeController {
 		System.out.println("[EmployeeController][selectList]");
 		return employeeService.selectList();
 	}
-	
+
+	@RequestMapping("/employee/selectListByExpress.do")
+	@ResponseBody
+	public List<EmployeeVO> selectListByExpress(Model model, ExpressVO vo) {
+		System.out.println("[EmployeeController][selectListByExpress]");
+		return employeeService.selectListByExpress(vo);
+	}
+
+	@RequestMapping("/employee/selectListByNoExpress.do")
+	@ResponseBody
+	public List<EmployeeVO> selectListByNoExpress(Model model, ExpressVO vo) {
+		System.out.println("[EmployeeController][selectListByNoExpress]");
+		return employeeService.selectListByNoExpress(vo);
+	}
+
 	@RequestMapping("/employee/edit.do")
 	@ResponseBody
+
 	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,
 			@RequestParam(value="id",defaultValue="",required=false)String id, EmployeeVO vo) {
 		System.out.println("[EmployeeController][edit]");
 		System.out.println(vo);
-		if(oper.equals("add")) {
+		if (oper.equals("add")) {
 			employeeService.insert(vo);
-		}else if(oper.equals("edit")) {
+		} else if (oper.equals("edit")) {
 			employeeService.update(vo);
-		}else if(oper.equals("del")) {
+		} else if (oper.equals("del")) {
 			System.out.println(id);
-			if(id.length()>0) {
-				for(String i : id.split(",")) {
+			if (id.length() > 0) {
+				for (String i : id.split(",")) {
 					vo.setEmployeeNo(Integer.parseInt(i));
 					employeeService.delete(vo);
 				}

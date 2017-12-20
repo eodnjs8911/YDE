@@ -45,8 +45,7 @@
 		</div>
 	</div>
 
-	<footer class="container-fluid text-center col-md-8 col-md-offset-2"
-		style="background-color: #A4A4A4;">
+	<footer class="container-fluid text-center col-md-8 col-md-offset-2">
 		<tiles:insertAttribute name="footer" />
 	</footer>
 </body>

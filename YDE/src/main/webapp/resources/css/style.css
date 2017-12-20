@@ -80,3 +80,28 @@ tr:nth-child(even) {
 	background-color: #1BB1EC;
 	color: white;
 }
+
+/* a */
+.button {
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	/* 	margin: 0.5px 2px; */
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.button2 {
+	background-color: white;
+	color: #555;
+	/* border: 2px solid #1BB1EC; */
+}
+
+.button2:hover {
+	background-color: #1BB1EC;
+	color: white;
+}

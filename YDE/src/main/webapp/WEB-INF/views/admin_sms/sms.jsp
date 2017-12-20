@@ -147,7 +147,7 @@
 			viewrecords : true,
 			loadonce : true,
 			//onSelectRow : editRow,
-			rowNum : 10,
+			rowNum : 2,
 			height : 750,
 			multiselect : true,
 			pager : "#smsjqGridPager"
@@ -170,16 +170,23 @@
 				keys : true
 			},
 			refresh : true
-		});
+		},{//edit
+			},
+			{//add
+			},
+			{
+		      afterComplete : function (response, postdata, formid) {console.log("b");$("#smsjqGrid").trigger("reloadGrid");}
+			}); 
 
 
 		$('#smsjqGrid').inlineNav('#smsjqGridPager',
 		// the buttons to appear on the toolbar of the grid
 		{
 			edit : true,
-			add : true,
+			add : false,
 			del : true,
 			cancel : true,
+			refresh : true,
 			addParams : {
 				keys : true
 			},

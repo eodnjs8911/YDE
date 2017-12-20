@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-@RequestMapping("/Visit/")
+@RequestMapping("/visit/")
 public class VisitStatisticsController {
 
 	@Autowired

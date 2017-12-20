@@ -70,6 +70,8 @@
 </head>
 <body>
 
+<!-- http://localhost/yde/cs/insert.do -->
+
 	<form class="form-horizontal" id="myForm" action="insert.do"
 		method="post">
 		<div>

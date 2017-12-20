@@ -82,7 +82,7 @@ tr:nth-child(even) {
 }
 
 /* a */
-.button {
+.list li{
 	background-color: #4CAF50; /* Green */
 	border: none;
 	color: white;
@@ -93,15 +93,16 @@ tr:nth-child(even) {
 	-webkit-transition-duration: 0.4s; /* Safari */
 	transition-duration: 0.4s;
 	cursor: pointer;
+	list-style-type: none;
 }
 
-.button2 {
+.list2 li{
 	background-color: white;
 	color: #555;
 	/* border: 2px solid #1BB1EC; */
 }
 
-.button2:hover {
+.list2:hover li{
 	background-color: #1BB1EC;
 	color: white;
 }

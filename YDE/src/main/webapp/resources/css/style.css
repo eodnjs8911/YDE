@@ -56,6 +56,7 @@ tr:nth-child(even) {
 /* button */
 .button {
 	background-color: #4CAF50; /* Green */
+	
 	border: none;
 	color: white;
 	width: 19%;
@@ -77,32 +78,6 @@ tr:nth-child(even) {
 }
 
 .button2:hover {
-	background-color: #1BB1EC;
-	color: white;
-}
-
-/* a */
-.list li{
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	/* 	margin: 0.5px 2px; */
-	-webkit-transition-duration: 0.4s; /* Safari */
-	transition-duration: 0.4s;
-	cursor: pointer;
-	list-style-type: none;
-}
-
-.list2 li{
-	background-color: white;
-	color: #555;
-	/* border: 2px solid #1BB1EC; */
-}
-
-.list2:hover li{
 	background-color: #1BB1EC;
 	color: white;
 }

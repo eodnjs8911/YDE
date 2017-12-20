@@ -1,11 +1,15 @@
 package com.yedam.yde.employee;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -73,11 +77,28 @@ public class EmployeeController {
 		return employeeService.selectListByNoExpress(vo);
 	}
 
+	@RequestMapping(value ="/employee/insertEmployeeExpress.do",headers = { "Content-type=application/json;charset=utf-8" })
+	@ResponseBody
+	public Map insertEmployeeExpress(@RequestBody Map<String,Object> workerList) {
+		Integer expressNo =  Integer.parseInt((String) workerList.get("expressNo"));
+		List<Map<String,Object>> datas = (List<Map<String, Object>>) workerList.get("datas");
+		if(datas != null) {
+			employeeService.deleteEmployeeExpress(expressNo);
+			for(Map<String,Object> m : datas) {
+				m.put("expressNo", expressNo); 
+				employeeService.insertEmployeeExpress(m);
+			}
+		}
+		Map result = new HashMap();
+		result.put("result", Boolean.TRUE);
+		return result;
+	}
+
 	@RequestMapping("/employee/edit.do")
 	@ResponseBody
 
-	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,
-			@RequestParam(value="id",defaultValue="",required=false)String id, EmployeeVO vo) {
+	public void edit(@RequestParam(value = "oper", defaultValue = "", required = false) String oper,
+			@RequestParam(value = "id", defaultValue = "", required = false) String id, EmployeeVO vo) {
 		System.out.println("[EmployeeController][edit]");
 		System.out.println(vo);
 		if (oper.equals("add")) {

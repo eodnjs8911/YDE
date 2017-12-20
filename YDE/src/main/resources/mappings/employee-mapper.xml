@@ -8,8 +8,10 @@
 		<selectKey keyProperty="employeeNo" resultType="int" order="BEFORE">
 			SELECT IFNULL(MAX(employee_no), 0) + 1 FROM employee
 		</selectKey>
-		INSERT INTO tablename1 (employee_no, employee_name, employee_position, employee_phone)
-		VALUES(#{employeeNo}, #{employeeName}, #{employeePosition}, #{employeePhone})
+		INSERT INTO tablename1 (employee_no, employee_name, employee_position,
+		employee_phone)
+		VALUES(#{employeeNo}, #{employeeName},
+		#{employeePosition}, #{employeePhone})
 	</insert>
 
 	<update id="update" parameterType="EmployeeVO">
@@ -35,14 +37,32 @@
 	<select id="selectList" resultType="EmployeeVO">
 		SELECT * FROM employee
 	</select>
-	
-	<select id="selectListByNoExpress" parameterType="ExpressVO" resultType="EmployeeVO">
-		SELECT * FROM employee where employee_no not in (SELECT e.employee_no FROM express_employee ee join employee e on ee.employee_no = e.employee_no where ee.express_no = #{expressNo})
-	</select>
-	
-	<select id="selectListByExpress" parameterType="ExpressVO" resultType="EmployeeVO">
-		SELECT * FROM express_employee ee join employee e on ee.employee_no = e.employee_no where ee.express_no = #{expressNo}
+
+	<select id="selectListByNoExpress" parameterType="ExpressVO"
+		resultType="EmployeeVO">
+		SELECT * FROM employee where employee_no not in (SELECT
+		e.employee_no FROM express_employee ee join employee e on
+		ee.employee_no = e.employee_no where ee.express_no = #{expressNo})
 	</select>
 
+	<select id="selectListByExpress" parameterType="ExpressVO"
+		resultType="EmployeeVO">
+		SELECT * FROM express_employee ee join employee e on
+		ee.employee_no = e.employee_no where ee.express_no = #{expressNo}
+	</select>
+
+	<insert id="insertEmployeeExpress" parameterType="ExpressVO">
+		INSERT INTO
+		express_employee (employee_no, express_no)
+		VALUES(#{employeeNo},
+		#{expressNo})
+	</insert>
+
+	<delete id="deleteEmployeeExpress" parameterType="Integer">
+		DELETE FROM express_employee WHERE
+		express_no=#{expressNo}
+	</delete>
+
+	
 </mapper>
 

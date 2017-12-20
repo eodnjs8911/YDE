@@ -297,27 +297,35 @@
 				}
 			}
 		}
-		
-		function workSave(){
-			var expressNo = "?expressNo="+$("#expressNo").val();
+
+		function workSave() {
+			var expressNo = $("#expressNo").val();
 			var rowData = $('#manageEmployeeGrid').getRowData();
 			console.log(rowData);
-			
-	/* 		$.getJSON('/yde/employee/insertEmployeeExpress.do', {"expressNo":expressNo,"employeeNo",}, function(
-					data) {
-				if (data.result == "success") {
+			console.log(JSON.stringify(rowData));
 
-				} else {
+			$.ajax({
+				url : '/yde/employee/insertEmployeeExpress.do',
+				contentType : 'application/json;charset=utf-8',
+				dataType : 'json',
+				data : JSON.stringify({'expressNo':expressNo,datas:rowData}),
+				 type: 'POST',  
+				mimeType: 'application/json',
+				error : function(xhr, status, msg) {
+					console.log("상태값 :" + status + " Http에러메시지 :" + msg);
+				},
+				success : function(xhr) {
+					console.log(xhr.result);
+					$("#manageWorkModal").modal('hide')
 					
 				}
-				$('#calendar').fullCalendar('refetchEvents')
-			}); */
+			});
 		}
 
 		function manageWork() {
-			var expressNo = "?expressNo="+$("#expressNo").val();
+			var expressNo = "?expressNo=" + $("#expressNo").val();
 			$("#employeeGrid").jqGrid({
-				url : '/yde/employee/selectListByNoExpress.do'+expressNo,
+				url : '/yde/employee/selectListByNoExpress.do' + expressNo,
 				mtype : "GET",
 				styleUI : 'Bootstrap',
 				datatype : "json",
@@ -335,7 +343,7 @@
 				viewrecords : true,
 				multiselect : true
 			});
-			
+
 			$("#manageEmployeeGrid").jqGrid({
 				url : '/yde/employee/selectListByExpress.do' + expressNo,
 				mtype : "GET",

@@ -1,6 +1,7 @@
 package com.yedam.yde.employee;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public List<EmployeeVO> selectListByNoExpress(ExpressVO vo) {
 		// TODO Auto-generated method stub
 		return employeeDAO.selectListByNoExpress(vo);
+	}
+
+	@Override
+	public void insertEmployeeExpress(Map<String, Object> vo) {
+		// TODO Auto-generated method stub
+		employeeDAO.insertEmployeeExpress(vo);
+	}
+	
+	@Override
+	public void deleteEmployeeExpress(Integer expressNo) {
+		// TODO Auto-generated method stub
+		employeeDAO.deleteEmployeeExpress(expressNo);
 	}
 
 }

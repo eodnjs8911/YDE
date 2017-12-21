@@ -17,6 +17,7 @@
 		<typeAlias alias="GalleryVO" type="com.yedam.yde.gallery.GalleryVO" />
 		<typeAlias alias="EmployeeVO" type="com.yedam.yde.employee.EmployeeVO" />
 		<typeAlias alias="ResourceVO" type="com.yedam.yde.resource.ResourceVO" />
+		<typeAlias alias="VisitStatisticsVO" type="com.yedam.yde.visit.VisitStatisticsVO" />
 	</typeAliases>
 
 </configuration>

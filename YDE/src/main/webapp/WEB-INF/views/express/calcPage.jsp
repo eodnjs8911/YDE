@@ -14,6 +14,10 @@
 %>
 
 <script>
+	$(function() {
+		$("#expressDate").val(
+				moment(${date}, 'YYYYMMDD').format("YYYY-MM-DD HH:mm"));
+	})
 
 	var expressNo = 0;
 	function priceCalc() {
@@ -59,13 +63,13 @@
 
 
 <div class="col-md-6">
-		<img src="/yde/resources/images/MI1_4.png" alt="가격산정방식"
+	<img src="/yde/resources/images/MI1_4.png" alt="가격산정방식"
+		class="img-responsive"> <img
+		src="/yde/resources/images/MI1_4_2.png" alt="가격산정방식"
+		class="img-responsive"> <img
+		src="/yde/resources/images/MI1_4_3.png" alt="가격산정방식"
 		class="img-responsive">
-		<img src="/yde/resources/images/MI1_4_2.png" alt="가격산정방식"
-		class="img-responsive">
-		<img src="/yde/resources/images/MI1_4_3.png" alt="가격산정방식"
-		class="img-responsive">
-	
+
 </div>
 <div class="col-md-6">
 	<form class="form-horizontal" id="calcForm">
@@ -90,13 +94,13 @@
 
 				<script>
 					$("#expressDate").datetimepicker({
-						locale:'ko',
+						locale : 'ko',
 						format : 'YYYY-MM-DD HH:mm',
 						showClose : true,
 						showClear : true,
 						showTodayButton : true,
-						stepping:30,
-						defaultDate:new Date(),
+						stepping : 30,
+						defaultDate : new Date(),
 						sideBySide : true
 					});
 				</script>

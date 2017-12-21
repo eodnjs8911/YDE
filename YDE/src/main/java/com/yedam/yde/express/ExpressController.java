@@ -4,11 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -20,9 +23,10 @@ public class ExpressController {
 	ExpressService expressService;
 
 	@RequestMapping("/express/calcPage.do")
-	public String calcPage(ExpressVO vo, SessionStatus sessionStatus, Model model) {
+	public String calcPage(ExpressVO vo, SessionStatus sessionStatus,HttpServletRequest request, Model model,@RequestParam(value="date",defaultValue="",required=false)String date) {
 		sessionStatus.isComplete();
 		model.addAttribute("express", new ExpressVO());
+		request.setAttribute("date", date);
 		return "express/calcPage";
 	}
 

@@ -14,10 +14,7 @@
 %>
 
 <script>
-	$(function() {
-		$("#expressDate").val(
-				moment(${date}, 'YYYYMMDD').format("YYYY-MM-DD HH:mm"));
-	})
+	$(function() {$("#expressDate").val(moment(${date}, 'YYYYMMDD').format("YYYY-MM-DD HH:mm"));})
 
 	var expressNo = 0;
 	function priceCalc() {

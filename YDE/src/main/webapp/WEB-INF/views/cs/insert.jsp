@@ -72,6 +72,7 @@
 
 <!-- http://localhost/yde/cs/insert.do -->
 
+	<%@ include file="menu_CS1.jsp"%>  
 	<form class="form-horizontal" id="myForm" action="insert.do"
 		method="post">
 		<div>

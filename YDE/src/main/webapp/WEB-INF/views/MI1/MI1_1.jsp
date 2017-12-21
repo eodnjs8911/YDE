@@ -9,6 +9,23 @@
 <style>
 
 </style>
+	<script type="text/javascript">
+   function Check(form)
+
+   {
+        //체크박스 선택 개수확인 
+        var ch = "";
+      		
+        for(i=0;i<form.MI_checklist.length;i++){
+        if (form.MI_checklist[i].checked)
+             ch += form.MI_checklist[i].value + "\n";
+        }
+
+        alert(ch);
+   }
+
+</script>
+	
 </head>
 <body>
 	<%@ include file="menu_MI1.jsp"%>
@@ -18,6 +35,7 @@
 		width="100%">
 	<div id="checklist">
 	<div class="check_title">이사일 확정</div>
+	<form>
 	<table>
 		<thead>
 			<tr>
@@ -226,6 +244,9 @@
 		</tbody>
 	</table>
 	
+	<input type="button" value="쿠키저장" onclick="Check(this.form);">
+	
+	</form>
 	</div>
 </body>
 </html>

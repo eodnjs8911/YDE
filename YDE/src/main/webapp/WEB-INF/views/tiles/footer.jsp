@@ -31,10 +31,10 @@
 		<label style="font-size: medium;" for="toggle"><font color="#333" size="3px">고객센터▼</font></label> 
 		<input type="checkbox" id="toggle">
 		<ul id="nav">
-			<li><a onclick="location.href='go.do?go=cs/cs'">공지사항</a></li>
-			<li><a onclick="location.href='#'">자주묻는질문</a></li>
-			<li><a onclick="location.href='#'">이용후기</a></li>
-			<li><a onclick="location.href='#'">현장갤러리</a></li>
+			<li><a onclick="location.href='go.do?go=cs/notice'">공지사항</a></li>
+			<li><a onclick="location.href='go.do?go=cs/faq'">FAQ</a></li>
+			<li><a onclick="location.href='go.do?go=cs/epilogue'">이용후기</a></li>
+			<li><a onclick="location.href='go.do?go=cs/gallery'">현장갤러리</a></li>
 			<li><a onclick="location.href='#'">불편신고</a></li>
 		</ul>
 	</div>
@@ -45,6 +45,7 @@
 			사업자등록번호: 509-88-00524 화물자동차운송주선사업허가증 : 제2016-주이-009호 국제물류주선업등록증 :
 			제3416호 이사비용계산기 특허원 제68833호<br /> 통신판매업신고번호: 제2017-경기부천-0112호 대표 정은수<br />
 			Copyright(C) 24STORY.CO.KR All rights reserved.
+			<a href='express/expressAdminPage.do'>관리자페이지로 접속</a>
 		</font>
 	</div>
 </body>

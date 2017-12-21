@@ -29,7 +29,7 @@
 					dateFormat : "yy-mm-dd",
 					numberOfMonths : 2,
 					minDate : '0',
-					maxDate : '+3m',
+					maxDate : '+2m',
 					closeText : "닫기",
 					prevText : "이전달",
 					nextText : "다음달",
@@ -57,7 +57,7 @@
 					},
 					onSelect : function(dateText, inst){
 						console.log(dateText);
-						location.replace("express/calcPage.do?date="+dateText);  
+						location.assign("express/calcPage.do?date="+dateText);  
 					}
 				})
 

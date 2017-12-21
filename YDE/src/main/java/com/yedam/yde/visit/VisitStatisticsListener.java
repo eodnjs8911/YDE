@@ -6,6 +6,12 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import org.apache.tiles.request.Request;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 
 /**
  * Application Lifecycle Listener implementation class VisitStatisticsListener
@@ -53,17 +59,29 @@ public class VisitStatisticsListener implements ServletContextListener, HttpSess
     //execute
    	private void execute(HttpSessionEvent sessionEve) 
     {
-   		VisitCountDAO dao = VisitCountDAO.getInstance();
+   		
         
         try {
-
-            // 총 방문자 수
-            int totalCount = dao.getTotalCount();
-            // 오늘 방문자 수
-            int todayCount = dao.getTodayCount();
-            
             HttpSession session = sessionEve.getSession();
             
+            ApplicationContext ctx = 
+                  WebApplicationContextUtils.
+                        getWebApplicationContext(session.getServletContext());
+   
+            VisitStatisticsService statisticsService = 
+                        (VisitStatisticsService) ctx.getBean(VisitStatisticsService.class);
+            
+            // 총 방문자 수
+            int totalCount = statisticsService.TotalCount();
+            // 오늘 방문자 수
+            int todayCount = statisticsService.TodayCount();
+            
+            String ipAddr = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes())
+                    .getRequest().getRemoteAddr();
+            
+            VisitStatisticsVO statisticsVO = new VisitStatisticsVO();
+            statisticsVO.setVisitIp(ipAddr);
+            statisticsService.insertVisitStatistics(statisticsVO);
             // 세션에 방문자 수를 담는다.
             session.setAttribute("totalCount", totalCount); 
             session.setAttribute("todayCount", todayCount);

@@ -15,42 +15,72 @@
 		'packages' : [ 'corechart' ]
 	});
 	google.setOnLoadCallback(function() {
-		//차트에 넣을 data를 ajax 요청해서 가져옴
-		$.ajax({
-			url : "./getVisitStatisticsList.do",
-			method : "post",
-			type : "json",
-			success : function(data) {
-				//ajax결과를 chart에 맞는 data 형태로 가공
-				var chartData = [];
-				chartData.push([ '날짜', '방문자수' ])
-				for (i = 0; i < data.length; i++) {
-					var subarr = [ data[i].visit_date, data[i].visit_ip ];
-					chartData.push(subarr);
-				}
-				//챠트 그리기
-				var chart = new google.visualization.LineChart(document.querySelector('#chart_div'));
-				chart.draw(google.visualization.arrayToDataTable(chartData), options);
-			}
-		});
+		chartDraw('${pageContext.request.contextPath}/visit/selectListYear.do');
 	});
+	
+	function chartDraw(url){
+		//차트에 넣을 data를 ajax 요청해서 가져옴
+				$.ajax({
+					url : url,
+					method : "post",
+					type : "json",
+					success : function(data) {
+						//ajax결과를 chart에 맞는 data 형태로 가공
+						var chartData = [];
+						chartData.push([ '날짜', '방문자수' ])
+						if(data.length == 0){
+							var subarr = [ "날짜", 0 ];
+							chartData.push(subarr);
+						}
+						else{
+							for (i = 0; i < data.length; i++) {
+								var subarr = [ data[i].ymd, data[i].cnt ];
+								chartData.push(subarr);
+							}
+						}	
+						//챠트 그리기
+						var chart = new google.visualization.LineChart(document.querySelector('#chart_div'));
+						chart.draw(google.visualization.arrayToDataTable(chartData), options);
+					}
+				});
+	}
+	
+	function visit(charttab) {
+		var url='';
+		if (charttab == 'day'){
+			 
+			url = '${pageContext.request.contextPath}/visit/selectListDay.do?visitDate='+$("#byYear").val()+"-"+$("#byMonth").val()
+		}
+		else if(charttab == 'month'){
+			url = '${pageContext.request.contextPath}/visit/selectListMonth.do?visitDate='+$("#byYear").val()
+		}
+		else if(charttab == 'year'){
+			url = '${pageContext.request.contextPath}/visit/selectListYear.do'
+		}
+		chartDraw(url);
+	}
 </script>
 </head>
 <body>
+
+<!-- http://localhost/yde/go.do?go=admin_flot/visitCount -->
+<!-- http://localhost/yde/visit/selectListYearAdminPage.do -->
+
+
  <form name=form>
 <input type=hidden name="statistics" value="">
 	<table class="basic">
 		<tr>
 			<!-- <th title="기준" width="60%"></th> -->
 			<th align="center">
-					<select name="byYear">
+					<select name="byYear" id="byYear">
 						<option value="2017">2017</option>
 						<option value="2016">2016</option>
 						<option value="2015">2015</option>
 					</select>
 				</th>
 			<th align="center">
-					<select name="byMonth" >
+					<select name="byMonth" id="byMonth" >
 						<option value="01" >1</option>
 						<option value="02">2</option>
 						<option value="03">3</option>
@@ -74,7 +104,7 @@
 	</table>
 	</form>
  
- <div id="chart_div"></div>
+ 
  <br/><br/><br/>
  <!-- /.col-lg-6 -->
                 <div class="col-lg-6">
@@ -82,12 +112,10 @@
                         <div class="panel-heading">
                             방문자 통계
                         </div>
+                        
+                         <div id="chart_div"></div>
                         <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-bar-chart"></div>
-                            </div>
-                        </div>
+                       
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->

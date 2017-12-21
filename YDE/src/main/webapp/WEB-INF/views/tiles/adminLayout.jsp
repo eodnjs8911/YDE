@@ -292,6 +292,9 @@
 						<li><a
 							href="${pageContext.request.contextPath}/resource/resourceAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 자재 관리</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/visit/selectListYearAdminPage.do"><i
+								class="fa fa-table fa-fw"></i> 방문자 통계</a></li>
 
 
 						<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>
@@ -336,6 +339,12 @@
 								<li><a class="active" href="blank.html">Blank Page</a></li>
 								<li><a href="login.html">Login Page</a></li>
 							</ul> <!-- /.nav-second-level --></li>
+							<li>
+								오늘방문자수<br/>
+								${todayCount}<br/>
+								총방문자수<br/>
+								${totalCount}
+							</li>
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->

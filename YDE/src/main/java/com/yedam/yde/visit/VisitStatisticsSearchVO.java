@@ -3,26 +3,26 @@ package com.yedam.yde.visit;
 public class VisitStatisticsSearchVO {
 
 	String statistics;
-	String byYear;
-	String byMonth;
+	String visitDate;
+	String visitIp;
 	
+	public String getVisitIp() {
+		return visitIp;
+	}
+	public void setVisitIp(String visitIp) {
+		this.visitIp = visitIp;
+	}
 	public String getStatistics() {
 		return statistics;
 	}
 	public void setStatistics(String statistics) {
 		this.statistics = statistics;
 	}
-	public String getByYear() {
-		return byYear;
+	public String getVisitDate() {
+		return visitDate;
 	}
-	public void setByYear(String byYear) {
-		this.byYear = byYear;
-	}
-	public String getByMonth() {
-		return byMonth;
-	}
-	public void setByMonth(String byMonth) {
-		this.byMonth = byMonth;
+	public void setVisitDate(String visitDate) {
+		this.visitDate = visitDate;
 	}
 	
 	

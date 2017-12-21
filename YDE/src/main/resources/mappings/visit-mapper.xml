@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="VisitStatisticsDAO">
+
+	<insert id="insert" parameterType="VisitStatisticsVO">
+	
+
+		<!-- insert into claim values () -->
+		<![CDATA[
+			INSERT INTO VISIT(VISIT_DATE, VISIT_IP)  
+			VALUES(NOW(), #{visitIp})
+		]]>
+	</insert>
+	<!-- 까지 -->
+	
+<!-- 	<update id="update" parameterType="VisitStatisticsVO">
+		update ? where claim_no = #{claimNo}
+		<![CDATA[
+			UPDATE CLAIM SET
+				CLAIM_STATE = #{claimState}
+				WHERE CLAIM_NO = #{claimNo}
+		]]>
+	</update>
+	
+	<delete id="delete" parameterType="VisitStatisticsVO">
+		delete from claim where claim_no = #{claimNo}
+	</delete> -->
+
+	<select id="selectIp" parameterType="VisitStatisticsSearchVO" resultType="map">
+		select * from visit where visit_ip = #{visitIp}
+	</select>
+
+<!-- 파라미터 전달 받는 법? -->
+
+<select id="selectListYear" parameterType="VisitStatisticsSearchVO" resultType="map">
+		select count(*) cnt, DATE_FORMAT(visit_date, '%Y')  ymd 
+		from visit 
+		group by DATE_FORMAT(visit_date, '%Y') 
+		order by ymd
+</select>
+
+<select id="selectListMonth" parameterType="VisitStatisticsSearchVO" resultType="map">
+		select count(*) cnt, DATE_FORMAT(visit_date, '%Y-%m')  ymd 
+		from visit 
+		where DATE_FORMAT(visit_date, '%Y') =#{visitDate} 
+		group by DATE_FORMAT(visit_date, '%Y-%m') 
+		order by ymd
+</select>
+	
+<select id="selectListDay" parameterType="VisitStatisticsSearchVO" resultType="map">
+		select count(*) cnt, DATE_FORMAT(visit_date, '%Y-%m-%d')  ymd 
+		  from visit 
+		  where DATE_FORMAT(visit_date, '%Y-%m') =#{visitDate} 
+		  group by DATE_FORMAT(visit_date, '%Y-%m-%d')  
+		  order by ymd
+</select>
+
+<select id="TotalCount" resultType="Integer">
+		select count(*) cnt 
+			from visit
+</select>
+
+<select id="TodayCount"  resultType="Integer">
+		select count(*) cnt
+		  from visit 
+		  where DATE_FORMAT(visit_date, '%Y-%m-%d') =DATE_FORMAT(now(), '%Y-%m-%d')
+</select>
+
+<select id="CheckTodayIp"  resultType="Integer">
+		select *
+		  from visit 
+		  where visit_ip = #{visitIp} and DATE_FORMAT(visit_date, '%Y-%m-%d') 
+							  =DATE_FORMAT(now(), '%Y-%m-%d')
+</select>
+
+</mapper>

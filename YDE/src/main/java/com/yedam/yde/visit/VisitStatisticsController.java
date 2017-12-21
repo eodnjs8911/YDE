@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.yedam.yde.employee.EmployeeVO;
 
 @Controller
 @RequestMapping("/visit/")
@@ -27,21 +27,40 @@ public class VisitStatisticsController {
 		conditionMap.put("IP", "VISIT_IP");
 		return conditionMap;
 	}
-	
-/*	// 목록 (ajax)
-	@RequestMapping("getVisitStatisticsList.do")
-	@ResponseBody // JSON 또는 XML로 변환
-	public List<VisitStatisticsSearchVO> getVisitStatisticsList() {
 
-		return VisitStatisticsSearchVO.getVisitStatisticsList(null);
-	}*/
 	
-	// 목록 (ajax)
-		@RequestMapping("getVisitStatisticsList.do")
-		@ResponseBody 
-		public String getVisitStatisticsList(VisitStatisticsSearchVO statistics, Model model) {
-			model.addAttribute("visitStatisticsList", visitStatisticsService.getVisitStatisticsList(statistics));
-			return "visit/visitStatisticsList";
-		}
+	@RequestMapping("/selectListYearAdminPage.do")
+	public String selectListYearAdminPage() {
+		System.out.println("[VisitStatisticsController][selectListYearAdminPage]");
+		return "admin_flot/visitCount";
+	}
+	
+	// ip 누적방문 (ajax)
+	@RequestMapping("getselectIp.do")
+	@ResponseBody
+	public List<Map<String,Object>> selectIp(VisitStatisticsSearchVO statistics, Model model) {
+		return visitStatisticsService.selectIp(statistics);
+	}
+
+	// 년별 (ajax)
+	@RequestMapping("selectListYear.do")
+	@ResponseBody
+	public List<Map<String,Object>> selectListYear(VisitStatisticsSearchVO statistics, Model model) {
+		return visitStatisticsService.selectListYear(statistics);
+	}
+
+	// 월별 (ajax)
+	@RequestMapping("selectListMonth.do")
+	@ResponseBody
+	public List<Map<String,Object>> selectListMonth(VisitStatisticsSearchVO statistics, Model model) {
+		return visitStatisticsService.selectListMonth(statistics);
+	}
+
+	// 일별 (ajax)
+	@RequestMapping("selectListDay.do")
+	@ResponseBody
+	public List<Map<String,Object>> selectListDay(VisitStatisticsSearchVO statistics, Model model) {
+		return visitStatisticsService.selectListDay(statistics);
+	}
 
 }

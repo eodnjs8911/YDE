@@ -1,6 +1,10 @@
 package com.yedam.yde.claim;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tiles.request.Request;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,13 +45,16 @@ public class ClaimController {
 	// 등록 팝업 테스트
 	@RequestMapping(value = "/cs/insert.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String insert(ClaimVO vo) {
-		response.getWriter().append("<script>alert('"+"입력이 완료되었습니다.');").append("document.location.href='/yde/cs/insert.do';</script>");
-		
-		
-		
+	public void insert(ClaimVO vo, HttpServletResponse response) throws IOException {
 		claimService.insert(vo);
-		return "redirect:/cs/insert.do";
+		
+		// 응답결과 페이지 인코딩 -한글
+		response.setContentType("text/html; charset=utf-8");
+		
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('입력이 완료되었습니다.'); location.href='/yde/cs/insert.do';</script>");
+		out.flush();
+        out.close();   
 	}
 
 	// 수정

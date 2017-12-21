@@ -18,6 +18,22 @@ public interface VisitStatisticsService {
 	//public VisitStatisticsSearchVO getVisitStatistics(VisitStatisticsVO statistics);
 
 	// 전체조회
-	public List<Map<String,Object>> getVisitStatisticsList(VisitStatisticsSearchVO statistics);
+	//public List<Map<String,Object>> getVisitStatisticsList(VisitStatisticsSearchVO statistics);
 
+	//searchVO ? VO ?
+	//ip당 누적 방문횟수
+	public List<Map<String,Object>> selectIp(VisitStatisticsSearchVO statistics);
+	//년도별 방문자 (전체)
+	public List<Map<String,Object>> selectListYear(VisitStatisticsSearchVO statistics);
+	//달별 방문자 (1년)
+	public List<Map<String,Object>> selectListMonth(VisitStatisticsSearchVO statistics);
+	//일별 방문자 (1달)
+	public List<Map<String,Object>> selectListDay(VisitStatisticsSearchVO statistics);
+	
+	//오늘 방문자
+	public int TodayCount();
+
+	//총 방문자수 
+	public int TotalCount();
+	
 }

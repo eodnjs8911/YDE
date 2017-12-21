@@ -75,7 +75,7 @@
 	<form class="form-horizontal" id="myForm" action="insert.do"
 		method="post">
 		<div>
-			<img src="<c:url value='/'/>resources/images/claim.png" width=100%>
+			<img src="${pageContext.request.contextPath}/resources/images/claim.png" width=100%>
 		</div>
 		<br />
 		<div class="form-group">

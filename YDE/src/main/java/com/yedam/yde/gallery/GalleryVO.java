@@ -1,12 +1,20 @@
 package com.yedam.yde.gallery;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class GalleryVO {
 	int galleryNo;
 	String galleryContent;
 	String galleryWDate;
 	String galleryTitle;
-	String galaryImage;
+	MultipartFile galaryImage;
 	
+	public MultipartFile getGalaryImage() {
+		return galaryImage;
+	}
+	public void setGalaryImage(MultipartFile galaryImage) {
+		this.galaryImage = galaryImage;
+	}
 	public int getGalleryNo() {
 		return galleryNo;
 	}
@@ -18,12 +26,6 @@ public class GalleryVO {
 	}
 	public void setGalleryTitle(String galleryTitle) {
 		this.galleryTitle = galleryTitle;
-	}
-	public String getGalaryImage() {
-		return galaryImage;
-	}
-	public void setGalaryImage(String galaryImage) {
-		this.galaryImage = galaryImage;
 	}
 	public String getGalleryContent() {
 		return galleryContent;

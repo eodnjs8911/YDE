@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <!-- The link to the CSS that the grid needs -->
@@ -10,11 +10,14 @@
 <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- This is the Javascript file of jqGrid -->
-<script type="text/ecmascript" src="${pageContext.request.contextPath}/resources/jqgrid/jquery.jqGrid.min.js"></script>
+<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jqgrid/jquery.jqGrid.min.js"></script>
 <!-- This is the localization file of the grid controlling messages, labels, etc.
     <!-- We support more than 40 localizations -->
-<script type="text/ecmascript" src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
+<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
 
+<%@ include file="menu_CS1.jsp"%>
 <div>
 	<table id="noticejqGrid"></table>
 	<div id="noticejqGridPager"></div>
@@ -29,7 +32,7 @@ $(function() {
 		datatype : "json",
 		colModel : [
 			{
-				label : '°øÁö¹øÈ£',
+				label : 'ê³µì§€ë²ˆí˜¸',
 				name : 'noticeNo',
 				key : true,
 				width : 55,
@@ -41,13 +44,13 @@ $(function() {
 				} */
 			},
 			{
-				label : '°øÁö³»¿ë',
+				label : 'ê³µì§€ë‚´ìš©',
 				name : 'noticeContent',
 				width : 450,
 				editable : true,
 			},
 			{
-				label : '°øÁö³¯Â¥',
+				label : 'ê³µì§€ë‚ ì§œ',
 				name : 'noticeWDate',
 				width : 75,
 				editable : false,

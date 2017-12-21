@@ -11,6 +11,8 @@
 	href="${pageContext.request.contextPath}/resources/jquery/date_calendar.css">
 <script>
 	$(function() {
+		
+		$("#sideNavDp").hide();
 
 		$.ajax({
 			type : "POST",
@@ -22,7 +24,7 @@
 			}
 		});
 
-		$('#dp').datepicker(
+		$('#gooddayPicker').datepicker(
 				{
 					monthNames : [ ".01", ".02", ".03", ".04", ".05", ".06",
 							".07", ".08", ".09", ".10", ".11", ".12" ],
@@ -71,6 +73,6 @@
 	<img
 		src="${pageContext.request.contextPath}/resources/images/MI1_3.png"
 		width="100%">
-		<div id="dp" class="col-md-10 col-md-offset-1 col-sm-12"></div>
+		<div id="gooddayPicker" class="col-md-10 col-md-offset-1"></div>
 </body>
 </html>

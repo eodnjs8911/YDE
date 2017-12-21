@@ -7,7 +7,7 @@
 
 		$.ajax({
 			type : "POST",
-			url : '/yde/calenar/isNoGhostDay.do',
+			url : '${pageContext.request.contextPath}/calenar/isNoGhostDay.do',
 			dataType : "json",
 			async : false,
 			success : function(data) {
@@ -52,7 +52,7 @@
 							},
 							onSelect : function(dateText, inst) {
 								console.log(dateText);
-								location.assign("express/calcPage.do?date="
+								location.assign("${pageContext.request.contextPath}/express/calcPage.do?date="
 										+ dateText);
 							}
 						})

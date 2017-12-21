@@ -9,15 +9,15 @@
 <body>
 	<div style="width: 100%; text-align: center;">
 		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_1'">일반이사</button>
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/notice'">공지사항</button>
 		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_2'">원룸이사</button>
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/faq'">FAQ</button>
 		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_4'">기업이사</button>
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/epilogue'">이용후기</button>
 		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_5'">포장이사</button>
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/gallery'">현장갤러리</button>
 		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_3'">보관이사</button>
+			onclick="location.href='${pageContext.request.contextPath}/cs/insert.do'">불편신고</button>
 	</div>
 </body>
 </html>

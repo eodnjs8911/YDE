@@ -1,20 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!-- The link to the CSS that the grid needs -->
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid.css" />
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${pageContext.request.contextPath}/resources/css/gallery.css" />
-<script src="http://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- This is the Javascript file of jqGrid -->
 <script type="text/ecmascript" src="${pageContext.request.contextPath}/resources/jqgrid/jquery.jqGrid.min.js"></script>
 <!-- This is the localization file of the grid controlling messages, labels, etc.
     <!-- We support more than 40 localizations -->
 <script type="text/ecmascript" src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
 
+	<%@ include file="menu_CS1.jsp"%>
 <div id="tabs-3">
 	<table id="epiloguejqGrid"></table>
 	<div id="epiloguejqGridPager"></div>
@@ -30,7 +27,7 @@ $("#epiloguejqGrid").jqGrid({
 		datatype : "json",
 		colModel : [
 			{
-				label : 'ÈÄ±â¹øÈ£',
+				label : 'í›„ê¸°ë²ˆí˜¸',
 				name : 'epilogueNo',
 				key : true,
 				width : 55,
@@ -42,26 +39,26 @@ $("#epiloguejqGrid").jqGrid({
 				} */
 			},
 			{
-				label : 'ÀÛ¼ºÀÚ',
+				label : 'ì‘ì„±ì',
 				name : 'epilogueWriter',
 				width : 55,
 				editable : true,
 			},
 			{
-				label : 'ºñ¹Ğ¹øÈ£',
+				label : 'ë¹„ë°€ë²ˆí˜¸',
 				name : 'epiloguePw',
 				width : 55,
 				editable : false,
 				hidden:true
 			},
 			{
-				label : 'ÈÄ±â',
+				label : 'í›„ê¸°',
 				name : 'epilogueContent',
 				width : 450,
 				editable : true,
 			},
 			{
-				label : 'ÀÛ¼ºÀÏ',
+				label : 'ì‘ì„±ì¼',
 				name : 'epilogueWDate',
 				width : 75,
 				editable : false,

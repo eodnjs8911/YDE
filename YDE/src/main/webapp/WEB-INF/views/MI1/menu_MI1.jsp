@@ -7,15 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="width: 100%; text-align: center; border-top: 1px solid #0BC3F7; border-bottom: 1px solid #0BC3F7;">
+	<div style="width: 100%; text-align: center; ">
 		<button class="button button2" type="button"
-			onclick="location.href='go.do?go=MI1/MI1_1'">이사체크리스트</button>
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_1'">이사체크리스트</button>
 		<button class="button button2" type="button"
-			onclick="location.href='go.do?go=MI1/MI1_2'">계약시유의사항</button>
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_2'">계약시유의사항</button>
 		<button class="button button2" type="button"
-			onclick="location.href='go.do?go=MI1/MI1_3'">이사하기좋은날</button>
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_3'">이사하기좋은날</button>
 		<button class="button button2" type="button"
-			onclick="location.href='go.do?go=MI1/MI1_4'">이사가격산정방식</button>
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_4'">이사가격산정방식</button>
 	</div>
 </body>
 </html>

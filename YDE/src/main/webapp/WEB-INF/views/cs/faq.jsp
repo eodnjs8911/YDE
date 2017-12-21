@@ -10,7 +10,6 @@
 <style>
 body {
 	margin-top: 30px;
-	background-color: #eee;
 }
 
 .list-group.help-group {
@@ -136,10 +135,9 @@ $(function() {
 <body>
 
 	<form id="myForm1">
-
-		<div>
-			<img src="<c:url value='/'/>resources/images/faq.png" height=188px
-				width=100%>
+	<%@ include file="menu_CS1.jsp"%>  
+		<div style="width: 100%;align-content: center;">
+			<img src="<c:url value='/'/>resources/images/faq.png" width=100%>
 		</div>
 		<br/><br/>
 		<div class="container">

@@ -11,6 +11,8 @@
 	src="${pageContext.request.contextPath}/resources/jquery/jquery-3.2.1.min.js"></script>
 <script type="text/ecmascript"
 	src="${pageContext.request.contextPath}/resources/jquery/jquery-ui.js"></script>
+<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jquery/jquery.cookie.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -38,8 +40,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<tiles:insertAttribute name="content" />
 			</div>
-			<div class="col-md-2 sidenav text-center"
-				style="background-color: #D8D8D8;">
+			<div class="col-md-2 sidenav text-center">
 				<tiles:insertAttribute name="side" />
 			</div>
 		</div>

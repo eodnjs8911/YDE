@@ -38,8 +38,7 @@
 			<div class="col-md-8 col-md-offset-2">
 				<tiles:insertAttribute name="content" />
 			</div>
-			<div class="col-md-2 sidenav text-center"
-				style="background-color: #D8D8D8;">
+			<div class="col-md-2 sidenav text-center">
 				<tiles:insertAttribute name="side" />
 			</div>
 		</div>

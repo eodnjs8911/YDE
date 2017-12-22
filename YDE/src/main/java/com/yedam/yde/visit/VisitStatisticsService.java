@@ -36,4 +36,5 @@ public interface VisitStatisticsService {
 	//총 방문자수 
 	public int TotalCount();
 	
+	
 }

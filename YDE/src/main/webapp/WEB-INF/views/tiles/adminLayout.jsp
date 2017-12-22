@@ -339,10 +339,11 @@
 								<li><a class="active" href="blank.html">Blank Page</a></li>
 								<li><a href="login.html">Login Page</a></li>
 							</ul> <!-- /.nav-second-level --></li>
-							<li>
-								오늘방문자수<br/>
+							<li style="text-align:center">
+								<br/>
+								오늘 방문자수 &nbsp;&nbsp;&nbsp;
 								${todayCount}<br/>
-								총방문자수<br/>
+								총 방문자수&nbsp;&nbsp;&nbsp;				
 								${totalCount}
 							</li>
 					</ul>

@@ -15,13 +15,18 @@ public class VisitStatisticsServiceImpl implements VisitStatisticsService {
 	//입력
 	@Override
 	public boolean insertVisitStatistics(VisitStatisticsVO statistics) {
-		int r = visitStatisticsDAO.insert(statistics);
-		if(r>0) {
-			return true;
+		
+		Integer check = visitStatisticsDAO.CheckTodayIp(statistics);
+		System.out.println("============ 당일 ip중복 check값(VisitStatisticsServiceImpl) null:입력,1:입력X =============== : "+ check);
+		if( check == null) {			
+		
+			int r = visitStatisticsDAO.insert(statistics);
+			if(r>0) {
+				return true;
+			}
 		}
-		else return false;
+		return false;
 	}
-	
 	//ip당 누적 방문횟수
 	@Override
 	public List<Map<String,Object>> selectIp(VisitStatisticsSearchVO statistics){

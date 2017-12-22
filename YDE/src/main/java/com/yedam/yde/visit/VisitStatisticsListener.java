@@ -83,6 +83,7 @@ public class VisitStatisticsListener implements ServletContextListener, HttpSess
             statisticsVO.setVisitIp(ipAddr);
             statisticsService.insertVisitStatistics(statisticsVO);
             // 세션에 방문자 수를 담는다.
+            System.out.println("===== 방문자수실행 =====\n");
             session.setAttribute("totalCount", totalCount); 
             session.setAttribute("todayCount", todayCount);
             

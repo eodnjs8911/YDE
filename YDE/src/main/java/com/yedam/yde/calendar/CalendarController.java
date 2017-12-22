@@ -36,12 +36,9 @@ public class CalendarController {
 		while (cal.compareTo(cal2) <= 0) {
 
 			String solar = format.format(cal.getTime());
-			System.out.println(solar);
 			Map<String, String> date = EgovDateUtil.toLunar(solar);
 			String lunar = date.get("day");
-			System.out.println(lunar);
 			String lunarEnd = lunar.substring(lunar.length() - 1, lunar.length());
-			System.out.println(lunarEnd);
 			if (lunarEnd.equals("0") || lunarEnd.equals("1")) {
 				lunarList.add(solar);
 			}

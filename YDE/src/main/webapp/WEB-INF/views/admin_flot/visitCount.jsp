@@ -8,8 +8,8 @@
 <script>
 	var options = {
 		title : '일당 방문자수',
-		width : 400,
-		height : 500
+		width : 700,
+		height : 600
 	};
 	google.load('visualization', '1.0', {
 		'packages' : [ 'corechart' ]
@@ -66,7 +66,7 @@
 <!-- http://localhost/yde/go.do?go=admin_flot/visitCount -->
 <!-- http://localhost/yde/visit/selectListYearAdminPage.do -->
 
-
+<br/>
  <form name=form>
 <input type=hidden name="statistics" value="">
 	<table class="basic">
@@ -95,8 +95,9 @@
 						<option value="12">12</option>
 					</select>
 				</th>
-			<th>
+			<th>&nbsp;
 			<button align="right" type="button" onclick="visit('day')" style="float: center;">일별</button>&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<button align="right" type="button" onclick="visit('month')" style="float: center;">월별</button>&nbsp;
 			<button align="right" type="button" onclick="visit('year')" style="float: center;">연도별</button>
 			</th>

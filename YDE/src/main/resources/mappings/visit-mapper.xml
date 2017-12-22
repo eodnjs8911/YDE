@@ -68,11 +68,11 @@
 		  where DATE_FORMAT(visit_date, '%Y-%m-%d') =DATE_FORMAT(now(), '%Y-%m-%d')
 </select>
 
-<select id="CheckTodayIp"  resultType="Integer">
-		select *
+<select id="CheckTodayIp"  resultType="Integer">	<!-- null check하면 됨 -->
+		select 1
 		  from visit 
-		  where visit_ip = #{visitIp} and DATE_FORMAT(visit_date, '%Y-%m-%d') 
-							  =DATE_FORMAT(now(), '%Y-%m-%d')
+		  where visit_ip = #{visitIp} 
+		  and DATE_FORMAT(visit_date, '%Y-%m-%d') =DATE_FORMAT(now(), '%Y-%m-%d')
 </select>
 
 </mapper>

@@ -46,7 +46,7 @@
 				label : '공지번호',
 				name : 'noticeNo',
 				key : true,
-				width : 55,
+				width : 50,
 				editable : false,
 				readonly : true,
 				sorttype : 'integer'
@@ -56,12 +56,12 @@
 			}, {
 				label : '공지사항',
 				name : 'noticeTitle',
-				width : 450,
+				width : 300,
 				editable : true
 			}, {
 				label : '내용',
 				name : 'noticeContent',
-				width : 450,
+				width : 300,
 				hidden : true,
 				editable : true,
 				edithidden : false
@@ -75,6 +75,7 @@
 			loadonce : true,
 			cache : false,
 			height : 'auto',
+			autowidth : true,
 			responsive :true,
 			rowNum : 10,
 			pager : "#noticejqGridPager",
@@ -88,8 +89,8 @@
 					//selectOnExpand : true 
 					},
 			onSelectRow : selectRow,
-			navOptions: { reloadGridOptions: { fromServer: true } },
-					autowidth : true
+			navOptions: { reloadGridOptions: { fromServer: true } }
+				
 		});
 
 		var login = "${login}";

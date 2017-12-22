@@ -48,7 +48,6 @@
 					arr.push(frm.MI_checklist[i].value);
 	        }
 			var cookie_value = JSON.stringify(arr); 
-			//'cookie'라는 key값으로 입력값을 저장한다. 
 			//1번째 parameter = 쿠키명 
 			// 2번째 parameter = 저장하고자 하는 쿠키값 
 			$.cookie('beforeck', cookie_value);

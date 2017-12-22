@@ -295,6 +295,9 @@
 						<li><a
 							href="${pageContext.request.contextPath}/visit/selectListYearAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 방문자 통계</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/express/expressBasicMonthAdminPage.do"><i
+								class="fa fa-table fa-fw"></i> 기초상담 통계</a></li>
 
 
 						<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>

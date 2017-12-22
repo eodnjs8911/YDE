@@ -27,8 +27,7 @@
 				name="noticeContent" rows="3"></textarea>
 		</div>
 		<div class="form-group">
-			<div>{sData}</div>
-			<div>{cData}</div>
+			<div align="right">{sData}{cData}</div>
 		</div>
 	</form>
 </div>
@@ -36,17 +35,17 @@
 <script type="text/javascript">
 	$(function() {
 		$("#dialogTemplate").hide();
-		
+
 		$("#noticejqGrid").jqGrid({
 			url : '/yde/cs/notice/selectList.do',
 			editurl : '/yde/cs/notice/edit.do',
 			datatype : "json",
 			styleUI : 'Bootstrap',
 			colModel : [ {
-				label : '공지번호',
+				label : '번호',
 				name : 'noticeNo',
 				key : true,
-				width : 50,
+				width : 60,
 				editable : false,
 				readonly : true,
 				sorttype : 'integer'
@@ -76,36 +75,43 @@
 			cache : false,
 			height : 'auto',
 			autowidth : true,
-			responsive :true,
+			responsive : true,
 			rowNum : 10,
 			pager : "#noticejqGridPager",
 			sortname : "noticeNo",
 			sortorder : "desc",
 			subGrid : true,
 			subGridRowExpanded : showNoticeContent,
-			 subGridOptions : {
-					reloadOnExpand :false,
-					openicon: "", 
-					//selectOnExpand : true 
-					},
+			subGridOptions : {
+				reloadOnExpand : false,
+				openicon : "",
+			//selectOnExpand : true 
+			},
 			onSelectRow : selectRow,
-			navOptions: { reloadGridOptions: { fromServer: true } }
-				
+			navOptions : {
+				reloadGridOptions : {
+					fromServer : true
+				}
+			}
+
 		});
 
 		var login = "${login}";
 
 		if (login.length > 0) {
-			$('#noticejqGrid').jqGrid('navGrid', "#noticejqGridPager", {
-			}, {
+			$('#noticejqGrid').jqGrid('navGrid', "#noticejqGridPager", {}, {
 				template : $("#dialogTemplate").html(),
-				closeAfterEdit: true,
+				closeAfterEdit : true,
 				reloadAfterSubmit : true,
-				afterComplete : function () {
-					$("#noticejqGrid").setGridParam({datatype:'json', page:1}).trigger('reloadGrid');
-					}
+				afterComplete : function() {
+					$("#noticejqGrid").setGridParam({
+						datatype : 'json',
+						page : 1
+					}).trigger('reloadGrid');
+				}
 			}, {
-				closeAfterAdd: true, reloadAfterSubmit: true,
+				closeAfterAdd : true,
+				reloadAfterSubmit : true,
 				template : $("#dialogTemplate").html()
 			});
 		}

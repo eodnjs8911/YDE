@@ -32,7 +32,11 @@ public class EpilogueVO {
 		this.epilogueContent = epilogueContent;
 	}
 	public String getEpilogueWDate() {
-		return epilogueWDate;
+		if(epilogueWDate != null) {
+			return epilogueWDate.substring(0, epilogueWDate.length() -5);
+		}else {
+			return epilogueWDate;
+		}
 	}
 	public void setEpilogueWDate(String epilogueWDate) {
 		this.epilogueWDate = epilogueWDate;

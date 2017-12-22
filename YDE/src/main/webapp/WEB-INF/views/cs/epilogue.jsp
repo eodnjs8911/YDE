@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- The link to the CSS that the grid needs -->
+	<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jqgrid/jquery.jqGrid.min.js"></script>
+<script type="text/ecmascript"
+	src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
 <link rel="stylesheet" type="text/css" media="screen"
-	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid.css" />
-<link rel="stylesheet" type="text/css" media="screen"
-	href="${pageContext.request.contextPath}/resources/css/gallery.css" />
-<!-- This is the Javascript file of jqGrid -->
-<script type="text/ecmascript" src="${pageContext.request.contextPath}/resources/jqgrid/jquery.jqGrid.min.js"></script>
-<!-- This is the localization file of the grid controlling messages, labels, etc.
-    <!-- We support more than 40 localizations -->
-<script type="text/ecmascript" src="${pageContext.request.contextPath}/resources/jqgrid/grid.locale-kr.js"></script>
+	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
 
-	<%@ include file="menu_CS1.jsp"%>
+<%@ include file="menu_CS1.jsp"%>
 <div id="tabs-3">
 	<table id="epiloguejqGrid"></table>
 	<div id="epiloguejqGridPager"></div>

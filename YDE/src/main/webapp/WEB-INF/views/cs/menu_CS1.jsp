@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
 	<div style="width: 100%; text-align: center;">

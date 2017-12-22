@@ -9,5 +9,7 @@
 </head>
 <body>
 	<%@ include file="menu_MD1.jsp"%>
+	
+	<img src="${pageContext.request.contextPath}/resources/images/MD1_4.jpg" width="100%">
 </body>
 </html>

@@ -5,6 +5,8 @@
 <title>방문자 통계(구글차트)</title>
 <script src="//www.google.com/jsapi"></script>
 <script src="./resources/jquery/jquery-3.2.1.min.js"></script>
+
+<!-- http://localhost/yde/go.do?go=admin_flot/expressCount -->
 <script>
 	var options = {
 		title : '작업수',

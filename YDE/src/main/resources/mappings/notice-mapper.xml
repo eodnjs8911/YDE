@@ -9,12 +9,12 @@
 			SELECT IFNULL(MAX(notice_no), 0) + 1 FROM notice
 		</selectKey>
 		
-		insert into notice (notice_no, notice_w_date, notice_content) values(#{noticeNo}, NOW(), #{noticeContent})
+		insert into notice (notice_no, notice_w_date, notice_content, notice_title) values(#{noticeNo}, NOW(), #{noticeContent},#{noticeTitle})
 	</insert>
 	
 	<update id="update" parameterType="NoticeVO">
 		<!-- update ? where notice_no = #{noticeNo} -->
-		update notice set notice_content = #{noticeContent}	where notice_no = #{noticeNo}
+		update notice set notice_content = #{noticeContent}, notice_title = #{noticeTitle}	where notice_no = #{noticeNo}
 	</update>
 	
 	<delete id="delete" parameterType="NoticeVO">

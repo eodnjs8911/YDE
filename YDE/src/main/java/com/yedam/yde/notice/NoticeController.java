@@ -58,7 +58,10 @@ public class NoticeController {
 		if(oper.equals("add")) {
 			noticeService.insert(vo);
 		}else if(oper.equals("edit")) {
-			noticeService.update(vo);
+			if(id!=null&id.length()>0) {
+				vo.setNoticeNo(Integer.parseInt(id));
+				noticeService.update(vo);
+			}
 		}else if(oper.equals("del")) {
 			System.out.println(id);
 			if(id.length()>0) {

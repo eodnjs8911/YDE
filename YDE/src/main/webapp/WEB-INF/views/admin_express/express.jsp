@@ -460,6 +460,7 @@
 										<option value="A04">방문견적</option>
 										<option value="A05">계약완료</option>
 										<option value="A06">이사완료</option>
+										<option value="A07">취소</option>
 									</select>
 								</div>
 

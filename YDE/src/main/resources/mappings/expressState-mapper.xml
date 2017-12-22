@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="ExpressStateDAO">
+
+
+<select id="selectListDay" parameterType="map" resultType="map">
+		select  sum(case when express_current_state = 'A01' then 1 else 0 end) A01, 
+				sum(case when express_current_state = 'A02' then 1 else 0 end) A02, 
+				sum(case when express_current_state = 'A03' then 1 else 0 end) A03,
+			    date_format(express_change_date, '%Y-%m-%d') ymd
+		from express_state
+		where date_format(express_change_date, '%Y-%m') = #{date}
+
+		group by date_format(express_change_date,'%Y-%m-%d')
+		order by ymd
+</select>
+<!-- 
+<select id="selectListDay" parameterType="ExpressStateVO" resultType="map">
+		select count(*) a02Cnt, date_format(express_change_date, '%Y-%m-%d') ymd
+		from express_state
+		where date_format(express_change_date, '%Y-%m') = #{expressChangeDate}
+		and express_current_state = 'A02'
+		group by date_format(express_change_date,'%Y-%m-%d')
+		order by ymd
+
+</select>
+
+<select id="selectListDay" parameterType="ExpressStateVO" resultType="map">
+		select count(*) a03Cnt, date_format(express_change_date, '%Y-%m-%d') ymd
+		from express_state
+		where date_format(express_change_date, '%Y-%m') = #{expressChangeDate}
+		and express_current_state = 'A03'
+		group by date_format(express_change_date,'%Y-%m-%d')
+		order by ymd
+</select>
+ -->
+
+<!-- 월별 A01 -->
+<!-- <select id="selectListMonth" parameterType="ExpressStateVO" resultType="map">
+		select count(*) a01Cnt, date_format(express_change_date, '%Y-%m') ymd
+		from express_state
+		where date_format(express_change_date, '%Y') =#{expressChangeDate}
+		and express_current_state = 'A01'
+		group by date_format(express_change_date,'%Y-%m')
+		order by ymd
+</select> -->
+
+<!-- 월별 A02 -->
+<!-- <select id="selectListMonth" parameterType="ExpressStateVO" resultType="map">
+		select count(*) a02Cnt, date_format(express_change_date, '%Y-%m') ymd
+		from express_state
+		where date_format(express_change_date, '%Y') =#{expressChangeDate}
+		and express_current_state = 'A02'
+		group by date_format(express_change_date,'%Y-%m')
+		order by ymd
+</select> -->
+
+<!-- 월별 A03 -->
+<!-- <select id="selectListMonth" parameterType="ExpressStateVO" resultType="map">
+		select count(*) a03Cnt, date_format(express_change_date, '%Y-%m') ymd
+		from express_state
+		where date_format(express_change_date, '%Y') =#{expressChangeDate}
+		and express_current_state = 'A03'
+		group by date_format(express_change_date,'%Y-%m')
+		order by ymd
+</select> -->
+	
+
+</mapper>

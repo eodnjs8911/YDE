@@ -8,8 +8,8 @@
 <script>
 	var options = {
 		title : '일당 방문자수',
-		width : 700,
-		height : 600
+		width : 1400,
+		height : 700
 	};
 	google.load('visualization', '1.0', {
 		'packages' : [ 'corechart' ]
@@ -108,7 +108,7 @@
  
  <br/><br/><br/>
  <!-- /.col-lg-6 -->
-                <div class="col-lg-6">
+                <div class="">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             방문자 통계

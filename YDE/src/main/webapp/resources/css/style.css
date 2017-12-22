@@ -55,12 +55,12 @@ tr:nth-child(even) {
 
 /* button */
 .button {
-	background-color: #4CAF50; /* Green */
 	
 	border: none;
+/* 	background-color: #4CAF50; Green
 	color: white;
 	width: 19%;
-	height: 55px;
+	height: 55px; */
 	padding: 14px 50px;
 	text-align: center;
 	text-decoration: none;

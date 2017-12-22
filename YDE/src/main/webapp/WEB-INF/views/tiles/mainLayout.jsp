@@ -37,10 +37,10 @@
 
 	<div class="container-fluid ">
 		<div class="row content">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-lg-8 col-md-8 col-md-offset-2">
 				<tiles:insertAttribute name="content" />
 			</div>
-			<div class="col-md-2 sidenav text-center">
+			<div class="col-lg-2 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-12 sidenav text-center">
 				<tiles:insertAttribute name="side" />
 			</div>
 		</div>

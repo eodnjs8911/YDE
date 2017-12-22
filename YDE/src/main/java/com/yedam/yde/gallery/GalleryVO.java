@@ -7,13 +7,21 @@ public class GalleryVO {
 	String galleryContent;
 	String galleryWDate;
 	String galleryTitle;
-	MultipartFile galaryImage;
+	MultipartFile upload;
+	String galleryImage;
 	
-	public MultipartFile getGalaryImage() {
-		return galaryImage;
+	
+	public MultipartFile getUpload() {
+		return upload;
 	}
-	public void setGalaryImage(MultipartFile galaryImage) {
-		this.galaryImage = galaryImage;
+	public void setUpload(MultipartFile upload) {
+		this.upload = upload;
+	}
+	public String getGalleryImage() {
+		return galleryImage;
+	}
+	public void setGalleryImage(String galleryImage) {
+		this.galleryImage = galleryImage;
 	}
 	public int getGalleryNo() {
 		return galleryNo;
@@ -28,7 +36,7 @@ public class GalleryVO {
 		this.galleryTitle = galleryTitle;
 	}
 	public String getGalleryContent() {
-		return galleryContent;
+		return galleryContent;   
 	}
 	public void setGalleryContent(String galleryContent) {
 		this.galleryContent = galleryContent;

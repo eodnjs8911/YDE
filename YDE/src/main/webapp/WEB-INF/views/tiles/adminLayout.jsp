@@ -293,6 +293,9 @@
 							href="${pageContext.request.contextPath}/resource/resourceAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 자재 관리</a></li>
 						<li><a
+							href="${pageContext.request.contextPath}/gallery/galleryAdminPage.do"><i
+								class="fa fa-table fa-fw"></i> 현장갤러리 관리</a></li>
+						<li><a
 							href="${pageContext.request.contextPath}/visit/selectListYearAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 방문자 통계</a></li>
 						<li><a

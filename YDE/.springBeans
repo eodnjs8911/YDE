@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
 		<config>src/main/resources/config/interceptor-context.xml</config>
+		<config>src/main/resources/config/multipart-context.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/resources/config/datasource-context.xml</config>

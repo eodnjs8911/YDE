@@ -36,7 +36,7 @@ public class VisitStatisticsDAO {
 	
 	//selectOne 맞나?
 	//당일 방문자 수
-	public int TodayCount(){
+	public Integer TodayCount(){
 		return mybatis.selectOne("VisitStatisticsDAO.TodayCount");
 	}
 
@@ -45,14 +45,10 @@ public class VisitStatisticsDAO {
 		return mybatis.selectOne("VisitStatisticsDAO.TotalCount");
 	}
 	
-	
-	/*public int insertVisitStatistics(VisitStatisticsVO statistics) {
-		return mybatis.insert("VisitStatisticsDAO.insertVisitStatistics", statistics);
+	//ip중복체크
+	public Integer CheckTodayIp(VisitStatisticsVO statistics) {
+		return mybatis.selectOne("VisitStatisticsDAO.CheckTodayIp", statistics);
 	}
-
-
-	public List<Map<String,Object>> getVisitStatisticsList(VisitStatisticsSearchVO statistics) {
-		return mybatis.selectList("VisitStatisticsDAO.getVisitStatisticsList");
-	}*/
+	
 	
 }

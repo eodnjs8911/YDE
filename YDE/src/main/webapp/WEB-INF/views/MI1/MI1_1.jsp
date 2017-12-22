@@ -34,9 +34,10 @@
 <script type="text/javascript">
    $(function(){
 	   var loadcookie = $.cookie('beforeck');
+	   if(loadcookie!=null){
 	   loadcookie= JSON.parse(loadcookie);
 	   $('[name="MI_checklist"]').val(loadcookie);
-		
+	   }
 	   //저장버튼 클릭 
 		$("#saveButton").click(function(){ 
 			//입력값 
@@ -285,8 +286,5 @@
 	</div>
 	</form>
 	</div>
-<script>
-
-</script>
 </body>
 </html>

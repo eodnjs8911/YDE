@@ -9,7 +9,9 @@
 <%@ include file="menu_CS1.jsp"%>
 <div>
 	<div class="wrapper">
-		<div class="box">1</div>
+		<div class="box">
+		<img src="${pageContext.request.contextPath}/resources/gallery/Chrysanthemum.jpg" width="100%">
+		</div>
 		<div class="box">2</div>
 		<div class="box">3</div>
 		<div class="box">4</div>

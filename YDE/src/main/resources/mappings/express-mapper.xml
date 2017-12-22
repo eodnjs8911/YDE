@@ -122,4 +122,17 @@
 		,express_state from express where express_state in ('A02','A03','A04','A05','A06')
 	</select>
 
+	<!-- admin page -->
+	<select id="selectCount" parameterType="ExpressVO" resultType="Integer">
+		<!-- sysdate 날짜 포멧 : date_format(sysdate(), '%Y %M %d')-->
+<!-- 		select count(*) 
+		from express 
+		where date_format(express_req_date, '%Y %M %d') 
+		= date_format(sysdate(), '%Y %M %d');	 -->
+		select count(*) 
+		from express_state
+		where date_format(express_change_date, '%Y %M %d') 
+		= date_format(sysdate(), '%Y %M %d')
+		and express_current_state = 'A02';		
+	</select>
 </mapper>

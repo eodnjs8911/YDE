@@ -13,4 +13,5 @@ public interface ExpressService {
 	public List<Map<String, Object>> selectCalendarList();
 	public int calcEstimateAmount(ExpressVO vo);
 	public int consultReg(ExpressVO vo);
+	public Integer selectCount(ExpressVO vo);
 }

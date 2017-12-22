@@ -1,6 +1,5 @@
 package com.yedam.yde.express;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +27,10 @@ public class ExpressDAO {
 
 	public ExpressVO selectOne(ExpressVO vo) {
 		return mybatis.selectOne("ExpressDAO.selectOne", vo);
+	}
+	
+	public Integer selectCount(ExpressVO vo) {
+		return mybatis.selectOne("ExpressDAO.selectCount", vo);
 	}
 	
 	public List<ExpressVO> selectList() {

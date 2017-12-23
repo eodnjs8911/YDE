@@ -15,7 +15,7 @@ import com.yedam.yde.epilogue.EpilogueVO;
 public class EpilogueController {
 	@Autowired
 	EpilogueService epilogueService;
-	
+
 	@RequestMapping("/cs/epilogue/insert.do")
 	public void insert(EpilogueVO vo) {
 		System.out.println("[epilogueController][insert]");
@@ -47,21 +47,24 @@ public class EpilogueController {
 		System.out.println("[epilogueController][selectList]");
 		return epilogueService.selectList();
 	}
-	
+
 	@RequestMapping("/cs/epilogue/edit.do")
 	@ResponseBody
-	public void edit(@RequestParam(value="oper",defaultValue="",required=false)String oper,
-			@RequestParam(value="id",defaultValue="",required=false)String id, EpilogueVO vo) {
+	public void edit(@RequestParam(value = "oper", defaultValue = "", required = false) String oper,
+			@RequestParam(value = "id", defaultValue = "", required = false) String id, EpilogueVO vo) {
 		System.out.println("[epilogueController][edit]");
 		System.out.println(vo);
-		if(oper.equals("add")) {
+		if (oper.equals("add")) {
 			epilogueService.insert(vo);
-		}else if(oper.equals("edit")) {
-			epilogueService.update(vo);
-		}else if(oper.equals("del")) {
+		} else if (oper.equals("edit")) {
+			if (id != null & id.length() > 0) {
+				vo.setEpilogueNo(Integer.parseInt(id));
+				epilogueService.update(vo);
+			}
+		} else if (oper.equals("del")) {
 			System.out.println(id);
-			if(id.length()>0) {
-				for(String i : id.split(",")) {
+			if (id.length() > 0) {
+				for (String i : id.split(",")) {
 					vo.setEpilogueNo(Integer.parseInt(i));
 					epilogueService.delete(vo);
 				}

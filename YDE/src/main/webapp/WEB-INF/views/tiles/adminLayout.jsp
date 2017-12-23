@@ -64,6 +64,20 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/datetimepicker/bootstrap-datetimepicker.min.css" />
+<script type="text/javascript">
+$(function(){
+	$("#clicked").click(function(){
+		$.ajax({
+		url : "${pageContext.request.contextPath}/express/selectCount.do",
+		method : "post",
+		success : function(data) {
+			$("#expressCount").text(data+"건");
+		}
+	});
+	})
+});
+</script>
+
 </head>
 
 <body>
@@ -202,19 +216,19 @@
 						</a></li>
 					</ul> <!-- /.dropdown-tasks --></li>
 				<!-- /.dropdown -->
-				<li class="dropdown"><a class="dropdown-toggle"
+				<li id="clicked" class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#"> <i class="fa fa-bell fa-fw"></i>
 						<i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-alerts">
-						<li><a href="#">
+						<li><a href="${pageContext.request.contextPath}/express/expressAdminPage.do">
 								<div>
-									<i class="fa fa-comment fa-fw"></i> New Comment <span
-										class="pull-right text-muted small">4 minutes ago</span>
+									<i class="fa fa-comment fa-fw"></i> 견적문의건
+									<span id="expressCount" class="pull-right text-muted small"></span>
 								</div>
 						</a></li>
 						<li class="divider"></li>
-						<li><a href="#">
+					<!-- 	<li><a href="#">
 								<div>
 									<i class="fa fa-twitter fa-fw"></i> 3 New Followers <span
 										class="pull-right text-muted small">12 minutes ago</span>
@@ -244,7 +258,7 @@
 						<li class="divider"></li>
 						<li><a class="text-center" href="#"> <strong>See
 									All Alerts</strong> <i class="fa fa-angle-right"></i>
-						</a></li>
+						</a></li> -->
 					</ul> <!-- /.dropdown-alerts --></li>
 				<!-- /.dropdown -->
 				<li class="dropdown"><a class="dropdown-toggle"
@@ -293,14 +307,8 @@
 							href="${pageContext.request.contextPath}/resource/resourceAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 자재 관리</a></li>
 						<li><a
-							href="${pageContext.request.contextPath}/gallery/galleryAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 현장갤러리 관리</a></li>
-						<li><a
 							href="${pageContext.request.contextPath}/visit/selectListYearAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 방문자 통계</a></li>
-						<li><a
-							href="${pageContext.request.contextPath}/express/expressBasicMonthAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 기초상담 통계</a></li>
 
 
 						<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>

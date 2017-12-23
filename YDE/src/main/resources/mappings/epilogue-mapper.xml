@@ -15,7 +15,9 @@
 	<update id="update" parameterType="EpilogueVO">
 		UPDATE epilogue
 		SET
-		epilogue_content=#{epilogueContent}
+		epilogue_content=#{epilogueContent},
+		epilogue_writer=#{epilogueWriter},
+		epilogue_pw=#{epiloguePw}
 		WHERE
 		epilogue_no = #{epilogueNo}
 	</update>

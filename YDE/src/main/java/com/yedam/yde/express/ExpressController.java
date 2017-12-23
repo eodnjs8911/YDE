@@ -148,7 +148,14 @@ public class ExpressController {
 		System.out.println("[ExpressController][selectOne]");
 		return expressService.selectOne(vo);
 	}
-
+	
+	@RequestMapping("/express/selectCount.do")
+	@ResponseBody
+	public Integer selectCount(ExpressVO vo, Model model) {
+		System.out.println("[ExpressController][selectCount]");
+		return expressService.selectCount(vo);
+	}
+	
 	@RequestMapping("/express/selectList.do")
 	@ResponseBody
 	public List<ExpressVO> selectList(Model model) {

@@ -112,6 +112,11 @@ public class ExpressServiceImpl implements ExpressService {
 	}
 
 	@Override
+	public Integer selectCount(ExpressVO vo) {
+		return expressDAO.selectCount(vo);
+	}
+
+	@Override
 	public List<ExpressVO> selectList() {
 		return expressDAO.selectList();
 	}

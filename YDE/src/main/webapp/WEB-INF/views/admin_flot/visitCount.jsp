@@ -7,7 +7,7 @@
 <script src="./resources/jquery/jquery-3.2.1.min.js"></script>
 <script>
 	var options = {
-		title : '일당 방문자수',
+		title : '방문자수',
 		width : 1400,
 		height : 700
 	};

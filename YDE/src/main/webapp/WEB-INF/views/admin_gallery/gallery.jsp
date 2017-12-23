@@ -3,6 +3,19 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js" ></script>
+<script src="${pageContext.request.contextPath}/resources/jquery/jquery-3.2.1.min.js"></script>
+<script>
+//ckeditorc적용
+$(function(){
+	CKEDITOR.replace('galleryContent',{
+			filebrowserUploadUrl:'<%=request.getContextPath()%>/admin_gallery/fileUpload.jsp?'
+				+'up_dir=/resources/images'
+				+'&temp_dir=c:/Temp'
+	});
+});
+</script>
+
 
 <div class="container">
   <h2>Gallery Input</h2>
@@ -21,7 +34,9 @@
     </div>
     <div class="form-group">
 	    <label class="control-label col-sm-2" for="내용">내용</label>
-	  	<textarea style="margin-:10px" class="col-sm-10" rows="20" id="GalleryContent" name="GalleryContent"></textarea>
+	</div>
+	<div class="form-group">
+	  	<textarea style="margin-left:10px" class="col-sm-6" rows="20" id="galleryContent" name="galleryContent"></textarea>
 	</div>
 	<div class="form-group">        
       <div class="col-sm-offset-2 col-sm-6">

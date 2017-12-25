@@ -19,4 +19,12 @@ public class ExpressStateDAO {
 		System.out.println(mybatis.selectList("VisitStatisticsDAO.selectListDay", vo));
 		return mybatis.selectList("ExpressStateDAO.selectListDay", vo);
 	}
+	
+	public List<Map<String, Object>> selectListMonth(Map<String, String> vo) {
+		// TODO Auto-generated method stub
+		System.out.println(vo.get("state") + " / " + vo.get("date"));
+		System.out.println(mybatis.selectList("VisitStatisticsDAO.selectListMonth", vo));
+		return mybatis.selectList("ExpressStateDAO.selectListMonth", vo);
+	}
+	
 }

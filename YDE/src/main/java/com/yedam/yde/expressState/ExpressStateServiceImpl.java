@@ -17,4 +17,10 @@ public class ExpressStateServiceImpl implements ExpressStateService {
 		// TODO Auto-generated method stub
 		return 	expressStateDAO.selectListDay(vo);
 	}
+	
+	@Override
+	public List<Map<String, Object>> selectListMonth(Map<String, String> vo) {
+		// TODO Auto-generated method stub
+		return 	expressStateDAO.selectListMonth(vo);
+	}
 }

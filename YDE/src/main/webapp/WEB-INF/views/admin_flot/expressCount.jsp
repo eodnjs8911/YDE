@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>방문자 통계(구글차트)</title>
+<title>기초 상담 통계(구글차트)</title>
 <script src="//www.google.com/jsapi"></script>
 <script src="./resources/jquery/jquery-3.2.1.min.js"></script>
 
@@ -54,17 +54,17 @@
 	
 	function visit(charttab) {
 		var url='';
-/* 		if (charttab == 'day'){
+		if (charttab == 'day'){
 			 
-			url = '${pageContext.request.contextPath}/visit/selectListDay.do?visitDate='+$("#byYear").val()+"-"+$("#byMonth").val()
+			url = '${pageContext.request.contextPath}/expressState/selectListDay.do?date='+$("#byYear").val()+"-"+$("#byMonth").val()
 		}
 		else if(charttab == 'month'){
-			url = '${pageContext.request.contextPath}/visit/selectListMonth.do?visitDate='+$("#byYear").val()
+			url = '${pageContext.request.contextPath}/expressState/selectListMonth.do?date='+$("#byYear").val()
 		}
 		else if(charttab == 'year'){
-			url = '${pageContext.request.contextPath}/visit/selectListYear.do'
-		} */
-		url = '${pageContext.request.contextPath}/expressState/selectListDay.do?date=2017-12'
+			url = '${pageContext.request.contextPath}/expressState/selectListYear.do'
+		} 
+		/* url = '${pageContext.request.contextPath}/expressState/selectListDay.do?date=2017-12' */
 		chartDraw(url);
 	}
 </script>
@@ -107,7 +107,7 @@
 			<button align="right" type="button" onclick="visit('day')" style="float: center;">일별</button>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<button align="right" type="button" onclick="visit('month')" style="float: center;">월별</button>&nbsp;
-			<button align="right" type="button" onclick="visit('year')" style="float: center;">연도별</button>
+			<!-- <button align="right" type="button" onclick="visit('year')" style="float: center;">연도별</button> -->
 			</th>
 		</tr>
 	</table>
@@ -119,7 +119,7 @@
                 <div class="">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            방문자 통계
+                            기초상담 통계
                         </div>
                         
                          <div id="chart_div"></div>

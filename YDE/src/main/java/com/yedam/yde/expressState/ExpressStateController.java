@@ -32,5 +32,26 @@ public class ExpressStateController {
 		
 		return expressStateService.selectListDay(vo);
 	}
+	
+	// 월별 (ajax)
+		@RequestMapping("selectListMonth.do")
+		@ResponseBody
+		public List<Map<String,Object>> selectListMonth(@RequestParam(value="date",defaultValue="",required=false)String date) {
+			
+			Map<String, String> vo = new HashMap<String, String>();
+			vo.put("date", date);
+
+			
+			return expressStateService.selectListMonth(vo);
+		}
+		
+		
+		@RequestMapping("/selectListDayAdminPage.do")
+		public String selectListYearAdminPage() {
+			System.out.println("[ExpressStateController][selectListDayAdminPage]");
+			return "admin_flot/expressCount";
+		}
+		
+		
 
 }

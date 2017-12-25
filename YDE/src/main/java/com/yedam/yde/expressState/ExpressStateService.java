@@ -7,5 +7,7 @@ public interface ExpressStateService {
 
 	public List<Map<String,Object>> selectListDay(Map<String,String> vo);
 	
+	public List<Map<String,Object>> selectListMonth(Map<String,String> vo);
+	
 	
 }

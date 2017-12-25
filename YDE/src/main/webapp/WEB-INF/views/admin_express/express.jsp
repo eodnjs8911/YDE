@@ -89,116 +89,118 @@
 							],
 							eventClick : function(calEvent, jsEvent, view) {
 								console.log(calEvent);
-
-								$
-										.getJSON(
-												'/yde/express/expressDetail.do',
-												{
-													"expressNo" : calEvent.id
-												},
-												function(data) {
-													$("#expressNo").val(
-															data.expressNo);
-													$("#expressDetailForm")
-															.get(0).reset();
-													$("#expressCategory")
-															.val(
-																	data.expressCategory);
-													$("#expressDate")
-															.val(
-																	moment(
-																			data.expressDate,
-																			'YYYY-MM-DD HH:mm:ss.SZZ')
-																			.format(
-																					"YYYY-MM-DD HH:mm"));
-
-													$("#expressState").val(
-															data.expressState);
-
-													$("#expresDeparture")
-															.val(
-																	data.expressDepartureAddr1);
-													$("#expressDepartureSize")
-															.val(
-																	data.expressDepartureSize);
-													$("#expressDepartureFloor")
-															.val(
-																	data.expressDepartureFloor);
-
-													$("#expressArriveAddr")
-															.val(
-																	data.expressArriveAddr1);
-													$("#expressArriveSize")
-															.val(
-																	data.expressArriveSize);
-													$("#expressArriveFloor")
-															.val(
-																	data.expressArriveFloor);
-
-													$("#expressDeposit")
-															.val(
-																	data.expressDeposit);
-													$("#expressRemainder")
-															.val(
-																	data.expressRemainder);
-													$("#expressEstimateAmount")
-															.val(
-																	data.expressEstimateAmount);
-
-													$("#expressCustomer")
-															.val(
-																	data.expressCustomer);
-													$("#expressPhone").val(
-															data.expressPhone);
-													$("#expressPayCategory")
-															.val(
-																	data.expressPayCategory);
-
-													if (data.expressVisitTime != null
-															&& data.expressVisitTime.length > 0) {
-														$("#expressVisitTime")
-																.val(
-																		moment(
-																				data.expressVisitTime,
-																				'YYYY-MM-DD HH:mm:ss.SZZ')
-																				.format(
-																						"YYYY-MM-DD HH:mm"));
-
-													}
-
-													if (data.expressCDate != null
-															&& data.expressCDate.length > 0) {
-														$("#expressCDate")
-																.val(
-																		moment(
-																				data.expressCDate,
-																				'YYYY-MM-DD HH:mm:ss.SZZ')
-																				.format(
-																						"YYYY-MM-DD"));
-													}
-
-													var str = data.expressSpeicialItem;
-
-													if (str != null) {
-														var res = str
-																.split(",");
-														console.log(res);
-														$(
-																"[name='expressSpeicialItem']")
-																.val(res);
-													}
-
-													$("#expressSaveBtn").show();
-													$("#expressDelBtn").show();
-													$("#expressInsBtn").hide();
-													$("#dialogType").val(
-															"modify");
-
-													$('#expressDetailModal')
-															.modal('show');
-												});
+								showDetail(calEvent.id);
 							}
 						});
+		
+		function showDetail(expressNo){
+			$.getJSON(
+					'/yde/express/expressDetail.do',
+					{
+						"expressNo" : expressNo
+					},
+					function(data) {
+						$("#expressNo").val(
+								data.expressNo);
+						$("#expressDetailForm")
+								.get(0).reset();
+						$("#expressCategory")
+								.val(
+										data.expressCategory);
+						$("#expressDate")
+								.val(
+										moment(
+												data.expressDate,
+												'YYYY-MM-DD HH:mm:ss.SZZ')
+												.format(
+														"YYYY-MM-DD HH:mm"));
+
+						$("#expressState").val(
+								data.expressState);
+
+						$("#expresDeparture")
+								.val(
+										data.expressDepartureAddr1);
+						$("#expressDepartureSize")
+								.val(
+										data.expressDepartureSize);
+						$("#expressDepartureFloor")
+								.val(
+										data.expressDepartureFloor);
+
+						$("#expressArriveAddr")
+								.val(
+										data.expressArriveAddr1);
+						$("#expressArriveSize")
+								.val(
+										data.expressArriveSize);
+						$("#expressArriveFloor")
+								.val(
+										data.expressArriveFloor);
+
+						$("#expressDeposit")
+								.val(
+										data.expressDeposit);
+						$("#expressRemainder")
+								.val(
+										data.expressRemainder);
+						$("#expressEstimateAmount")
+								.val(
+										data.expressEstimateAmount);
+
+						$("#expressCustomer")
+								.val(
+										data.expressCustomer);
+						$("#expressPhone").val(
+								data.expressPhone);
+						$("#expressPayCategory")
+								.val(
+										data.expressPayCategory);
+
+						if (data.expressVisitTime != null
+								&& data.expressVisitTime.length > 0) {
+							$("#expressVisitTime")
+									.val(
+											moment(
+													data.expressVisitTime,
+													'YYYY-MM-DD HH:mm:ss.SZZ')
+													.format(
+															"YYYY-MM-DD HH:mm"));
+
+						}
+
+						if (data.expressCDate != null
+								&& data.expressCDate.length > 0) {
+							$("#expressCDate")
+									.val(
+											moment(
+													data.expressCDate,
+													'YYYY-MM-DD HH:mm:ss.SZZ')
+													.format(
+															"YYYY-MM-DD"));
+						}
+
+						var str = data.expressSpeicialItem;
+
+						if (str != null) {
+							var res = str
+									.split(",");
+							console.log(res);
+							$(
+									"[name='expressSpeicialItem']")
+									.val(res);
+						}
+
+						$("#expressSaveBtn").show();
+						$("#expressDelBtn").show();
+						$("#expressInsBtn").hide();
+						$("#dialogType").val(
+								"modify");
+
+						$('#expressDetailModal')
+								.modal('show');
+					});
+		}
 
 		function detailSave() {
 			var formData = $("#expressDetailForm").serialize();

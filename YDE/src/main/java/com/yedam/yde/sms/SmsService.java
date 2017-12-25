@@ -9,4 +9,5 @@ public interface SmsService {
 	public void delete(SmsVO vo);
 	public SmsVO selectOne(SmsVO vo);
 	public List<SmsVO> selectList();
+	public List<SmsVO> selectListForAndroid();
 }

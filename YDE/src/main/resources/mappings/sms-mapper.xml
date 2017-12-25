@@ -28,7 +28,7 @@
 		NOW(),
 		#{smsSDate},
 		#{smsRsDate},
-		1,
+		#{smsState},
 		#{expressNo}
 		)
 	</insert>
@@ -57,6 +57,10 @@
 
 	<select id="selectList" resultType="SmsVO">
 		select * from sms where
-		sms_no
+	</select>
+	
+	<select id="selectListForAndroid" resultType="SmsVO">
+		select * from sms where
+		sms_state = 'D01'
 	</select>
 </mapper>

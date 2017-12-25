@@ -32,4 +32,8 @@ public class SmsDAO {
 	public List<SmsVO> selectList() {
 		return mybatis.selectList("SmsDAO.selectList");
 	}
+
+	public List<SmsVO> selectListForAndroid() {
+		return mybatis.selectList("SmsDAO.selectListForAndroid");
+	}
 }

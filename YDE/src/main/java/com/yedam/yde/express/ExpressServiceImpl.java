@@ -25,14 +25,15 @@ public class ExpressServiceImpl implements ExpressService {
 		System.out.println(vo);
 		if(vo.getExpressNo() !=null && vo.getExpressNo() > 0) {
 			expressDAO.update(vo);
-			consultString = "[상담신청] 이름 : " + vo.getExpressCustomer() + "\n";
+			consultString = "[상담신청] 이름 : " + vo.getExpressCustomer() + " / " + "연락처 : " + vo.getExpressPhone()+ "\n";
 			consultString += "이사종류 : " + vo.getExpressCategory() + " / " + "이사날짜 : " + vo.getExpressDate() +"\n";
 			consultString += "출발지 : " + vo.getExpressDepartureAddr1() + " / "+ vo.getExpressDepartureSize() +"평  / " + vo.getExpressDepartureFloor() + "층\n";
 			consultString += "도착지 : " + vo.getExpressArriveAddr1() + " / "+ vo.getExpressArriveSize() +"평  / " + vo.getExpressArriveFloor() + "층\n";
 			consultString += "특수이삿짐 : " + vo.getExpressSpeicialItem() + " / " + "예상견적 : " + vo.getExpressEstimateAmount();
+		
 		}else {
 			expressDAO.insert(vo);
-			consultString = "[상담신청] 이름 : " + vo.getExpressCustomer() + "\n"; 
+			consultString = "[상담신청] 이름 : " + vo.getExpressCustomer() +   " / " + "연락처 : " + vo.getExpressPhone()+ "\n";
 		}
 
 		SmsVO smsVO = new SmsVO();
@@ -40,6 +41,7 @@ public class ExpressServiceImpl implements ExpressService {
 		smsVO.setSmsReceiveAddr(vo.getExpressPhone());
 		smsVO.setSmsContent(consultString);
 		smsVO.setExpressNo(vo.getExpressNo());
+		smsVO.setSmsState("D01");
 		smsDAO.insert(smsVO);
 		
 		return 1;

@@ -35,4 +35,9 @@ public class SmsServiceImpl implements SmsService {
 	public List<SmsVO> selectList() {
 		return smsDAO.selectList();
 	}
+
+	@Override
+	public List<SmsVO> selectListForAndroid() {
+		return smsDAO.selectListForAndroid();
+	}
 }

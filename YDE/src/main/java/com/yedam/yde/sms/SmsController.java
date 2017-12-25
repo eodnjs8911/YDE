@@ -1,6 +1,8 @@
 package com.yedam.yde.sms;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,10 @@ public class SmsController {
 	@RequestMapping("/sms/insert.do")
 	public void insert(SmsVO vo) {
 		System.out.println("[SmsController][insert]");
+		System.out.println(vo.getSmsState());
+		if(vo.getSmsState() == null || vo.getSmsState().length() == 0) {
+			vo.setSmsState("D01");
+		}
 		smsService.insert(vo);
 	}
 
@@ -50,6 +56,23 @@ public class SmsController {
 	public List<SmsVO> selectList(Model model) {
 		System.out.println("[SmsController][selectList]");
 		return smsService.selectList();
+	}
+	
+	@RequestMapping("/sms/selectListForAndroid.do")
+	@ResponseBody
+	public List<SmsVO> selectListForAndroid(Model model) {
+		System.out.println("[SmsController][selectListForAndroid]");
+		return smsService.selectListForAndroid();
+	}
+	
+	@RequestMapping("/sms/updateForAndroid.do")
+	@ResponseBody
+	public void updateForAndroid(SmsVO vo, Model model) {
+		System.out.println("[SmsController][updateForAndroid]");
+		SmsVO sVO = smsService.selectOne(vo);
+		sVO.setSmsSDate(vo.getSmsSDate());
+		sVO.setSmsState(vo.getSmsState());
+		smsService.update(sVO);
 	}
 	
 	@RequestMapping("/sms/edit.do")

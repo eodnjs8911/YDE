@@ -7,13 +7,18 @@
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery-3.2.1.min.js"></script>
 <script>
 //ckeditorc적용
+var editor= null;
 $(function(){
 	CKEDITOR.replace('galleryContent',{
-			filebrowserUploadUrl:'<%=request.getContextPath()%>/admin_gallery/fileUpload.jsp?'
+			filebrowserUploadUrl:'<%=request.getContextPath()%>/admin_gallery/ckeditorUpload?'
 				+'up_dir=/resources/images'
 				+'&temp_dir=c:/Temp'
 	});
 });
+
+function form_save(form){
+	editor.updateElement();
+}
 </script>
 <div class="container">
   <h2>Gallery Input</h2>
@@ -38,7 +43,7 @@ $(function(){
 	</div>
 	<div class="form-group">        
       <div class="col-sm-offset-2 col-sm-6">
-        <button type="submit" class="btn btn-default">저장</button>
+        <button type="submit" class="btn btn-default">저장</button><button type="reset" class="btn btn-default">재작성</button>
       </div>
     </div>
   </form>

@@ -2,15 +2,25 @@ package com.yedam.yde.gallery;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -31,7 +41,34 @@ public class GalleryController {
 		System.out.println("[GalleryController][galleryAdminPage]");
 		return "admin_gallery/gallery";
 	}
-
+	@RequestMapping("/admin_gallery/ckeditorUpload")
+	public String ckeditorUpload(FileBean fileBean, HttpServletRequest request, Model model) throws FileUploadException {
+		HttpSession session = request.getSession();
+		String root_path = session.getServletContext().getRealPath("/");
+		String attach_path ="resources/images/";
+		
+		MultipartFile upload = fileBean.getUpload();
+		String filename ="";
+		String CKEditorFuncNum ="";
+		
+		if (upload != null) { 
+			filename = upload.getOriginalFilename(); 
+			fileBean.setFilename(filename); 
+			CKEditorFuncNum = fileBean.getCKEditorFuncNum();
+			try { 
+				File file = new File(root_path + attach_path + filename); 
+				//logger.info(root_path + attach_path + filename); 
+				upload.transferTo(file); 
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} 
+		
+			String file_path = "/yde/" + attach_path + filename; 
+			model.addAttribute("file_path", file_path); 
+			model.addAttribute("CKEditorFuncNum", CKEditorFuncNum); 
+			return "admin_gallery/upload";	
+	}
 	@RequestMapping("/gallery/insert.do")
 	public String insert(GalleryVO vo, HttpServletRequest request) throws IOException {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;

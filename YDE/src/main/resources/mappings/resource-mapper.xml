@@ -9,13 +9,15 @@
 			SELECT IFNULL(MAX(resource_no), 0) + 1 FROM resource
 		</selectKey>
 		INSERT INTO resource (resource_no, resource_name, resource_category, resource_state)
-		VALUES(#{resourceNo},#{resourceName},#{resourceCategory}, #resourceState)
+		VALUES(#{resourceNo},#{resourceName},#{resourceCategory}, #{resourceState})
 	</insert>
 
 	<update id="update" parameterType="resourceVO">
 		UPDATE resource
 		SET
-		resource_state=#{resourceState}
+		resource_state=#{resourceState},
+		resource_name=#{resourceName},
+		resource_category=#{resourceCategory}
 		WHERE
 		resource_no = #{resourceNo}
 	</update>

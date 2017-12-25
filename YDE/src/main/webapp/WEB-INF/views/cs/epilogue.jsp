@@ -25,7 +25,7 @@
 				class="form-control" id="epilogueWriter" name="epilogueWriter">
 		</div>
 		<div class="form-group">
-			<label for="epiloguePw">내용</label> <input type="text"
+			<label for="epiloguePw">비밀번호</label> <input type="text"
 				class="form-control" id="epiloguePw" name="epiloguePw">
 		</div>
 		<div class="form-group">

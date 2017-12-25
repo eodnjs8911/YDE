@@ -17,7 +17,8 @@
 	<update id="update" parameterType="EmployeeVO">
 		UPDATE employee
 		SET
-		employee_position=#{employeePosition}
+		employee_name=#{employeeName},
+		employee_position=#{employeePosition},
 		employee_phone=#{employeePhone}
 		WHERE
 		employee_no=#{employeeNo}

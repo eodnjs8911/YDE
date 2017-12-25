@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+	pageEncoding="EUC-KR"%>
 <script type="text/ecmascript"
 	src="${pageContext.request.contextPath}/resources/jqgrid/jquery.jqGrid.min.js"></script>
 <script type="text/ecmascript"
@@ -12,8 +12,38 @@
 	<table id="resourcejqGrid"></table>
 	<div id="resourcejqGridPager"></div>
 </div>
+
+<div id="dialogTemplate">
+	<form>
+		<div class="form-group">
+			<label for="resourceName">이름</label> <input type="text"
+				class="form-control" id="resourceName" name="resourceName">
+		</div>
+		<div class="form-group">
+			<label for="resourceCategory">분류</label> <select class="form-control"
+				id="resourceCategory" name="resourceCategory">
+				<option value="1">차량</option>
+				<option value="2">공구</option>
+				<option value="3">소모품</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="resourceState">상태</label> <select class="form-control"
+				id="resourceState" name="resourceState">
+				<option value="1">양호</option>
+				<option value="2">수리중</option>
+				<option value="3">폐기품</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<div align="right">{sData}{cData}</div>
+		</div>
+	</form>
+</div>
+
 <script type="text/javascript">
 	$(document).ready(function() {
+		$("#dialogTemplate").hide();
 
 		$("#resourcejqGrid").jqGrid({
 			url : '/yde/resource/selectList.do',
@@ -55,8 +85,7 @@
 				searchoptions : {
 					value : ":[All];1:차량;2:공구;3:소모품"
 				}
-			},
-			{
+			}, {
 				label : '상태',
 				name : 'resourceState',
 				width : 120,
@@ -71,12 +100,11 @@
 					value : ":[All];1:양호;2:수리중;3:폐기처리"
 				}
 			}
-			
+
 			],
-			
+
 			viewrecords : true,
 			loadonce : true,
-			//onSelectRow : editRow,
 			rowNum : 10,
 			height : 'auto',
 			autowidth : true,
@@ -95,21 +123,27 @@
 		$('#resourcejqGrid').jqGrid('navGrid', "#resourcejqGridPager", {
 			search : false, // show search button on the toolbar
 			edit : false,
-			add : false,
+			add : true,
 			del : true,
 			cancel : true,
-			addParams : {
-				keys : true
-			},
 			refresh : true
+		}, {}, {
+			closeAfterAdd : true,
+			reloadAfterSubmit : true,
+			template : $("#dialogTemplate").html(),
+			afterComplete : function() {
+				$("#resourcejqGrid").setGridParam({
+					datatype : 'json',
+					page : 1
+				}).trigger('reloadGrid');
+			}
 		});
-
 
 		$('#resourcejqGrid').inlineNav('#resourcejqGridPager',
 		// the buttons to appear on the toolbar of the grid
 		{
 			edit : true,
-			add : true,
+			add : false,
 			del : true,
 			cancel : true,
 			addParams : {
@@ -119,19 +153,5 @@
 				keys : true
 			}
 		});
-
-		var lastSelection;
-
-		function editRow(id) {
-			if (id && id !== lastSelection) {
-				var grid = $("#resourcejqGrid");
-				grid.jqGrid('restoreRow', lastSelection);
-				grid.jqGrid('editRow', id, {
-					keys : true,
-					focusField : 4
-				});
-				lastSelection = id;
-			}
-		}
 	});
 </script>

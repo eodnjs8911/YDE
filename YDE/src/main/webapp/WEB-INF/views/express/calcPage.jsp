@@ -22,7 +22,7 @@
 				+ $("#phone3").val()
 		$("#expressPhone").val(phone)
 		var formData = $("#calcForm").serialize();
-		console.log(formData);
+
 		$.getJSON('/yde/express/priceCalc.do', formData, function(data) {
 			$("#price").val(data.price)
 			console.log(data.expressNo);
@@ -41,7 +41,7 @@
 		}
 		$("#expressState").val("A02");
 		var formData = $("#calcForm").serialize();
-		console.log("aa");
+
 		$.getJSON('/yde/express/consultReg.do', formData, function(data) {
 			if (data.result == "success") {
 				$("#consultModal").modal('hide')

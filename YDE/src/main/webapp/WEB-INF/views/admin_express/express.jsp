@@ -25,7 +25,10 @@
 
 	<script type='text/javascript'>
 		$(function() {
-
+			var detailId = '${param.detailId}';
+			if(detailId != ''){
+				showDetail(detailId);
+			}
 		});
 
 		$('#calendar').fullCalendar(

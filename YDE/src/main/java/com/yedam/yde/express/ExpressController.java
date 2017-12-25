@@ -60,9 +60,11 @@ public class ExpressController {
 	}
 	
 	@RequestMapping("/express/expressAdminPage.do")
-	public String expressAdminPage(ExpressVO vo, SessionStatus sessionStatus, Model model) {
+	public String expressAdminPage(ExpressVO vo, SessionStatus sessionStatus, Model model,HttpServletRequest request,
+			@RequestParam(value="oper",defaultValue="",required=false)String detailId) {
 		sessionStatus.isComplete();
 		model.addAttribute("express", new ExpressVO());
+		request.setAttribute("detailId", detailId);
 		return "admin_express/express";
 	}
 	

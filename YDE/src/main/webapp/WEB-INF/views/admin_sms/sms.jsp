@@ -127,11 +127,11 @@
 				editable : true,
 				edittype : "select",
 				editoptions : {
-					value : "1:대기;2:발송예약;3:발송정지;4:발송완료"
+					value : "D01:대기;D02:발송예약;D03:발송정지;D04:발송완료"
 				},
 				stype : "select",
 				searchoptions : {
-					value : ":[All];1:대기;2:발송예약;3:발송정지;4:발송완료"
+					value : ":[All];D01:대기;D02:발송예약;D03:발송정지;D04:발송완료"
 				}
 			}, {
 				label : '이사번호',
@@ -147,8 +147,10 @@
 			viewrecords : true,
 			loadonce : true,
 			//onSelectRow : editRow,
-			rowNum : 2,
-			height : 750,
+			rowNum : 10,
+			height : 'auto',
+			autowidth : true,
+			responsive : true,
 			multiselect : true,
 			pager : "#smsjqGridPager"
 		});

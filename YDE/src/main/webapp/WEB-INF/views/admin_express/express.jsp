@@ -28,178 +28,130 @@
 
 		});
 
-		$('#calendar')
-				.fullCalendar(
-						{
-							locale : 'ko',
-							customButtons : {
-								addButton : {
-									text : '일정추가',
-									click : function() {
-										$("#expressSaveBtn").hide();
-										$("#expressDelBtn").hide();
-										$("#expressInsBtn").show();
-										$("#dialogType").val("insert");
-										$("#expressDetailForm").get(0).reset();
-										$("#expressDate").val(
-												moment().format(
-														"YYYY-MM-DD HH:")
-														+ "00");
-										$("#expressDate").get(0).step = 60 * 10;
-										$('#expressDetailModal').modal('show');
-									}
-								}
-							},
-							header : {
-								left : 'prev,next today',
-								center : 'title',
-								right : 'month,basicWeek,basicDay,list,addButton'
-							},
-							navLinks : true, // can click day/week names to navigate views
-							editable : true,
-							eventDrop : function(event, delta, revertFunc) {
-
-								//alert(event.title + " was dropped on " + event.start.format());
-
-								if (!confirm("변경하시겠습니까?")) {
-									revertFunc();
-								}
-
-								$.getJSON('/yde/express/expressDragNDrop.do', {
-									"expressNo" : event.id,
-									"expressDate" : event.start.format()
-								}, function(data) {
-
-								});
-							},
-
-							eventSources : [
-
-							// your event source
-							{
-								url : '/yde/express/selectCalendarList.do',
-								type : 'POST',
-								error : function() {
-									alert('there was an error while fetching events!');
-								}
+		$('#calendar').fullCalendar(
+				{
+					locale : 'ko',
+					customButtons : {
+						addButton : {
+							text : '일정추가',
+							click : function() {
+								$("#expressSaveBtn").hide();
+								$("#expressDelBtn").hide();
+								$("#expressInsBtn").show();
+								$("#dialogType").val("insert");
+								$("#expressDetailForm").get(0).reset();
+								$("#expressDate").val(
+										moment().format("YYYY-MM-DD HH:")
+												+ "00");
+								$("#expressDate").get(0).step = 60 * 10;
+								$('#expressDetailModal').modal('show');
 							}
-
-							// any other sources...
-
-							],
-							eventClick : function(calEvent, jsEvent, view) {
-								console.log(calEvent);
-								showDetail(calEvent.id);
-							}
-						});
-		
-		function showDetail(expressNo){
-			$.getJSON(
-					'/yde/express/expressDetail.do',
-					{
-						"expressNo" : expressNo
+						}
 					},
-					function(data) {
-						$("#expressNo").val(
-								data.expressNo);
-						$("#expressDetailForm")
-								.get(0).reset();
-						$("#expressCategory")
-								.val(
-										data.expressCategory);
-						$("#expressDate")
-								.val(
-										moment(
-												data.expressDate,
-												'YYYY-MM-DD HH:mm:ss.SZZ')
-												.format(
-														"YYYY-MM-DD HH:mm"));
+					header : {
+						left : 'prev,next today',
+						center : 'title',
+						right : 'month,basicWeek,basicDay,list,addButton'
+					},
+					navLinks : true, // can click day/week names to navigate views
+					editable : true,
+					eventDrop : function(event, delta, revertFunc) {
 
-						$("#expressState").val(
-								data.expressState);
+						//alert(event.title + " was dropped on " + event.start.format());
 
-						$("#expresDeparture")
-								.val(
-										data.expressDepartureAddr1);
-						$("#expressDepartureSize")
-								.val(
-										data.expressDepartureSize);
-						$("#expressDepartureFloor")
-								.val(
-										data.expressDepartureFloor);
-
-						$("#expressArriveAddr")
-								.val(
-										data.expressArriveAddr1);
-						$("#expressArriveSize")
-								.val(
-										data.expressArriveSize);
-						$("#expressArriveFloor")
-								.val(
-										data.expressArriveFloor);
-
-						$("#expressDeposit")
-								.val(
-										data.expressDeposit);
-						$("#expressRemainder")
-								.val(
-										data.expressRemainder);
-						$("#expressEstimateAmount")
-								.val(
-										data.expressEstimateAmount);
-
-						$("#expressCustomer")
-								.val(
-										data.expressCustomer);
-						$("#expressPhone").val(
-								data.expressPhone);
-						$("#expressPayCategory")
-								.val(
-										data.expressPayCategory);
-
-						if (data.expressVisitTime != null
-								&& data.expressVisitTime.length > 0) {
-							$("#expressVisitTime")
-									.val(
-											moment(
-													data.expressVisitTime,
-													'YYYY-MM-DD HH:mm:ss.SZZ')
-													.format(
-															"YYYY-MM-DD HH:mm"));
-
+						if (!confirm("변경하시겠습니까?")) {
+							revertFunc();
 						}
 
-						if (data.expressCDate != null
-								&& data.expressCDate.length > 0) {
-							$("#expressCDate")
-									.val(
-											moment(
-													data.expressCDate,
-													'YYYY-MM-DD HH:mm:ss.SZZ')
-													.format(
-															"YYYY-MM-DD"));
+						$.getJSON('/yde/express/expressDragNDrop.do', {
+							"expressNo" : event.id,
+							"expressDate" : event.start.format()
+						}, function(data) {
+
+						});
+					},
+
+					eventSources : [
+
+					// your event source
+					{
+						url : '/yde/express/selectCalendarList.do',
+						type : 'POST',
+						error : function() {
+							alert('there was an error while fetching events!');
 						}
+					}
 
-						var str = data.expressSpeicialItem;
+					// any other sources...
 
-						if (str != null) {
-							var res = str
-									.split(",");
-							console.log(res);
-							$(
-									"[name='expressSpeicialItem']")
-									.val(res);
-						}
+					],
+					eventClick : function(calEvent, jsEvent, view) {
+						console.log(calEvent);
+						showDetail(calEvent.id);
+					}
+				});
 
-						$("#expressSaveBtn").show();
-						$("#expressDelBtn").show();
-						$("#expressInsBtn").hide();
-						$("#dialogType").val(
-								"modify");
+		function showDetail(expressNo) {
+			$.getJSON('/yde/express/expressDetail.do', {
+				"expressNo" : expressNo
+			}, function(data) {
+				$("#expressNo").val(data.expressNo);
+				$("#expressDetailForm").get(0).reset();
+				$("#expressCategory").val(data.expressCategory);
+				$("#expressDate").val(
+						moment(data.expressDate, 'YYYY-MM-DD HH:mm:ss.SZZ')
+								.format("YYYY-MM-DD HH:mm"));
 
-						$('#expressDetailModal')
-								.modal('show');
-					});
+				$("#expressState").val(data.expressState);
+
+				$("#expresDeparture").val(data.expressDepartureAddr1);
+				$("#expressDepartureSize").val(data.expressDepartureSize);
+				$("#expressDepartureFloor").val(data.expressDepartureFloor);
+
+				$("#expressArriveAddr").val(data.expressArriveAddr1);
+				$("#expressArriveSize").val(data.expressArriveSize);
+				$("#expressArriveFloor").val(data.expressArriveFloor);
+
+				$("#expressDeposit").val(data.expressDeposit);
+				$("#expressRemainder").val(data.expressRemainder);
+				$("#expressEstimateAmount").val(data.expressEstimateAmount);
+
+				$("#expressCustomer").val(data.expressCustomer);
+				$("#expressPhone").val(data.expressPhone);
+				$("#expressPayCategory").val(data.expressPayCategory);
+
+				if (data.expressVisitTime != null
+						&& data.expressVisitTime.length > 0) {
+					$("#expressVisitTime").val(
+							moment(data.expressVisitTime,
+									'YYYY-MM-DD HH:mm:ss.SZZ').format(
+									"YYYY-MM-DD HH:mm"));
+
+				}
+
+				if (data.expressCDate != null && data.expressCDate.length > 0) {
+					$("#expressCDate")
+							.val(
+									moment(data.expressCDate,
+											'YYYY-MM-DD HH:mm:ss.SZZ').format(
+											"YYYY-MM-DD"));
+				}
+
+				var str = data.expressSpeicialItem;
+
+				if (str != null) {
+					var res = str.split(",");
+					console.log(res);
+					$("[name='expressSpeicialItem']").val(res);
+				}
+
+				$("#expressSaveBtn").show();
+				$("#expressDelBtn").show();
+				$("#expressInsBtn").hide();
+				$("#dialogType").val("modify");
+
+				$('#expressDetailModal').modal('show');
+			});
 		}
 
 		function detailSave() {
@@ -310,16 +262,40 @@
 				url : '/yde/employee/insertEmployeeExpress.do',
 				contentType : 'application/json;charset=utf-8',
 				dataType : 'json',
-				data : JSON.stringify({'expressNo':expressNo,datas:rowData}),
-				 type: 'POST',  
-				mimeType: 'application/json',
+				async : false,
+				data : JSON.stringify({
+					'expressNo' : expressNo,
+					datas : rowData
+				}),
+				type : 'POST',
+				mimeType : 'application/json',
+				error : function(xhr, status, msg) {
+					console.log("상태값 :" + status + " Http에러메시지 :" + msg);
+				},
+				success : function(xhr) {
+					//console.log(xhr.result);
+					//$("#manageWorkModal").modal('hide')
+
+				}
+			});
+			var rowData2 = $('#manageResourceGrid').getRowData();
+			$.ajax({
+				url : '/yde/resource/insertResourceExpress.do',
+				contentType : 'application/json;charset=utf-8',
+				dataType : 'json',
+				data : JSON.stringify({
+					'expressNo' : expressNo,
+					datas : rowData2
+				}),
+				type : 'POST',
+				mimeType : 'application/json',
 				error : function(xhr, status, msg) {
 					console.log("상태값 :" + status + " Http에러메시지 :" + msg);
 				},
 				success : function(xhr) {
 					console.log(xhr.result);
 					$("#manageWorkModal").modal('hide')
-					
+
 				}
 			});
 		}
@@ -365,9 +341,9 @@
 				viewrecords : true,
 				multiselect : true
 			});
-			/*
+
 			$("#resourceGrid").jqGrid({
-				url : '/yde/resource/selectList.do',
+				url : '/yde/resource/selectListByNoExpress.do' + expressNo,
 				mtype : "GET",
 				styleUI : 'Bootstrap',
 				datatype : "json",
@@ -385,9 +361,9 @@
 				viewrecords : true,
 				multiselect : true
 			});
-			
+
 			$("#manageResourceGrid").jqGrid({
-				url : '/yde/resource/selectList.do',
+				url : '/yde/resource/selectListByExpress.do' + expressNo,
 				mtype : "GET",
 				styleUI : 'Bootstrap',
 				datatype : "json",
@@ -405,10 +381,11 @@
 				viewrecords : true,
 				multiselect : true
 			});
-			 */
 
 			$("#employeeGrid").trigger("reloadGrid");
 			$("#manageEmployeeGrid").trigger("reloadGrid");
+			$("#resourceGrid").trigger("reloadGrid");
+			$("#manageResourceGrid").trigger("reloadGrid");
 			$("#manageWorkModal").modal('show')
 		}
 	</script>
@@ -760,8 +737,8 @@
 											<button onclick="leftClick('t')">&lt;</button>
 										</div>
 										<div class="col-md-5">
-											<table id="resourceEmployeeGrid"></table>
-											<div id="resourceEmployeeGridPager"></div>
+											<table id="manageResourceGrid"></table>
+											<div id="manageResourceGridPager"></div>
 										</div>
 									</div>
 								</div>

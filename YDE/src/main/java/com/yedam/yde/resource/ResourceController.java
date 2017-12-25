@@ -1,13 +1,19 @@
 package com.yedam.yde.resource;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.yedam.yde.employee.EmployeeVO;
+import com.yedam.yde.express.ExpressVO;
 
 @Controller
 public class ResourceController {
@@ -50,6 +56,37 @@ public class ResourceController {
 	public List<ResourceVO> selectList(Model model) {
 		System.out.println("[ResourceController][selectList]");
 		return resourceService.selectList();
+	}
+	
+	@RequestMapping("/resource/selectListByExpress.do")
+	@ResponseBody
+	public List<ResourceVO> selectListByExpress(Model model, ExpressVO vo) {
+		System.out.println("[EmployeeController][selectListByExpress]");
+		return resourceService.selectListByExpress(vo);
+	}
+
+	@RequestMapping("/resource/selectListByNoExpress.do")
+	@ResponseBody
+	public List<ResourceVO> selectListByNoExpress(Model model, ExpressVO vo) {
+		System.out.println("[EmployeeController][selectListByNoExpress]");
+		return resourceService.selectListByNoExpress(vo);
+	}
+
+	@RequestMapping(value ="/resource/insertResourceExpress.do",headers = { "Content-type=application/json;charset=utf-8" })
+	@ResponseBody
+	public Map insertEmployeeExpress(@RequestBody Map<String,Object> workerList) {
+		Integer expressNo =  Integer.parseInt((String) workerList.get("expressNo"));
+		List<Map<String,Object>> datas = (List<Map<String, Object>>) workerList.get("datas");
+		if(datas != null) {
+			resourceService.deleteResourceExpress(expressNo);
+			for(Map<String,Object> m : datas) {
+				m.put("expressNo", expressNo); 
+				resourceService.insertResourceExpress(m);
+			}
+		}
+		Map result = new HashMap();
+		result.put("result", Boolean.TRUE);
+		return result;
 	}
 	
 	@RequestMapping("/resource/edit.do")

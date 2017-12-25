@@ -69,7 +69,9 @@
 			loadonce : true,
 			//onSelectRow : editRow,
 			rowNum : 10,
-			height : 450,
+			height : 'auto',
+			autowidth : true,
+			responsive : true,
 			multiselect : true,
 			pager : "#employeejqGridPager"
 		});

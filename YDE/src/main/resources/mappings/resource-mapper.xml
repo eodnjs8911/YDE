@@ -36,4 +36,30 @@
 		SELECT * FROM resource
 	</select>
 	
+		<select id="selectListByNoExpress" parameterType="ExpressVO"
+		resultType="ResourceVO">
+		SELECT * FROM resource where resource_no not in (SELECT
+		e.resource_no FROM express_resource ee join resource e on
+		ee.resource_no = e.resource_no where ee.express_no = #{expressNo})
+	</select>
+
+	<select id="selectListByExpress" parameterType="ExpressVO"
+		resultType="ResourceVO">
+		SELECT * FROM express_resource ee join resource e on
+		ee.resource_no = e.resource_no where ee.express_no = #{expressNo}
+	</select>
+
+	<insert id="insertResourceExpress" parameterType="ExpressVO">
+		INSERT INTO
+		express_resource (resource_no, express_no)
+		VALUES(#{resourceNo},
+		#{expressNo})
+	</insert>
+
+	<delete id="deleteResourceExpress" parameterType="Integer">
+		DELETE FROM express_resource WHERE
+		express_no=#{expressNo}
+	</delete>
+	
+	
 </mapper>

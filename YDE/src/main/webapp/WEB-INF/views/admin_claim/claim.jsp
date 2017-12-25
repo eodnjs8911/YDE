@@ -105,7 +105,10 @@ td.form-view-data>span>div {
 			viewrecords : true,
 			loadonce : true,
 			//onSelectRow : editRow,
-			height : 750,
+			height : 'auto',
+			autowidth : true,
+			responsive : true,
+			multiselect : true,
 			rowNum : 20,
 			pager : "#claimjqGridPager"
 		});

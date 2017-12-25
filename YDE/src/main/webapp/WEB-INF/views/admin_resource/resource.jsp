@@ -26,7 +26,7 @@
 				name : 'resourceNo',
 				key : true,
 				editable : false,
-				width : 200,
+				width : 120,
 				sorttype : 'integer',
 				searchoptions : {
 					sopt : [ "eq" ]
@@ -78,7 +78,9 @@
 			loadonce : true,
 			//onSelectRow : editRow,
 			rowNum : 10,
-			height : 450,
+			height : 'auto',
+			autowidth : true,
+			responsive : true,
 			multiselect : true,
 			pager : "#resourcejqGridPager"
 		});

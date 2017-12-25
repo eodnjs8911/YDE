@@ -56,7 +56,7 @@
 	</select>
 
 	<select id="selectList" resultType="SmsVO">
-		select * from sms where
+		select * from sms
 	</select>
 	
 	<select id="selectListForAndroid" resultType="SmsVO">

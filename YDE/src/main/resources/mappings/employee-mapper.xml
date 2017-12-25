@@ -8,7 +8,7 @@
 		<selectKey keyProperty="employeeNo" resultType="int" order="BEFORE">
 			SELECT IFNULL(MAX(employee_no), 0) + 1 FROM employee
 		</selectKey>
-		INSERT INTO tablename1 (employee_no, employee_name, employee_position,
+		INSERT INTO employee (employee_no, employee_name, employee_position,
 		employee_phone)
 		VALUES(#{employeeNo}, #{employeeName},
 		#{employeePosition}, #{employeePhone})

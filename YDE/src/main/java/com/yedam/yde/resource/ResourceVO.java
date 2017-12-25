@@ -12,6 +12,10 @@ public class ResourceVO {
 	public void setResourceNo(int resourceNo) {
 		this.resourceNo = resourceNo;
 	}
+	
+	public void getResourceNo(String emp) {
+		this.resourceNo = (Integer) null;
+	}
 	public String getResourceName() {
 		return resourceName;
 	}

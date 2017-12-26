@@ -17,7 +17,7 @@
 		SET
 		gallery_title=#{galleryTitle},
 		gallery_image=#{galleryImage},
-		gallery_content=#{galleryContent}
+		gallery_content=#{galleryContent}v
 		WHERE
 		gallery_no = #{galleryNo}
 	</update>
@@ -36,6 +36,7 @@
 
 	<select id="selectList" resultType="GalleryVO">
 		SELECT * FROM gallery
+		ORDER BY gallery_no desc
 	</select>
 
 </mapper>

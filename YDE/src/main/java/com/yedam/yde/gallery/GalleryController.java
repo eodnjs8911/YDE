@@ -106,9 +106,10 @@ public class GalleryController {
 	}
 
 	@RequestMapping("/gallery/selectList.do")
-	@ResponseBody
-	public List<GalleryVO> selectList(Model model) {
+	public String selectList(Model model) {
 		System.out.println("[GalleryController][selectList]");
-		return galleryService.selectList();
+		model.addAttribute("gallery",galleryService.selectList());
+		return "cs/gallery";
 	}
+
 }

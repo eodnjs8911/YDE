@@ -16,7 +16,7 @@
 		<button class="button button2" type="button"
 			onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/epilogue'">이용후기</button>
 		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/gallery'">현장갤러리</button>
+			onclick="location.href='${pageContext.request.contextPath}/gallery/selectList.do'">현장갤러리</button>
 		<button class="button button2" type="button"
 			onclick="location.href='${pageContext.request.contextPath}/cs/insert.do'">불편신고</button>
 	</div>

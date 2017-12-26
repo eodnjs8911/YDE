@@ -32,5 +32,4 @@ public class GalleryDAO {
 	public List<GalleryVO> selectList() {
 		return mybatis.selectList("GalleryDAO.selectList");
 	}
-
 }

@@ -313,7 +313,7 @@ $(function(){
 							href="${pageContext.request.contextPath}/visit/selectListYearAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 방문자 통계</a></li>
   						<li><a
-							href="${pageContext.request.contextPath}/expressState/selectListDayAdminPage.do"><i
+							href="${pageContext.request.contextPath}/expressState/selectListMonthAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 기초상담 통계</a></li>
 
 						<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>

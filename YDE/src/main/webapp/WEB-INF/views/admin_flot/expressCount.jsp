@@ -68,6 +68,40 @@
 		chartDraw(url);
 	}
 </script>
+
+<script>
+window.onload = init;
+function init()
+{
+setDate(document.form);
+}
+
+function setDate(FORM, byYear, byMonth)
+{
+var current, year, month, day, days, i, j;
+current = new Date();
+year = (year) ? year : current.getFullYear();
+for (i=0, j=year-4; i < 5; i++, j++) FORM.byYear.options[i] = new Option(j, j);
+month = (month) ? month : current.getMonth()+1;
+for (i=0; i < 12; i++) {
+j = (i < 9) ? '0'+(i+1) : i+1;
+FORM.byMonth.options[i] = new Option(j, j);
+}
+/* day = (day) ? day : current.getDate();
+days = new Date(new Date(year, month, 1)-86400000).getDate(); */
+/* FORM.ByDay.length = 0; */
+/* for (i=0, j; i < days; i++) {
+j = (i < 9) ? '0'+(i+1) : i+1;
+FORM.ByDay.options[i] = new Option(j, j);
+} */
+FORM.byYear.value = year;
+FORM.byMonth.options[month-1].selected = true;
+//FORM.ByDay.options[day-1].selected = true;
+}
+
+</script>
+
+
 </head>
 <body>
 
@@ -75,38 +109,14 @@
 <!-- http://localhost/yde/visit/selectListYearAdminPage.do -->
 
 <br/>
- <form name=form>
-<input type=hidden name="statistics" value="">
-	<table class="basic">
-		<tr>
-			<!-- <th title="기준" width="60%"></th> -->
-			<th align="center">
-					<select name="byYear" id="byYear">
-						<option value="2017">2017</option>
-						<option value="2016">2016</option>
-						<option value="2015">2015</option>
-					</select>
-				</th>
-			<th align="center">
-					<select name="byMonth" id="byMonth" >
-						<option value="01" >1</option>
-						<option value="02">2</option>
-						<option value="03">3</option>
-						<option value="04">4</option>
-						<option value="05">5</option>
-						<option value="06">6</option>
-						<option value="07">7</option>
-						<option value="08">8</option>
-						<option value="09">9</option>
-						<option value="10">10</option>
-						<option value="11" >11</option>
-						<option value="12">12</option>
-					</select>
-				</th>
-			<th>&nbsp;
-			<button align="right" type="button" onclick="visit('day')" style="float: center;">일별</button>&nbsp;
+
+<Form name="form">
+<SELECT id="byYear" name="byYear" onChange="setDate(this.form, this.value, this.form.month.value)"></SELECT>년 &nbsp;
+<SELECT id="byMonth" name="byMonth" onChange="setDate(this.form, this.form.year.value, this.value)"></SELECT>월 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button align="right" type="button" onclick="visit('day')" style="float: center;">1달간(일별)</button>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<button align="right" type="button" onclick="visit('month')" style="float: center;">월별</button>&nbsp;
+			<button align="right" type="button" onclick="visit('month')" style="float: center;">1년간(월별)</button>&nbsp;
 			<!-- <button align="right" type="button" onclick="visit('year')" style="float: center;">연도별</button> -->
 			</th>
 		</tr>

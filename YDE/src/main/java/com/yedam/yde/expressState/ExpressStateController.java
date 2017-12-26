@@ -46,9 +46,9 @@ public class ExpressStateController {
 		}
 		
 		
-		@RequestMapping("/selectListDayAdminPage.do")
-		public String selectListYearAdminPage() {
-			System.out.println("[ExpressStateController][selectListDayAdminPage]");
+		@RequestMapping("/selectListMonthAdminPage.do")
+		public String selectListMonthAdminPage() {
+			System.out.println("[ExpressStateController][selectListMonthAdminPage]");
 			return "admin_flot/expressCount";
 		}
 		

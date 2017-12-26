@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="ExpressTypeDAO">
+
+
+<select id="selectListMonth" parameterType="map" resultType="map">
+	select (select express_space between 10 to 20) EDS, 
+			count(*) cnt, 
+			DATE_FORMAT(express_req_date, '%Y-%m')  ymd 
+	from express
+	where DATE_FORMAT(express_req_date, '%Y-%m') = #{expressReqDate} 
+	group by EDS
+	order by ymd
+</select>
+
+<select id="selectListYear" parameterType="map" resultType="map">
+	select (select name from code where code = express.express_category) EC, 
+			count(*) cnt, 
+			DATE_FORMAT(express_req_date, '%Y')  ymd 
+	from express
+	where DATE_FORMAT(express_req_date, '%Y') = #{expressReqDate} 
+	and (select name from code where code = express.express_category) is not null
+	group by express_category
+	order by ymd
+</select>
+
+
+</mapper>

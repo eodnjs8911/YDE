@@ -43,7 +43,7 @@ a{
 			<li><a onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/faq'">FAQ</a></li>
 			<li><a onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/epilogue'">이용후기</a></li>
 			<li><a onclick="location.href='${pageContext.request.contextPath}/gallery/selectList.do'">현장갤러리</a></li>
-			<li><a onclick="location.href='${pageContext.request.contextPath}/cs/insert.do'">불편신고</a></li>
+			<li><a onclick="location.href='${pageContext.request.contextPath}/cs/insert.do'">불편신고</a></li> 
 		</ul>
 	</div>
 	<div style="width: 100%; text-align: left;">

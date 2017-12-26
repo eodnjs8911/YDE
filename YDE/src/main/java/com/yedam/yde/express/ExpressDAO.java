@@ -40,4 +40,8 @@ public class ExpressDAO {
 	public List<Map<String, Object>>selectCalendarList() {
 		return mybatis.selectList("ExpressDAO.selectCalendarList");
 	}
+
+	public void sendSmsInfo() {
+		mybatis.selectList("ExpressDAO.sendSmsInfo");
+	}
 }

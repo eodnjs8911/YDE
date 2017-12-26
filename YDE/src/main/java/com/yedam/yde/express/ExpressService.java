@@ -14,4 +14,5 @@ public interface ExpressService {
 	public int calcEstimateAmount(ExpressVO vo);
 	public int consultReg(ExpressVO vo);
 	public Integer selectCount(ExpressVO vo);
+	public void sendSmsInfo();
 }

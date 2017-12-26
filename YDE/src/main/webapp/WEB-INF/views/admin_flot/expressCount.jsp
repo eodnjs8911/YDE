@@ -17,7 +17,7 @@
 		'packages' : [ 'corechart' ]
 	});
 	google.setOnLoadCallback(function() {
-		//chartDraw('${pageContext.request.contextPath}/visit/selectListYear.do');
+		chartDraw('${pageContext.request.contextPath}/expressState/selectListMonth.do');
 	});
 	
 	function chartDraw(url){

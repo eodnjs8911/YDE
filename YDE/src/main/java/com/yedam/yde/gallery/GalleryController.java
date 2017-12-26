@@ -41,6 +41,16 @@ public class GalleryController {
 		System.out.println("[GalleryController][galleryAdminPage]");
 		return "admin_gallery/gallery";
 	}
+	
+	@RequestMapping("/gallery/galleryAdminEditPage.do")
+	public String galleryAdminEditPage(@RequestParam(value="gelleryNo", required=false)Integer galleryNo, Model model) {
+		System.out.println("[GalleryController][galleryAdminPage]");
+		GalleryVO gallery = new GalleryVO();
+		gallery.setGalleryNo(galleryNo);
+		model.addAttribute("gallery", galleryService.selectOne(gallery));
+		return "admin_gallery/galleryEdit";
+	}
+	
 	@RequestMapping("/admin_gallery/ckeditorUpload")
 	public String ckeditorUpload(FileBean fileBean, HttpServletRequest request, Model model) throws FileUploadException {
 		HttpSession session = request.getSession();

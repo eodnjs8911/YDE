@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="${pageContext.request.contextPath}/resources/jquery/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,6 +15,7 @@ $(function(){
 				+'up_dir=/resources/images'
 				+'&temp_dir=c:/Temp'
 	});
+	var page=${galleryNO}.val();
 });
 
 function form_save(form){
@@ -47,4 +49,16 @@ function form_save(form){
       </div>
     </div>
   </form>
+  <h2>Gallery 수정/삭제</h2>
+  <div class="form-group">
+      <label class="control-label col-sm-2" for="수정할 페이지">수정할 페이지</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="galleryNo" placeholder="수정 또는 삭제할 페이지번호를 입력하세요" name="galleryNo">
+      </div>
+   </div>
+   <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-6">
+        <a href="<c:url value='/'/>gallery/galleryAdminEditPage.do?galleryNo"+${page}>수정</a><button type="reset" class="btn btn-default">삭제</button>
+      </div>
+    </div>
 </div>

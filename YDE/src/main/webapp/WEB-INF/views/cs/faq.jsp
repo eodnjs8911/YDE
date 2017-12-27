@@ -144,7 +144,7 @@ $(function() {
 			&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/resources/images/faq.png" width="100%">
 		</div>
 		<br/><br/>
-		<div class="container" style="align-content: center; align-items: center; margin: auto;">
+		
 			<div>
 				<div class="tab-content panels-faq">
 					<div class="tab-pane active" id="tab1">
@@ -423,15 +423,6 @@ $(function() {
 					</div>
 				</div>
 			</div>
-		</div>
-
 	</form>
-
-
-
-
-
-
-
 </body>
 </html>

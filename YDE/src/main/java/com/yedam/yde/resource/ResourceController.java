@@ -61,14 +61,14 @@ public class ResourceController {
 	@RequestMapping("/resource/selectListByExpress.do")
 	@ResponseBody
 	public List<ResourceVO> selectListByExpress(Model model, ExpressVO vo) {
-		System.out.println("[EmployeeController][selectListByExpress]");
+		System.out.println("[ResourceController][selectListByExpress]");
 		return resourceService.selectListByExpress(vo);
 	}
 
 	@RequestMapping("/resource/selectListByNoExpress.do")
 	@ResponseBody
 	public List<ResourceVO> selectListByNoExpress(Model model, ExpressVO vo) {
-		System.out.println("[EmployeeController][selectListByNoExpress]");
+		System.out.println("[ResourceController][selectListByNoExpress]");
 		return resourceService.selectListByNoExpress(vo);
 	}
 

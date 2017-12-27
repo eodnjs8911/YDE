@@ -26,7 +26,7 @@
 	<script type='text/javascript'>
 		$(function() {
 			var detailId = '${param.detailId}';
-			if(detailId != ''){
+			if (detailId != '') {
 				showDetail(detailId);
 			}
 		});
@@ -98,7 +98,7 @@
 			$.getJSON('/yde/express/expressDetail.do', {
 				"expressNo" : expressNo
 			}, function(data) {
-				$("#expressNo").val(data.expressNo);
+				$("#expressNo").val(expressNo);
 				$("#expressDetailForm").get(0).reset();
 				$("#expressCategory").val(data.expressCategory);
 				$("#expressDate").val(
@@ -322,7 +322,11 @@
 					width : 100
 				} ],
 				viewrecords : true,
-				multiselect : true
+				multiselect : true,
+				height : 'auto',
+				autowidth : true,
+				responsive : true,
+				rowNum : 10
 			});
 
 			$("#manageEmployeeGrid").jqGrid({
@@ -342,7 +346,11 @@
 					width : 100
 				} ],
 				viewrecords : true,
-				multiselect : true
+				multiselect : true,
+				height : 'auto',
+				autowidth : true,
+				responsive : true,
+				rowNum : 10
 			});
 
 			$("#resourceGrid").jqGrid({
@@ -362,7 +370,11 @@
 					width : 100
 				} ],
 				viewrecords : true,
-				multiselect : true
+				multiselect : true,
+				height : 'auto',
+				autowidth : true,
+				responsive : true,
+				rowNum : 10
 			});
 
 			$("#manageResourceGrid").jqGrid({
@@ -382,13 +394,26 @@
 					width : 100
 				} ],
 				viewrecords : true,
-				multiselect : true
+				multiselect : true,
+				height : 'auto',
+				autowidth : true,
+				responsive : true,
+				rowNum : 10
 			});
 
-			$("#employeeGrid").trigger("reloadGrid");
-			$("#manageEmployeeGrid").trigger("reloadGrid");
-			$("#resourceGrid").trigger("reloadGrid");
-			$("#manageResourceGrid").trigger("reloadGrid");
+
+			$("#employeeGrid").setGridParam({
+				url : '/yde/employee/selectListByNoExpress.do' + expressNo,
+			}).trigger('reloadGrid');
+			$("#manageEmployeeGrid").setGridParam({
+				url : '/yde/employee/selectListByExpress.do' + expressNo,
+			}).trigger('reloadGrid');
+			$("#resourceGrid").setGridParam({
+				url : '/yde/resource/selectListByNoExpress.do' + expressNo,
+			}).trigger('reloadGrid');
+			$("#manageResourceGrid").setGridParam({
+				url : '/yde/resource/selectListByExpress.do' + expressNo,
+			}).trigger('reloadGrid');
 			$("#manageWorkModal").modal('show')
 		}
 	</script>

@@ -49,7 +49,9 @@ function form_save(form){
       </div>
     </div>
   </form>
-  <h2>Gallery 수정/삭제</h2>
+   
+  <h2>Gallery 수정/삭제</h2> 
+  <form class="form-horizontal" action="${pageContext.request.contextPath}/gallery/galleryAdminEditPage.do" method="post">
   <div class="form-group">
       <label class="control-label col-sm-2" for="수정할 페이지">수정할 페이지</label>
       <div class="col-sm-4">
@@ -58,7 +60,9 @@ function form_save(form){
    </div>
    <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-6">
-        <a href="<c:url value='/'/>gallery/galleryAdminEditPage.do?galleryNo"+${page}>수정</a><button type="reset" class="btn btn-default">삭제</button>
+       <a href="${pageContext.request.contextPath}/gallery/galleryAdminEditPage.do?galleryNo=10">수정</a>
+       <a href="${pageContext.request.contextPath}/gallery/delete.do?galleryNo=4">삭제</a>  
       </div>
     </div>
+    </form>
 </div>

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.yde.gallery.GalleryService;
@@ -33,10 +35,10 @@ public class GalleryController {
 	}
 	
 	@RequestMapping("/gallery/galleryAdminEditPage.do")
-	public String galleryAdminEditPage(@RequestParam(value="gelleryNo", required=false)Integer galleryNo, Model model) {
+	public String galleryAdminEditPage(GalleryVO gallery, Model model) {
 		System.out.println("[GalleryController][galleryAdminPage]");
-		GalleryVO gallery = new GalleryVO();
-		gallery.setGalleryNo(galleryNo);
+		//GalleryVO gallery = new GalleryVO();
+		//gallery.setGalleryNo(galleryNo);
 		model.addAttribute("gallery", galleryService.selectOne(gallery));
 		return "admin_gallery/galleryEdit";
 	}
@@ -74,12 +76,12 @@ public class GalleryController {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		String upload_location = request.getSession().getServletContext().getRealPath("/resources/images");
 		System.out.println("[GalleryController][insert]");
-		MultipartFile galleryImage = vo.getUpload();
+		MultipartFile upload = vo.getUpload();
 		
-		if(galleryImage != null ) {
-			String fileName = galleryImage.getOriginalFilename();
+		if(upload != null ) {
+			String fileName = upload.getOriginalFilename();
 			//galleryImage.transferTo(new File("D:/upload/"+fileName));
-			galleryImage.transferTo(new File(upload_location, fileName));
+			upload.transferTo(new File(upload_location, fileName));
 			vo.setGalleryImage(fileName);
 		}
 		galleryService.insert(vo);
@@ -87,15 +89,29 @@ public class GalleryController {
 	}
 
 	@RequestMapping("/gallery/update.do")
-	public void update(GalleryVO vo) {
+	public String update( GalleryVO vo, HttpServletRequest request) throws IOException {
 		System.out.println("[GalleryController][update]");
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
+		String upload_location = request.getSession().getServletContext().getRealPath("/resources/images");
+		MultipartFile upload = vo.getUpload();
+		
+		if(upload != null && upload.getSize() > 0) {
+			String fileName = upload.getOriginalFilename();
+			//galleryImage.transferTo(new File("D:/upload/"+fileName));
+			upload.transferTo(new File(upload_location, fileName));
+			vo.setGalleryImage(fileName);
+		}/*else {
+			vo.setGalleryImage(defaultImage);
+		}*/
 		galleryService.update(vo);
+		return "cs/gallery";
 	}
 
 	@RequestMapping("/gallery/delete.do")
-	public void delete(GalleryVO vo) {
+	public String delete(GalleryVO vo) {
 		System.out.println("[GalleryController][delete]");
 		galleryService.delete(vo);
+		return "cs/gallery";
 	}
 
 	@RequestMapping("/gallery/selectOne.do")

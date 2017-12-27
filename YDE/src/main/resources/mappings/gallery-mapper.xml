@@ -16,8 +16,10 @@
 		UPDATE gallery
 		SET
 		gallery_title=#{galleryTitle},
+		<if test="galleryImage != null and galleryImage !='' ">
 		gallery_image=#{galleryImage},
-		gallery_content=#{galleryContent}v
+		</if>
+		gallery_content=#{galleryContent}
 		WHERE
 		gallery_no = #{galleryNo}
 	</update>

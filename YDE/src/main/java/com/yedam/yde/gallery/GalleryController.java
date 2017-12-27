@@ -131,7 +131,25 @@ public class GalleryController {
 		return mv;
 	}	
 	
+	@RequestMapping("/gallery/galleryDetailAdminPage.do/Admin{galleryNo}")
+	public ModelAndView getGalleryList(@PathVariable int galleryNo, ModelAndView mv) {
+		GalleryVO gallery = new GalleryVO();
+		gallery.setGalleryNo(galleryNo);
+		mv.addObject("gallery", galleryService.selectOne(gallery));
+		mv.setViewName("admin_gallery/galleryView");
+		System.out.println("[GalleryController][selectOneSeq]");
+		return mv;
+	}	
+	
 
+	@RequestMapping("/gallery/galleryListAdminPage.do/")
+	public String selectadminList(Model model) {
+		System.out.println("[GalleryController][selectList]");
+		model.addAttribute("gallery",galleryService.selectList());
+		return "admin_gallery/galleryView";
+	}
+
+	
 	@RequestMapping("/gallery/selectList.do")
 	public String selectList(Model model) {
 		System.out.println("[GalleryController][selectList]");

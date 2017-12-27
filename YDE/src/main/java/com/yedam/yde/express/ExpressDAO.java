@@ -44,4 +44,18 @@ public class ExpressDAO {
 	public void sendSmsInfo() {
 		mybatis.selectList("ExpressDAO.sendSmsInfo");
 	}
+
+	public List<ExpressVO> selectListToday(String state) {
+		if(state.equals("A01")) {
+			return mybatis.selectList("ExpressDAO.selectListTodayA01");
+		}else if(state.equals("A02")) {
+			return mybatis.selectList("ExpressDAO.selectListTodayA02");
+		}else if(state.equals("A03")) {
+			return mybatis.selectList("ExpressDAO.selectListTodayA03");
+		}else if(state.equals("A05")) {
+			return mybatis.selectList("ExpressDAO.selectListTodayA05");
+		}else {
+			return null;
+		}
+	}
 }

@@ -56,7 +56,7 @@ a{
 				<a href="javascript:showLogin();">관리자 로그인</a>
 			</c:if> <c:if test="${!empty login }">
 				<a href="javascript:logout();">로그아웃</a>
-				<a href='express/expressAdminPage.do'>관리자페이지로 접속</a>
+				<a href='/yde/express/expressAdminPage.do'>관리자페이지로 접속</a>
 			</c:if>
 			<br/>
 			<br/>

@@ -165,6 +165,13 @@ public class ExpressController {
 		return expressService.selectList();
 	}
 	
+	@RequestMapping("/express/selectListToday.do")
+	@ResponseBody
+	public List<ExpressVO> selectListToday(Model model,@RequestParam(value="state",defaultValue="",required=false)String state) {
+		System.out.println("[ExpressController][selectList]");
+		return expressService.selectListToday(state);
+	}
+	
 	@RequestMapping("/express/selectCalendarList.do")
 	@ResponseBody
 	public List<Map<String, Object>> selectCalendarList(Model model) {

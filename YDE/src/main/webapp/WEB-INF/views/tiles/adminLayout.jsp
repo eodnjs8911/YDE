@@ -75,6 +75,92 @@ $(function(){
 		}
 	});
 	})
+	
+	$("#todayCalc").click(function(){
+		$.ajax({
+		url : "${pageContext.request.contextPath}/express/selectListToday.do?state=A01",
+		method : "post",
+		success : function(data) {
+			console.log(data.length)
+			$("#expressTodayCalcCount").text("금일 이사 계산 "+data.length+"건");
+		}
+		});
+	})
+		
+	$("#todayConsult").click(function(){
+		$("#todayConsultList").html("");
+		$.ajax({
+		url : "${pageContext.request.contextPath}/express/selectListToday.do?state=A02",
+		method : "post",
+		success : function(data) {
+			var max = data.length > 5 ? 5: data.length
+			for(i=0;i<max;i++){
+			
+				var linkHref = "${pageContext.request.contextPath}/express/expressAdminPage.do?detailId="+data[i].expressNo;
+				
+				var consultString = "이사 날짜 : " + data[i].expressDate.substring( 0, 16) + "<br/>";
+				consultString += "출발 : " +  data[i].expressDepartureAddr1 + " / " +  data[i].expressDepartureSize + "평  / "
+						+  data[i].expressDepartureFloor + "층<br/>";
+				consultString += "도착 : " +  data[i].expressArriveAddr1 + " / " +  data[i].expressArriveSize + "평  / "
+						+  data[i].expressArriveFloor + "층<br/>";
+				
+				$("#todayConsultList").append('<li><a href="'+linkHref+'"><div><strong>'+data[i].expressCustomer+'</strong><span class="pull-right text-muted"><em>'+data[i].expressPhone+'</em></span></div><div>'+consultString+'</div></a></li><li class="divider"></li>')
+			}
+	
+			$("#todayConsultList").append('<li><a class="text-center"href="${pageContext.request.contextPath}/express/expressAdminPage.do"><strong>금일 상담신청 '+data.length+' 건</strong> <iclass="fa fa-angle-right"></i></a></li>');
+		}
+		});
+	})
+	
+	$("#todayVisit").click(function(){
+		$("#todayVisitList").html("");
+		$.ajax({
+		url : "${pageContext.request.contextPath}/express/selectListToday.do?state=A03",
+		method : "post",
+		success : function(data) {
+
+		
+			var max = data.length > 5 ? 5: data.length
+			for(i=0;i<max;i++){
+				var linkHref = "${pageContext.request.contextPath}/express/expressAdminPage.do?detailId="+data[i].expressNo;
+				
+				var consultString = "방문  시간: " + data[i].expressVisitTime.substring( 0, 16) + "<br/>";
+				consultString += "주소 : " +  data[i].expressDepartureAddr1 + " " +  data[i].expressDepartureAddr2 + " "
+						+  data[i].expressDepartureFloor + "층<br/>";
+				
+				$("#todayVisitList").append('<li><a href="'+linkHref+'"><div><strong>'+data[i].expressCustomer+'</strong><span class="pull-right text-muted"><em>'+data[i].expressPhone+'</em></span></div><div>'+consultString+'</div></a></li><li class="divider"></li>')
+			}
+	
+			$("#todayVisitList").append('<li><a class="text-center"href="${pageContext.request.contextPath}/express/expressAdminPage.do"><strong>금일 방문 '+data.length+' 건</strong> <iclass="fa fa-angle-right"></i></a></li>');
+		}
+		});
+	})
+	
+	$("#todayExpress").click(function(){
+		$("#todayExpressList").html("");
+		$.ajax({
+		url : "${pageContext.request.contextPath}/express/selectListToday.do?state=A05",
+		method : "post",
+		success : function(data) {
+
+			var max = data.length > 5 ? 5: data.length
+			for(i=0;i<max;i++){
+			
+				var linkHref = "${pageContext.request.contextPath}/express/expressAdminPage.do?detailId="+data[i].expressNo;
+				
+				var consultString = "이사 날짜 : " + data[i].expressDate.substring( 0, 16) + "<br/>";
+				consultString += "출발 : " +  data[i].expressDepartureAddr1 + " / " +  data[i].expressDepartureSize + "평  / "
+						+  data[i].expressDepartureFloor + "층<br/>";
+				consultString += "도착 : " +  data[i].expressArriveAddr1 + " / " +  data[i].expressArriveSize + "평  / "
+						+  data[i].expressArriveFloor + "층<br/>";
+				
+				$("#todayExpressList").append('<li><a href="'+linkHref+'"><div><strong>'+data[i].expressCustomer+'</strong><span class="pull-right text-muted"><em>'+data[i].expressPhone+'</em></span></div><div>'+consultString+'</div></a></li><li class="divider"></li>')
+			}
+	
+			$("#todayExpressList").append('<li><a class="text-center"href="${pageContext.request.contextPath}/express/expressAdminPage.do"><strong>금일 이사 '+data.length+' 건</strong> <iclass="fa fa-angle-right"></i></a></li>');
+		}
+		});
+	})
 });
 </script>
 
@@ -98,169 +184,46 @@ $(function(){
 			</div>
 			<!-- /.navbar-header -->
 
+
+
 			<ul class="nav navbar-top-links navbar-right">
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"> <i
-						class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+					
+								
+				<li id="todayCalc" class="dropdown"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-calculator fa-fw"></i> <i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-messages">
-						<li><a href="#">
-								<div>
-									<strong>John Smith</strong> <span class="pull-right text-muted">
-										<em>Yesterday</em>
-									</span>
-								</div>
-								<div>Lorem ipsum dolor sit amet, consectetur adipiscing
-									elit. Pellentesque
-									eleifend${pageContext.request.contextPath}/resources/sbadmin2.</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-								<div>
-									<strong>John Smith</strong> <span class="pull-right text-muted">
-										<em>Yesterday</em>
-									</span>
-								</div>
-								<div>Lorem ipsum dolor sit amet, consectetur adipiscing
-									elit. Pellentesque
-									eleifend${pageContext.request.contextPath}/resources/sbadmin2.</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-								<div>
-									<strong>John Smith</strong> <span class="pull-right text-muted">
-										<em>Yesterday</em>
-									</span>
-								</div>
-								<div>Lorem ipsum dolor sit amet, consectetur adipiscing
-									elit. Pellentesque
-									eleifend${pageContext.request.contextPath}/resources/sbadmin2.</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a class="text-center" href="#"> <strong>Read
-									All Messages</strong> <i class="fa fa-angle-right"></i>
-						</a></li>
+					<li><a class="text-center"href="${pageContext.request.contextPath}/express/expressAdminPage.do">
+					<strong id="expressTodayCalcCount"></strong>
+					 <iclass="fa fa-angle-right"></i></a></li>
 					</ul> <!-- /.dropdown-messages --></li>
 				<!-- /.dropdown -->
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"> <i class="fa fa-tasks fa-fw"></i>
-						<i class="fa fa-caret-down"></i>
+
+				<li id="todayConsult" class="dropdown"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-comment fa-fw"></i> <i class="fa fa-caret-down"></i>
 				</a>
-					<ul class="dropdown-menu dropdown-tasks">
-						<li><a href="#">
-								<div>
-									<p>
-										<strong>Task 1</strong> <span class="pull-right text-muted">40%
-											Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-success"
-											role="progressbar" aria-valuenow="40" aria-valuemin="0"
-											aria-valuemax="100" style="width: 40%">
-											<span class="sr-only">40% Complete (success)</span>
-										</div>
-									</div>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-								<div>
-									<p>
-										<strong>Task 2</strong> <span class="pull-right text-muted">20%
-											Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-info" role="progressbar"
-											aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"
-											style="width: 20%">
-											<span class="sr-only">20% Complete</span>
-										</div>
-									</div>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-								<div>
-									<p>
-										<strong>Task 3</strong> <span class="pull-right text-muted">60%
-											Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-warning"
-											role="progressbar" aria-valuenow="60" aria-valuemin="0"
-											aria-valuemax="100" style="width: 60%">
-											<span class="sr-only">60% Complete (warning)</span>
-										</div>
-									</div>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-								<div>
-									<p>
-										<strong>Task 4</strong> <span class="pull-right text-muted">80%
-											Complete</span>
-									</p>
-									<div class="progress progress-striped active">
-										<div class="progress-bar progress-bar-danger"
-											role="progressbar" aria-valuenow="80" aria-valuemin="0"
-											aria-valuemax="100" style="width: 80%">
-											<span class="sr-only">80% Complete (danger)</span>
-										</div>
-									</div>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a class="text-center" href="#"> <strong>See
-									All Tasks</strong> <i class="fa fa-angle-right"></i>
-						</a></li>
-					</ul> <!-- /.dropdown-tasks --></li>
+					<ul class="dropdown-menu dropdown-messages" id="todayConsultList">
+					</ul> <!-- /.dropdown-messages --></li>
 				<!-- /.dropdown -->
-				<li id="clicked" class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"> <i class="fa fa-bell fa-fw"></i>
-						<i class="fa fa-caret-down"></i>
+				
+				<li id="todayVisit" class="dropdown"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-search fa-fw"></i> <i class="fa fa-caret-down"></i>
 				</a>
-					<ul class="dropdown-menu dropdown-alerts">
-						<li><a href="${pageContext.request.contextPath}/express/expressAdminPage.do">
-								<div>
-									<i class="fa fa-comment fa-fw"></i> 견적문의건
-									<span id="expressCount" class="pull-right text-muted small"></span>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-					<!-- 	<li><a href="#">
-								<div>
-									<i class="fa fa-twitter fa-fw"></i> 3 New Followers <span
-										class="pull-right text-muted small">12 minutes ago</span>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-								<div>
-									<i class="fa fa-envelope fa-fw"></i> Message Sent <span
-										class="pull-right text-muted small">4 minutes ago</span>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-								<div>
-									<i class="fa fa-tasks fa-fw"></i> New Task <span
-										class="pull-right text-muted small">4 minutes ago</span>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a href="#">
-								<div>
-									<i class="fa fa-upload fa-fw"></i> Server Rebooted <span
-										class="pull-right text-muted small">4 minutes ago</span>
-								</div>
-						</a></li>
-						<li class="divider"></li>
-						<li><a class="text-center" href="#"> <strong>See
-									All Alerts</strong> <i class="fa fa-angle-right"></i>
-						</a></li> -->
-					</ul> <!-- /.dropdown-alerts --></li>
+					<ul class="dropdown-menu dropdown-messages" id="todayVisitList">
+					</ul> <!-- /.dropdown-messages --></li>
 				<!-- /.dropdown -->
+				
+				<li id="todayExpress" class="dropdown"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-truck fa-fw"></i> <i class="fa fa-caret-down"></i>
+				</a>
+					<ul class="dropdown-menu dropdown-messages" id="todayExpressList">
+					</ul> <!-- /.dropdown-messages --></li>
+				<!-- /.dropdown -->
+
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i>
 						<i class="fa fa-caret-down"></i>
@@ -281,8 +244,7 @@ $(function(){
 			<div class="navbar-default sidebar" role="navigation">
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
-					<li><a
-							href="${pageContext.request.contextPath}"><i
+						<li><a href="${pageContext.request.contextPath}"><i
 								class="fa fa-files-o fa-fw"></i> 홈페이지로 돌아가기</a></li>
 						<li>
 						<li><a
@@ -306,7 +268,7 @@ $(function(){
 						<li><a
 							href="${pageContext.request.contextPath}/visit/selectListYearAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 방문자 통계</a></li>
-  						<li><a
+						<li><a
 							href="${pageContext.request.contextPath}/expressState/selectListMonthAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 기초상담 통계</a></li>
 						<li><a
@@ -358,13 +320,9 @@ $(function(){
 								<li><a class="active" href="blank.html">Blank Page</a></li>
 								<li><a href="login.html">Login Page</a></li>
 							</ul> <!-- /.nav-second-level --></li>
-							<li style="text-align:center">
-								<br/>
-								오늘 방문자수 &nbsp;&nbsp;&nbsp;
-								${todayCount}<br/>
-								총 방문자수&nbsp;&nbsp;&nbsp;				
-								${totalCount}
-							</li>
+						<li style="text-align: center"><br /> 오늘 방문자수
+							&nbsp;&nbsp;&nbsp; ${todayCount}<br /> 총 방문자수&nbsp;&nbsp;&nbsp;
+							${totalCount}</li>
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->

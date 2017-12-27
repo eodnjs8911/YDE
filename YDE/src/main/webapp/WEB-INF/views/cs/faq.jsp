@@ -140,9 +140,9 @@ $(function() {
 			<img src="<c:url value='/'/>resources/images/faq.png" width=100%>
 		</div>
 		<br/><br/>
-		<div class="container">
+		<div class="container" style="align-content: center; align-items: center;">
 
-			<div class="col-md-8">
+			<div class="col-md-12">
 				<div class="tab-content panels-faq">
 					<div class="tab-pane active" id="tab1">
 						<div class="panel-group" id="help-accordion-1">

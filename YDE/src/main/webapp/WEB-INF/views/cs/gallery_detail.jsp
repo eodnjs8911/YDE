@@ -13,9 +13,9 @@
 	<br />
 	<hr>
 	<div class="col-lg-4 col-md-12">
-		<img
+	<%-- 	<img
 			src="${pageContext.request.contextPath}/resources/images/${gallery.galleryImage}"
-			alt="IMAGE_${gallery.galleryImage}">
+			alt="IMAGE_${gallery.galleryImage}"> --%>
 			${gallery.galleryContent}
 	<hr>
 	<a style="cursor: pointer;" 

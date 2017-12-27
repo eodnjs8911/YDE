@@ -12,7 +12,7 @@
    
       <div class="row text-center text-lg-left">
          <c:forEach var="image" items="${gallery}">
-        <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="col-lg-4 col-md-6 col-sm-12">
           ${image.galleryNo}
           <a href="${pageContext.request.contextPath}/gallery/view/${image.galleryNo}" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="${pageContext.request.contextPath}/resources/images/${image.galleryImage}"alt=""

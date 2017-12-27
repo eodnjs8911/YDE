@@ -16,8 +16,8 @@
 			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_4'">기업이사</button>
 		<button class="button button2" type="button"
 			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_5'">포장이사</button>
-		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_3'">보관이사</button>
+		<%-- <button class="button button2" type="button"
+			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MD1/MD1_3'">보관이사</button> --%>
 	</div>
 </body>
 </html>

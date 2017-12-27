@@ -38,7 +38,11 @@
 
 	<task:scheduler id="jobScheduler" pool-size="10" />
 	<task:annotation-driven scheduler="jobScheduler" />
-
-	<context:component-scan base-package="com.yedam.yde" />
+	
+	<context:component-scan base-package="com.yedam.yde">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+	</context:component-scan>
 
 </beans:beans>

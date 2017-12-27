@@ -135,9 +135,10 @@ $(function() {
 <body>
 
 	<form id="myForm1">
-	<%@ include file="menu_CS1.jsp"%>  
+	<%@ include file="menu_CS1.jsp"%>
+	<br/><br/>  
 		<div style="width: 100%;align-content: center;">
-			<img src="<c:url value='/'/>resources/images/faq.png" width=100%>
+			&nbsp;&nbsp;<img src="<c:url value='/'/>resources/images/faq.png" width=70%>
 		</div>
 		<br/><br/>
 		<div class="container">

@@ -9,11 +9,11 @@
 		select  sum(case when express_current_state = 'A01' then 1 else 0 end) A01, 
 				sum(case when express_current_state = 'A02' then 1 else 0 end) A02, 
 				sum(case when express_current_state = 'A03' then 1 else 0 end) A03,
-			    date_format(express_change_date, '%Y-%m-%d') ymd
+			    date_format(express_change_date, '%d') ymd
 		from express_state
 		where date_format(express_change_date, '%Y-%m') = #{date}
 
-		group by date_format(express_change_date,'%Y-%m-%d')
+		group by date_format(express_change_date,'%d')
 		order by ymd
 </select>
 

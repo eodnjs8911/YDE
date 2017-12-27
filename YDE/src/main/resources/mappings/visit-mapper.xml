@@ -39,10 +39,10 @@
 </select>
 	
 <select id="selectListDay" parameterType="VisitStatisticsSearchVO" resultType="map">
-		select count(*) cnt, DATE_FORMAT(visit_date, '%Y-%m-%d')  ymd 
+		select count(*) cnt, DATE_FORMAT(visit_date, '%d')  ymd 
 		  from visit 
 		  where DATE_FORMAT(visit_date, '%Y-%m') =#{visitDate} 
-		  group by DATE_FORMAT(visit_date, '%Y-%m-%d')  
+		  group by DATE_FORMAT(visit_date, '%d')  
 		  order by ymd
 </select>
 

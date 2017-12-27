@@ -83,7 +83,8 @@ FORM.month.options[month-1].selected = true;
 	var options = {
 		title : '',
 		width : 1400,
-		height : 700
+		height : 700,
+		is3D:true
 	};
 	google.load('visualization', '1.0', {
 		'packages' : [ 'corechart' ]

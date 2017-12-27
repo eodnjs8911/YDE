@@ -6,24 +6,57 @@
 
 
 <select id="selectListMonth" parameterType="map" resultType="map">
-	select (select express_space between 10 to 20) EDS, 
-			count(*) cnt, 
-			DATE_FORMAT(express_req_date, '%Y-%m')  ymd 
-	from express
-	where DATE_FORMAT(express_req_date, '%Y-%m') = #{expressReqDate} 
-	group by EDS
-	order by ymd
+select
+	case
+		when express_departure_size between 0 and 10 then '0평 - 10평 이하'
+		when express_departure_size between 10 and 20 then '10평 초과 - 20평 이하'
+		when express_departure_size between 20 and 30 then '20평 초과 - 30평 이하'
+		when express_departure_size between 30 and 40 then '30평 초과 - 40평 이하'
+		when express_departure_size between 40 and 50 then '40평 초과 - 50평 이하'
+		else '50평 초과'
+	end as 'range',
+
+	count(*) as 'number_of_size'
+
+from express
+
+where DATE_FORMAT(express_req_date, '%Y-%m') = #{expressReqDate} 
+
+group by case
+	when express_departure_size between 0 and 10 then '0평 - 10평 이하'
+	when express_departure_size between 10 and 20 then '10평 초과 - 20평 이하'
+	when express_departure_size between 20 and 30 then '20평 초과 - 30평 이하'
+	when express_departure_size between 30 and 40 then '30평 초과 - 40평 이하'
+	when express_departure_size between 40 and 50 then '40평 초과 - 50평 이하'
+	else '50평 초과'
+	end
 </select>
 
 <select id="selectListYear" parameterType="map" resultType="map">
-	select (select name from code where code = express.express_category) EC, 
-			count(*) cnt, 
-			DATE_FORMAT(express_req_date, '%Y')  ymd 
-	from express
-	where DATE_FORMAT(express_req_date, '%Y') = #{expressReqDate} 
-	and (select name from code where code = express.express_category) is not null
-	group by express_category
-	order by ymd
+select
+	case
+		when express_departure_size between 0 and 10 then '0평 - 10평 이하'
+		when express_departure_size between 10 and 20 then '10평 초과 - 20평 이하'
+		when express_departure_size between 20 and 30 then '20평 초과 - 30평 이하'
+		when express_departure_size between 30 and 40 then '30평 초과 - 40평 이하'
+		when express_departure_size between 40 and 50 then '40평 초과 - 50평 이하'
+		else '50평 초과'
+	end as 'range',
+
+	count(*) as 'number_of_size'
+
+from express
+
+where DATE_FORMAT(express_req_date, '%Y') = #{expressReqDate} 
+
+group by case
+	when express_departure_size between 0 and 10 then '0평 - 10평 이하'
+	when express_departure_size between 10 and 20 then '10평 초과 - 20평 이하'
+	when express_departure_size between 20 and 30 then '20평 초과 - 30평 이하'
+	when express_departure_size between 30 and 40 then '30평 초과 - 40평 이하'
+	when express_departure_size between 40 and 50 then '40평 초과 - 50평 이하'
+	else '50평 초과'
+	end
 </select>
 
 

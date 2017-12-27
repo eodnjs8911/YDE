@@ -2,33 +2,23 @@ package com.yedam.yde.gallery;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Logger;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.support.MultipartFilter;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.yde.gallery.GalleryService;
 import com.yedam.yde.gallery.GalleryVO;
-import com.yedam.yde.express.ExpressVO;
 
 @Controller
 public class GalleryController {
@@ -114,6 +104,17 @@ public class GalleryController {
 		System.out.println("[GalleryController][selectOne]");
 		return galleryService.selectOne(vo);
 	}
+	
+	@RequestMapping("/gallery/view/{galleryNo}")
+	public ModelAndView getGallery(@PathVariable int galleryNo, ModelAndView mv) {
+		GalleryVO gallery = new GalleryVO();
+		gallery.setGalleryNo(galleryNo);
+		mv.addObject("gallery", galleryService.selectOne(gallery));
+		mv.setViewName("cs/gallery_detail");
+		System.out.println("[GalleryController][selectOneSeq]");
+		return mv;
+	}	
+	
 
 	@RequestMapping("/gallery/selectList.do")
 	public String selectList(Model model) {

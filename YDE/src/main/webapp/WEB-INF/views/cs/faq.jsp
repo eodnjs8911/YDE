@@ -20,7 +20,9 @@ body {
 	margin: 0 0 32px;
 	border-radius: 2px;
 	border: 1px solid #ddd;
-	box-shadow: 0 1px 5px rgba(85, 85, 85, 0.15); . list-group-item {
+	box-shadow: 0 1px 5px rgba(85, 85, 85, 0.15); 
+
+.list-group-item {
 	position : relative;
 	display: block;
 	margin: 0;
@@ -31,7 +33,8 @@ body {
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 	color: #616161;
-	transition: background-color .2s; i .mdi { margin-right : 5px;
+	transition: background-color .2s; i 
+.mdi { margin-right : 5px;
 	font-size: 18px;
 	position: relative;
 	top: 2px;
@@ -137,13 +140,12 @@ $(function() {
 	<form id="myForm1">
 	<%@ include file="menu_CS1.jsp"%>
 	<br/><br/>  
-		<div style="width: 100%;align-content: center;">
-			&nbsp;&nbsp;<img src="<c:url value='/'/>resources/images/faq.png" width=70%>
+		<div style="text-align: center;">
+			&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/resources/images/faq.png" width="100%">
 		</div>
 		<br/><br/>
-		<div class="container" style="align-content: center; align-items: center;">
-
-			<div class="col-md-12">
+		<div class="container" style="align-content: center; align-items: center; margin: auto;">
+			<div class="col-lg-10 col-md-9 col-sm-11">
 				<div class="tab-content panels-faq">
 					<div class="tab-pane active" id="tab1">
 						<div class="panel-group" id="help-accordion-1">

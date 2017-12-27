@@ -133,6 +133,11 @@ public class ExpressServiceImpl implements ExpressService {
 	public List<ExpressVO> selectList() {
 		return expressDAO.selectList();
 	}
+	
+	@Override
+	public List<ExpressVO> selectListToday(String state) {
+		return expressDAO.selectListToday(state);
+	}
 
 	@Override
 	public List<Map<String, Object>> selectCalendarList() {

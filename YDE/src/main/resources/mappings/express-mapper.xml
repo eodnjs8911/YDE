@@ -112,6 +112,44 @@
 	<select id="selectList" resultType="ExpressVO">
 		select * from express
 	</select>
+	
+	<select id="selectListTodayA01" resultType="ExpressVO">		
+		select * from express where express_no in
+		(select express_no
+		from express_state
+		where
+		date_format(express_change_date, '%Y %M %d')
+		= date_format(sysdate(),
+		'%Y %M %d')
+		and express_current_state = 'A01')
+	</select>
+	
+	<select id="selectListTodayA02" resultType="ExpressVO">		
+		select * from express where express_no in
+		(select express_no
+		from express_state
+		where
+		date_format(express_change_date, '%Y %M %d')
+		= date_format(sysdate(),
+		'%Y %M %d')
+		and express_current_state = 'A02')
+	</select>
+	
+	<select id="selectListTodayA03" resultType="ExpressVO">		
+		select * from express where
+		date_format(express_visit_time, '%Y %M %d')
+		= date_format(sysdate(),'%Y %M %d')
+		and express_state = 'A03'
+	</select>
+	
+	<select id="selectListTodayA05" resultType="ExpressVO">		
+		select * from express where
+		date_format(express_date, '%Y %M %d')
+		= date_format(sysdate(),'%Y %M %d')
+		and express_state = 'A05'
+	</select>
+	
+
 
 	<select id="selectCalendarList" resultType="map">
 		<!-- select express_no "id",express_customer "title",express_date||'+09:00' 
@@ -131,8 +169,10 @@
 			%M %d') = date_format(sysdate(), '%Y %M %d'); -->
 		select count(*)
 		from express_state
-		where date_format(express_change_date, '%Y %M %d')
-		= date_format(sysdate(), '%Y %M %d')
+		where
+		date_format(express_change_date, '%Y %M %d')
+		= date_format(sysdate(),
+		'%Y %M %d')
 		and express_current_state = 'A02';
 	</select>
 

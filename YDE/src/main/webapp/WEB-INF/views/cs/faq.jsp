@@ -145,7 +145,7 @@ $(function() {
 		</div>
 		<br/><br/>
 		<div class="container" style="align-content: center; align-items: center; margin: auto;">
-			<div class="col-lg-10 col-md-9 col-sm-11">
+			<div>
 				<div class="tab-content panels-faq">
 					<div class="tab-pane active" id="tab1">
 						<div class="panel-group" id="help-accordion-1">

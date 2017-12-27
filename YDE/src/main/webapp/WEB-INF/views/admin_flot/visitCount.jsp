@@ -28,7 +28,7 @@
 						//ajax결과를 chart에 맞는 data 형태로 가공
 						var chartData = [];
 						chartData.push([ '날짜', '방문자수' ])
-						if(data.length == 0){
+						if(data.length == '0'){
 							var subarr = [ "날짜", 0 ];
 							chartData.push(subarr);
 						}

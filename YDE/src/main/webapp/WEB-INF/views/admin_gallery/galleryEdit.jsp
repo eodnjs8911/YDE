@@ -22,7 +22,8 @@ function form_save(form){
 </script>
 <div class="container">
   <h2>Gallery Input</h2>
-  <form class="form-horizontal" action="${pageContext.request.contextPath}/gallery/insert.do" enctype="multipart/form-data" method="post">
+  <form class="form-horizontal" action="${pageContext.request.contextPath}/gallery/update.do" enctype="multipart/form-data" method="post">
+  <input type="hidden" name="galleryNo" value="${gallery.galleryNo}"/> 
     <div class="form-group">
       <label class="control-label col-sm-2" for="제목">제목</label>
       <div class="col-sm-4">
@@ -32,18 +33,19 @@ function form_save(form){
     <div class="form-group">
       <label class="control-label col-sm-2" for="썸네일">썸네일</label>
       <div class="col-sm-4">          
-        <input type="file" class="form-control" id="galleryImage" placeholder="그림파일 이름" name="upload" readonly="readonly">
+        <input type="file" class="form-control" id="upload" placeholder="그림파일 이름" name="upload" readonly="readonly">
+        <span>${gallery.galleryImage}</span>
       </div>
     </div>
     <div class="form-group">
 	  <div class="form-group"><label class="control-label col-sm-2" for="내용">내용</label></div>
 	  <div>
-	  <textarea style="margin-:10px" class="col-sm-10" rows="20" id="galleryContent" name="galleryContent" value="${gallery.galleryContent}"></textarea>
+	  <textarea style="margin-:10px" class="col-sm-10" rows="20" id="galleryContent" name="galleryContent">${gallery.galleryContent}</textarea>
 	  </div>
 	</div>
 	<div class="form-group">        
       <div class="col-sm-offset-2 col-sm-6">
-        <button type="submit" class="btn btn-default">저장</button><button type="reset" class="btn btn-default">재작성</button>
+        <button type="submit" class="btn btn-default">수정</button><button type="reset" class="btn btn-default">재작성</button>
       </div>
     </div>
   </form>

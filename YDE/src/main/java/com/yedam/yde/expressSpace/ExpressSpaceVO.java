@@ -2,14 +2,14 @@ package com.yedam.yde.expressSpace;
 
 public class ExpressSpaceVO {
 
-	String expressDepatureSize;
+	String expressDepartureSize;
 	String expressReqDate;
 	
 	public String getExpressDepatureSize() {
-		return expressDepatureSize;
+		return expressDepartureSize;
 	}
 	public void setExpressDepatureSize(String expressDepatureSize) {
-		this.expressDepatureSize = expressDepatureSize;
+		this.expressDepartureSize = expressDepatureSize;
 	}
 	public String getExpressReqDate() {
 		return expressReqDate;

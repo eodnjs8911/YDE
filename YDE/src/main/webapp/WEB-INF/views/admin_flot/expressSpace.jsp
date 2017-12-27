@@ -41,8 +41,8 @@ FORM.month.options[month-1].selected = true;
 </head>
 <body>
 
-<!-- http://localhost/yde/go.do?go=admin_flot/expressType -->
-<!-- http://localhost/yde/expressType/selectListYearTypeAdminPage.do -->
+<!-- http://localhost/yde/go.do?go=admin_flot/expressSpace -->
+<!-- http://localhost/yde/expressType/selectListYearSpaceAdminPage.do -->
 
 <br/>
 
@@ -50,9 +50,9 @@ FORM.month.options[month-1].selected = true;
 <SELECT id="year" name="year" onChange="setDate(this.form, this.value, this.form.month.value)"></SELECT>년 &nbsp;
 <SELECT id="month" name="month" onChange="setDate(this.form, this.form.year.value, this.value)"></SELECT>월 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<button align="right" type="button" onclick="expressType('month')" style="float: center;">월별</button>&nbsp;
+			<button align="right" type="button" onclick="expressSpace('month')" style="float: center;">월별</button>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<button align="right" type="button" onclick="expressType('year')" style="float: center;">년도별</button>&nbsp;
+			<button align="right" type="button" onclick="expressSpace('year')" style="float: center;">년도별</button>&nbsp;
 			<!-- <button align="right" type="button" onclick="visit('year')" style="float: center;">연도별</button> -->
 
 	</Form>
@@ -63,7 +63,7 @@ FORM.month.options[month-1].selected = true;
                 <div class="">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            이사종류 통계
+                            평형 통계
                         </div>
                         
                          <div id="chart_div"></div>
@@ -83,13 +83,14 @@ FORM.month.options[month-1].selected = true;
 	var options = {
 		title : '',
 		width : 1400,
-		height : 700
+		height : 700,
+		is3D:true
 	};
 	google.load('visualization', '1.0', {
 		'packages' : [ 'corechart' ]
 	});
 	google.setOnLoadCallback(function() {
-		expressType('year');
+		expressSpace('year');
 	});
 	
 	function chartDraw(url){
@@ -103,14 +104,14 @@ FORM.month.options[month-1].selected = true;
 						console.log(data);
 						var chartData = [];
 						
-						chartData.push([ '이사종류', '갯수' ])
+						chartData.push([ '평형', '갯수' ])
 						if(data.length == 0){
 							var subarr = [ 0, 0];
 							chartData.push(subarr);
 						}
 						else{
 							for (i = 0; i < data.length; i++) {
-								var subarr = [ data[i].EC, data[i].cnt ];
+								var subarr = [ data[i].range, data[i].number_of_size ];
 								chartData.push(subarr);
 							}
 						}	
@@ -124,13 +125,13 @@ FORM.month.options[month-1].selected = true;
 				});
 	}
 	
-	function expressType(charttab) {
+	function expressSpace(charttab) {
 		var url='';
 		if	(charttab == 'month'){
-			url = '${pageContext.request.contextPath}/expressType/selectListMonth.do?expressReqDate='+$("#year").val()+"-"+$("#month").val()
+			url = '${pageContext.request.contextPath}/expressSpace/selectListMonth.do?expressReqDate='+$("#year").val()+"-"+$("#month").val()
 		}
 		else if(charttab == 'year'){
-			url = '${pageContext.request.contextPath}/expressType/selectListYear.do?expressReqDate='+$("#year").val()
+			url = '${pageContext.request.contextPath}/expressSpace/selectListYear.do?expressReqDate='+$("#year").val()
 		} 
 		/* url = '${pageContext.request.contextPath}/expressState/selectListDay.do?date=2017-12' */
 		chartDraw(url);

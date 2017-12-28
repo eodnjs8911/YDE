@@ -12,7 +12,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
           ${image.galleryNo}
           <a href="${pageContext.request.contextPath}/gallery/view/${image.galleryNo}" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="${pageContext.request.contextPath}/resources/images/${image.galleryImage}"alt=""
+            <img class="img-fluid img-thumbnail" src="${pageContext.request.contextPath}/resources/images/${image.galleryImage}" alt="IMAGE_${image.galleryImage}"
             style="width: 100%;height: 100%">
           </a>
         </div>

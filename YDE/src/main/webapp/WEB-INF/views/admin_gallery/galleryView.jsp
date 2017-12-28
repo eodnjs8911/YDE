@@ -8,22 +8,15 @@
         <div class="col-lg-2 col-md-4 col-sm-6">
           ${image.galleryNo}
           <a id="addBtn" href="${pageContext.request.contextPath}/gallery/galleryDetailAdminPage.do/Admin${image.galleryNo}" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="${pageContext.request.contextPath}/resources/images/${image.galleryImage}"alt="${image.galleryImage}"
-            style="width: 100%;height: 100%">
+            <img class="img-fluid img-thumbnail" src="${pageContext.request.contextPath}/resources/images/${image.galleryImage}"
+            alt="IMAGE_${gallery.galleryImage}" style="width: 100%;height: 100%">
           </a>
         </div>
         </c:forEach>
-        <script type="text/javascript">
-		$(function(){
-		$("#addBtn").click(function(){
-			location.href = "/yde/gallery/galleryAdminEditPage.do?galleryNo="+${image.galleryNo};
-		});
-		});
-		</script>
       </div>    
       <br/>
-       <button type="button" class="btn btn-default"
-       onclick="location.href='${pageContext.request.contextPath}/gallery/galleryAdminPage.do'">
-       	사진추가하기</button> 
+      
+      <button onclick="location.href='${pageContext.request.contextPath}/gallery/galleryAdminPage.do'"
+      type="button" class="btn btn-default">사진추가하기</button> 
        	
        	

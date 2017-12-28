@@ -12,10 +12,10 @@
 	No.${gallery.galleryNo} &nbsp; &nbsp;  ${gallery.galleryTitle} 
 	<br />
 	<hr>
-	<div class="col-lg-4 col-md-12">
-	<%-- 	<img
+	<div class="col-lg-12 col-md-12">
+		<img
 			src="${pageContext.request.contextPath}/resources/images/${gallery.galleryImage}"
-			alt="IMAGE_${gallery.galleryImage}"> --%>
+			alt="IMAGE_${gallery.galleryImage}" style="width: 100%;height: 100%">
 			${gallery.galleryContent}
 	<hr>
 	<a style="cursor: pointer;" 

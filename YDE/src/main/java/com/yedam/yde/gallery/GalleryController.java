@@ -11,12 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import org.springframework.web.multipart.support.MultipartFilter;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.yde.gallery.GalleryService;
@@ -79,24 +77,29 @@ public class GalleryController {
 		MultipartFile upload = vo.getUpload();
 		
 		if(upload != null ) {
-			String fileName = upload.getOriginalFilename();
+			String fileName = System.currentTimeMillis() + upload.getOriginalFilename();
 			//galleryImage.transferTo(new File("D:/upload/"+fileName));
 			upload.transferTo(new File(upload_location, fileName));
 			vo.setGalleryImage(fileName);
 		}
 		galleryService.insert(vo);
-		return "admin_gallery/gallery";
+		return "redirect:galleryListAdminPage.do";
 	}
 
 	@RequestMapping("/gallery/update.do")
 	public String update( GalleryVO vo, HttpServletRequest request) throws IOException {
 		System.out.println("[GalleryController][update]");
-		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest)request;
 		String upload_location = request.getSession().getServletContext().getRealPath("/resources/images");
 		MultipartFile upload = vo.getUpload();
-		
+
 		if(upload != null && upload.getSize() > 0) {
-			String fileName = upload.getOriginalFilename();
+			//기존파일 삭제
+			GalleryVO select = galleryService.selectOne(vo);
+			if(select.getGalleryImage() != null && !select.getGalleryImage().equals("")) {
+				File filename = new File(upload_location, select.getGalleryImage());
+				filename.delete();
+			}
+			String fileName = System.currentTimeMillis() + upload.getOriginalFilename();
 			//galleryImage.transferTo(new File("D:/upload/"+fileName));
 			upload.transferTo(new File(upload_location, fileName));
 			vo.setGalleryImage(fileName);
@@ -104,14 +107,21 @@ public class GalleryController {
 			vo.setGalleryImage(defaultImage);
 		}*/
 		galleryService.update(vo);
-		return "cs/gallery";
+		return "redirect:galleryListAdminPage.do";
 	}
 
 	@RequestMapping("/gallery/delete.do")
-	public String delete(GalleryVO vo) {
+	public String delete(GalleryVO vo, HttpServletRequest request) {
 		System.out.println("[GalleryController][delete]");
+		//파일삭제
+		GalleryVO select = galleryService.selectOne(vo);
+		if(select.getGalleryImage() != null && !select.getGalleryImage().equals("")) {
+			String upload_location = request.getSession().getServletContext().getRealPath("/resources/images");
+			File filename = new File(upload_location, select.getGalleryImage());
+			filename.delete();
+		}
 		galleryService.delete(vo);
-		return "cs/gallery";
+		return "redirect:galleryListAdminPage.do";
 	}
 
 	@RequestMapping("/gallery/selectOne.do")

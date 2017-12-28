@@ -48,7 +48,8 @@ function form_save(form){
 	</div>
 	<div class="form-group">        
       <div class="col-sm-offset-2 col-sm-6">
-        <button type="submit" class="btn btn-default">수정</button><button type="button" class="btn btn-default" name="deleteBtn" id="deleteBtn">삭제</button>
+      <button type="submit" class="btn btn-default" value="수정">수정</button>
+      <button type="button" class="btn btn-default" name="deleteBtn" id="deleteBtn">삭제</button>
       </div>
     </div>
   </form>

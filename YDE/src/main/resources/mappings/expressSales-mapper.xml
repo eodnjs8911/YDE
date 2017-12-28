@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="ExpressSalesDAO">
+
+
+<select id="selectListMonth" parameterType="ExpressSalesVO" resultType="map">
+
+select sum(express_deposit + express_remainder) express_sales, 
+		DATE_FORMAT(express_date, '%Y-%m') ymd
+		
+from express
+
+where DATE_FORMAT(express_date, '%Y') = #{expressDate}
+
+and express_state = 'A06'
+
+group by ymd
+
+order by ymd
+
+</select>
+
+<select id="selectListYear" parameterType="ExpressSalesVO" resultType="map">
+
+select sum(express_deposit + express_remainder) express_sales, DATE_FORMAT(express_date, '%Y') ymd
+
+from express
+
+where express_state = 'A06'
+
+group by ymd
+
+order by ymd
+
+</select>
+
+
+</mapper>

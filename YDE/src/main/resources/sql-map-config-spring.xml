@@ -19,6 +19,7 @@
 		<typeAlias alias="ResourceVO" type="com.yedam.yde.resource.ResourceVO" />
 		<typeAlias alias="VisitStatisticsVO" type="com.yedam.yde.visit.VisitStatisticsVO" />
 		<typeAlias alias="VisitStatisticsSearchVO" type="com.yedam.yde.visit.VisitStatisticsSearchVO" />
+		<typeAlias alias="ExpressSalesVO" type="com.yedam.yde.expressSales.ExpressSalesVO" />
 	</typeAliases>
 
 </configuration>

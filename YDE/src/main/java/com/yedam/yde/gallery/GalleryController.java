@@ -140,8 +140,8 @@ public class GalleryController {
 		System.out.println("[GalleryController][selectOneSeq]");
 		return mv;
 	}	
-	*/
-	/*"/gallery/galleryAdminEditPage.do"*/
+*/
+	
 	@RequestMapping("/gallery/galleryListAdminPage.do")
 	public String selectadminList(Model model) {
 		System.out.println("[GalleryController][selectList]");

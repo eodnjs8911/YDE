@@ -9,7 +9,7 @@
          <c:forEach var="image" items="${gallery}">
         <div class="col-lg-2 col-md-4 col-sm-6">
           ${image.galleryNo}
-          <a href="${pageContext.request.contextPath}/??????/${image.galleryNo}" class="d-block mb-4 h-100">
+          <a href="${pageContext.request.contextPath}/gallery/galleryAdminEditPage.do" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="${pageContext.request.contextPath}/resources/images/${image.galleryImage}"alt="${image.galleryImage}"
             style="width: 100%;height: 100%">
           </a>
@@ -20,3 +20,5 @@
        <button type="button" class="btn btn-default"
        onclick="location.href='${pageContext.request.contextPath}/gallery/galleryAdminPage.do'">
        	사진추가하기</button> 
+       	
+       	

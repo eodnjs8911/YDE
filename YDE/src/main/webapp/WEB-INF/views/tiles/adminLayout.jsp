@@ -277,6 +277,9 @@ $(function(){
 						<li><a
 							href="${pageContext.request.contextPath}/expressSpace/selectListYearSpaceAdminPage.do"><i
 								class="fa fa-table fa-fw"></i> 이사 평형 통계</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/expressSales/selectListYearSalesAdminPage.do"><i
+								class="fa fa-table fa-fw"></i> 매출 통계</a></li>
 
 						<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>
 								Dashboard</a></li>

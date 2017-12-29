@@ -9,7 +9,7 @@
           ${image.galleryNo}
           <a id="addBtn" href="${pageContext.request.contextPath}/gallery/galleryDetailAdminPage.do/Admin${image.galleryNo}" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="${pageContext.request.contextPath}/resources/images/${image.galleryImage}"
-            alt="IMAGE_${gallery.galleryImage}" style="width: 100%;height: 100%">
+            alt="IMAGE_${image.galleryImage}" style="width: 100%;height: 100%">
           </a>
         </div>
         </c:forEach>

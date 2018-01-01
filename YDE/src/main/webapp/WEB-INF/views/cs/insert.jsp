@@ -32,7 +32,7 @@
 				return true;
 			} else {
 				var nameSpan = document.getElementById("nameSpan");
-				nameSpan.innerHTML = "성명은 null일 수 없습니다."
+				nameSpan.innerHTML = "성명을 입력해 주십시오."
 				nameSpan.style.color = 'red';
 			}
 			return false;

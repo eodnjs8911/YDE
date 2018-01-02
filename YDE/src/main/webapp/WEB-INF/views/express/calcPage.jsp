@@ -174,19 +174,13 @@
 				<input type="text" class="form-control" id="price"
 					placeholder="예상가격">
 			</div>
-			<label for="price" class="col-md-2 control-label">만원</label>
 
-
-			<div class="col-md-3">
+			<div class="col-md-2">
 				<input class="btn btn-default" type="button" value="계산"
 					onclick="priceCalc()">
 			</div>
-		</div>
 
-
-
-		<div class="form-group">
-			<div class="col-md-offset-3 col-md-6">
+			<div class="col-md-3">
 				<input class="btn btn-default" type="button" value="상담 신청"
 					data-toggle="modal" data-target="#consultModal">
 			</div>

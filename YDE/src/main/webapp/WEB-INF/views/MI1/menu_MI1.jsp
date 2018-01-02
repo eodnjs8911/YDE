@@ -5,17 +5,65 @@
 <html>
 <head>
 <title>Insert title here</title>
+<style type="text/css">
+
+/* list */
+ul li a:hover {
+	background-color: #1BB1EC;
+	color: white;
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+ul li a {
+	text-decoration: none;
+	color: gray;
+	text-align: center;
+	display: block;
+	padding: 15px 30px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}
+/* tablet */
+@media ( min-width : 768px) {
+	ul li {
+		display: inline-block;
+	}
+	ul {
+		text-align: center;
+	}
+	ul li a {
+		padding: 15px 30px;
+	}
+}
+/* desktop */
+@media ( min-width : 1349px) {
+	ul li {
+		display: inline-block;
+	}
+	ul {
+		text-align: center;
+	}
+	ul li a {
+		padding: 15px 50px;
+	}
+}
+
+</style>
 </head>
 <body>
-	<div style="width: 100%; text-align: center; ">
-		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_1'">이사체크리스트</button>
-		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_2'">계약시유의사항</button>
-		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_3'">이사하기좋은날</button>
-		<button class="button button2" type="button"
-			onclick="location.href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_4'">이사가격산정방식</button>
-	</div>
+	<ul class="menunav">
+		<li class="menunav"><a class="menunav"
+			href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_1'>이사체크리스트</a></li>
+		<li class="menunav"><a class="menunav"
+			href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_2'>계약시유의사항</a></li>
+		<li class="menunav"><a class="menunav"
+			href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_3'>이사하기좋은날</a></li>
+		<li class="menunav"><a class="menunav"
+			href='${pageContext.request.contextPath}/go.do?go=MI1/MI1_4'>이사가격산정방식</a></li>
+	</ul>
 </body>
 </html>

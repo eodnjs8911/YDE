@@ -25,9 +25,17 @@
 #toggle:checked+#nav {
 	display: inline;
 }
-a{
+ol li a{
 	cursor: pointer;
+	text-decoration: none;
+	color: #2F322A;
+	display: block;
 }
+ol li a:hover {
+	text-decoration: none;
+	color: gray;
+}
+
 </style>
 </head>
 <body>
@@ -37,13 +45,13 @@ a{
 		<label style="cursor: pointer; font-size: medium;" for="toggle"><font
 			color="#333" size="3px">고객센터▼</font></label> <input type="checkbox"
 			id="toggle">
-		<ul id="nav">
+		<ol id="nav">
 			<li><a onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/notice'" >공지사항</a></li>
 			<li><a onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/faq'">FAQ</a></li>
 			<li><a onclick="location.href='${pageContext.request.contextPath}/go.do?go=cs/epilogue'">이용후기</a></li>
 			<li><a onclick="location.href='${pageContext.request.contextPath}/gallery/selectList.do'">현장갤러리</a></li>
 			<li><a onclick="location.href='${pageContext.request.contextPath}/cs/insert.do'">불편신고</a></li> 
-		</ul>
+		</ol>
 	</div>
 	<div style="width: 100%; text-align: left;">
 		<font color="#bbb" size="2px">(주)YDExpress 대구광역시 중구 국채보상로

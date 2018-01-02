@@ -5,7 +5,7 @@
    href="${pageContext.request.contextPath}/resources/css/gallery.css" />
 <%@ include file="menu_CS1.jsp"%>
 
-      <h1 class="my-4 text-center text-lg-left">Thumbnail Gallery</h1>
+<!--       <h1 class="my-4 text-center text-lg-left">Thumbnail Gallery</h1> -->
    
       <div class="row text-center text-lg-left">
          <c:forEach var="image" items="${gallery}">

@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>YDE</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/jquery/jquery-ui.css">
 <script type="text/ecmascript"

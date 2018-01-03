@@ -117,11 +117,16 @@
 			});
 		}
 	});
+	
+	String.prototype.replaceAll = function(org,dest) {
+	    return this.split(org).join(dest);
+	}
 
 	function showNoticeContent(parentRowID, parentRowKey) {
-		$("#" + parentRowID)
-				.text(
-						$("#noticejqGrid").jqGrid('getRowData', parentRowKey).noticeContent);
+		var noticeContent = $("#noticejqGrid").jqGrid('getRowData', parentRowKey).noticeContent;
+		noticeContent = noticeContent.replaceAll("\n","<br>");
+		console.log(noticeContent);
+		$("#" + parentRowID).html(noticeContent);
 
 	}
 

@@ -63,7 +63,8 @@
 				width : 300,
 				hidden : true,
 				editable : true,
-				edithidden : false
+				edithidden : false,
+				edittype : 'textarea'
 			}, {
 				label : '날짜',
 				name : 'noticeWDate',

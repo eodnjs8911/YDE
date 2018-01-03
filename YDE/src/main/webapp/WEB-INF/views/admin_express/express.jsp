@@ -430,8 +430,11 @@
 			$("#manageWorkModal").modal('show')
 		}
 		
-		function visitTimeChange(){
-			console.log("asd");
+		function expressVisitEstimateChange(){
+			var eState = $("#expressState").val();
+			if(eState =='A01' || eState =='A02' || eState =='A03'){
+				$("#expressState").val('A04');
+			}
 		}
 	</script>
 
@@ -613,6 +616,12 @@
 											stepping : 10,
 											sideBySide : true
 										});
+										$("body").on("change dp.change", "#expressVisitTime", function(event){
+											var eState = $("#expressState").val();
+											if(eState =='A01' || eState =='A02'){
+												$("#expressState").val('A03');
+											}
+										});
 									</script>
 								</div>
 							</div>
@@ -627,9 +636,8 @@
 								<label for="expressVisitEstimate"
 									class="col-md-2 control-label">견적금액</label>
 								<div class="col-md-4">
-
 									<input class="form-control" type="number"
-										id="expressVisitEstimate" name="expressVisitEstimate" value="0" />
+										id="expressVisitEstimate" name="expressVisitEstimate" value="0" onchange="expressVisitEstimateChange()"/>
 								</div>
 							</div>
 
@@ -660,6 +668,12 @@
 											showTodayButton : true,
 											enabledHours : false,
 											sideBySide : true
+										});
+										$("body").on("change dp.change", "#expressCDate", function(event){
+											var eState = $("#expressState").val();
+											if(eState =='A01' || eState =='A02' ||eState =='A03' || eState =='A04'){
+												$("#expressState").val('A05');
+											}
 										});
 									</script>
 								</div>

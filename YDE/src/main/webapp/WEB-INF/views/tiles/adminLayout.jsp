@@ -164,6 +164,13 @@ $(function(){
 });
 </script>
 
+<style>
+.fa-2x {
+  font-size: 2em;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -180,7 +187,7 @@ $(function(){
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">YDE 관리페이지</a>
+				<a class="navbar-brand" href="http://localhost/yde/express/expressAdminPage.do">YDE 관리페이지</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -210,7 +217,7 @@ $(function(){
 				
 				<li id="todayVisit" class="dropdown"><a
 					class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
-						class="fa fa-search fa-fw"></i> <i class="fa fa-caret-down"></i>
+						class="fa fa-bell-o" aria-hidden="true"></i> <i class="fa fa-caret-down"></i>
 				</a>
 					<ul class="dropdown-menu dropdown-messages" id="todayVisitList">
 					</ul> <!-- /.dropdown-messages --></li>
@@ -222,22 +229,8 @@ $(function(){
 				</a>
 					<ul class="dropdown-menu dropdown-messages" id="todayExpressList">
 					</ul> <!-- /.dropdown-messages --></li>
-				<!-- /.dropdown -->
-
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"> <i class="fa fa-user fa-fw"></i>
-						<i class="fa fa-caret-down"></i>
-				</a>
-					<ul class="dropdown-menu dropdown-user">
-						<li><a href="#"><i class="fa fa-user fa-fw"></i> User
-								Profile</a></li>
-						<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-						</li>
-						<li class="divider"></li>
-						<li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>
-								Logout</a></li>
-					</ul> <!-- /.dropdown-user --></li>
-				<!-- /.dropdown -->
+			
+			
 			</ul>
 			<!-- /.navbar-top-links -->
 
@@ -245,84 +238,44 @@ $(function(){
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
 						<li><a href="${pageContext.request.contextPath}"><i
-								class="fa fa-files-o fa-fw"></i> 홈페이지로 돌아가기</a></li>
+								class="fa fa-home" aria-hidden="true"></i> 홈페이지로 돌아가기</a></li>
 						<li>
 						<li><a
 							href="${pageContext.request.contextPath}/express/expressAdminPage.do"><i
-								class="fa fa-dashboard fa-fw"></i> 일정관리</a></li>
+								class="fa fa-calendar-check-o" aria-hidden="true"></i> 일정 관리</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/sms/smsAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> SMS 관리</a></li>
+								class="fa fa-mobile fa-2x" aria-hidden="true"></i> SMS 관리</a></li>
+								
+								
 						<li><a
 							href="${pageContext.request.contextPath}/claim/claimAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 신고 관리</a></li>
+								class="fa fa-exclamation-triangle" aria-hidden="true"></i> 신고 관리</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/employee/employeeAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 직원 관리</a></li>
+								class="fa fa-users" aria-hidden="true"></i> 직원 관리</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/resource/resourceAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 자재 관리</a></li>
+								class="fa fa-database" aria-hidden="true"></i> 자재 관리</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/gallery/galleryListAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 갤러리 관리</a></li>
+								class="fa fa-picture-o" aria-hidden="true"></i> 갤러리 관리</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/visit/selectListYearAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 방문자 통계</a></li>
+								class="fa fa-line-chart" aria-hidden="true"></i> 방문자 통계</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/expressState/selectListMonthAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 기초상담 통계</a></li>
+								class="fa fa-bar-chart" aria-hidden="true"></i> 기초상담 통계</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/expressType/selectListYearTypeAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 이사종류 통계</a></li>
+								class="fa fa-pie-chart" aria-hidden="true"></i> 이사종류 통계</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/expressSpace/selectListYearSpaceAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 이사 평형 통계</a></li>
+								class="fa fa-pie-chart" aria-hidden="true"></i> 이사평형 통계</a></li>
 						<li><a
 							href="${pageContext.request.contextPath}/expressSales/selectListYearSalesAdminPage.do"><i
-								class="fa fa-table fa-fw"></i> 매출 통계</a></li>
+								class="fa fa-area-chart" aria-hidden="true"></i> 매출 통계</a></li>
 
-						<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>
-								Dashboard</a></li>
-						<li><a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>
-								Charts<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li><a href="flot.html">Flot Charts</a></li>
-								<li><a href="morris.html">Morris.js Charts</a></li>
-							</ul> <!-- /.nav-second-level --></li>
-						<li><a href="tables.html"><i class="fa fa-table fa-fw"></i>
-								Tables</a></li>
-						<li><a href="forms.html"><i class="fa fa-edit fa-fw"></i>
-								Forms</a></li>
-						<li><a href="#"><i class="fa fa-wrench fa-fw"></i> UI
-								Elements<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li><a href="panels-wells.html">Panels and Wells</a></li>
-								<li><a href="buttons.html">Buttons</a></li>
-								<li><a href="notifications.html">Notifications</a></li>
-								<li><a href="typography.html">Typography</a></li>
-								<li><a href="icons.html"> Icons</a></li>
-								<li><a href="grid.html">Grid</a></li>
-							</ul> <!-- /.nav-second-level --></li>
-						<li><a href="#"><i class="fa fa-sitemap fa-fw"></i>
-								Multi-Level Dropdown<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li><a href="#">Second Level Item</a></li>
-								<li><a href="#">Second Level Item</a></li>
-								<li><a href="#">Third Level <span class="fa arrow"></span></a>
-									<ul class="nav nav-third-level">
-										<li><a href="#">Third Level Item</a></li>
-										<li><a href="#">Third Level Item</a></li>
-										<li><a href="#">Third Level Item</a></li>
-										<li><a href="#">Third Level Item</a></li>
-									</ul> <!-- /.nav-third-level --></li>
-							</ul> <!-- /.nav-second-level --></li>
-						<li class="active"><a href="#"><i
-								class="fa fa-files-o fa-fw"></i> Sample Pages<span
-								class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li><a class="active" href="blank.html">Blank Page</a></li>
-								<li><a href="login.html">Login Page</a></li>
-							</ul> <!-- /.nav-second-level --></li>
 						<li style="text-align: center"><br /> 오늘 방문자수
 							&nbsp;&nbsp;&nbsp; ${todayCount}<br /> 총 방문자수&nbsp;&nbsp;&nbsp;
 							${totalCount}</li>

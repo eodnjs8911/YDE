@@ -58,17 +58,26 @@
 				name : 'epilogueWriter',
 				width : 120,
 				editable : true,
+				editrules :{
+					required : true
+				}
 			}, {
 				label : '비밀번호',
 				name : 'epiloguePw',
 				width : 55,
 				editable : true,
-				hidden : true
+				hidden : true,
+				editrules :{
+					required : true
+				}
 			}, {
-				label : '후기',
+				label : '내용',
 				name : 'epilogueContent',
 				width : 350,
 				editable : true,
+				editrules :{
+					required : true
+				}
 			}, {
 				label : '작성일',
 				name : 'epilogueWDate',

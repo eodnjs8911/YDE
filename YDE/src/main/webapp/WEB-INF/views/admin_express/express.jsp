@@ -21,6 +21,17 @@
 	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
 
 <div>
+	<div>
+	<table class="table">
+	<tr>
+	<td style="background-color: #FFFF33">상담신청</td>
+	<td style="background-color: #FFCC33">방문신청</td>
+	<td style="background-color: #FF9933">방문견적</td>
+	<td style="background-color: #66FF99">계약완료</td>
+	<td style="background-color: #66FF00">이사완료</td>
+	</tr>
+	</table>
+	</div>
 	<div id="calendar"></div>
 
 	<script type='text/javascript'>
@@ -117,7 +128,9 @@
 
 				$("#expressDeposit").val(data.expressDeposit);
 				$("#expressRemainder").val(data.expressRemainder);
+				$("#expressVisitEstimate").val(data.expressVisitEstimate);
 				$("#expressEstimateAmount").val(data.expressEstimateAmount);
+		
 
 				$("#expressCustomer").val(data.expressCustomer);
 				$("#expressPhone").val(data.expressPhone);
@@ -416,6 +429,13 @@
 			}).trigger('reloadGrid');
 			$("#manageWorkModal").modal('show')
 		}
+		
+		function expressVisitEstimateChange(){
+			var eState = $("#expressState").val();
+			if(eState =='A01' || eState =='A02' || eState =='A03'){
+				$("#expressState").val('A04');
+			}
+		}
 	</script>
 
 	<div class="modal fade" role="dialog"
@@ -596,6 +616,12 @@
 											stepping : 10,
 											sideBySide : true
 										});
+										$("body").on("change dp.change", "#expressVisitTime", function(event){
+											var eState = $("#expressState").val();
+											if(eState =='A01' || eState =='A02'){
+												$("#expressState").val('A03');
+											}
+										});
 									</script>
 								</div>
 							</div>
@@ -607,12 +633,11 @@
 										id="expressEstimateAmount" name="expressEstimateAmount"
 										value="0" />
 								</div>
-								<label for="expressEstimateAmount"
+								<label for="expressVisitEstimate"
 									class="col-md-2 control-label">견적금액</label>
 								<div class="col-md-4">
-
 									<input class="form-control" type="number"
-										id="expressVisitAmount" name="expressVisitAmount" value="0" />
+										id="expressVisitEstimate" name="expressVisitEstimate" value="0" onchange="expressVisitEstimateChange()"/>
 								</div>
 							</div>
 
@@ -643,6 +668,12 @@
 											showTodayButton : true,
 											enabledHours : false,
 											sideBySide : true
+										});
+										$("body").on("change dp.change", "#expressCDate", function(event){
+											var eState = $("#expressState").val();
+											if(eState =='A01' || eState =='A02' ||eState =='A03' || eState =='A04'){
+												$("#expressState").val('A05');
+											}
 										});
 									</script>
 								</div>

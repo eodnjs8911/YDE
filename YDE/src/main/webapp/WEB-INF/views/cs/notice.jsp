@@ -63,7 +63,8 @@
 				width : 300,
 				hidden : true,
 				editable : true,
-				edithidden : false
+				edithidden : false,
+				edittype : 'textarea'
 			}, {
 				label : '날짜',
 				name : 'noticeWDate',
@@ -116,11 +117,17 @@
 			});
 		}
 	});
+	
+	String.prototype.replaceAll = function(org,dest) {
+	    return this.split(org).join(dest);
+	}
 
 	function showNoticeContent(parentRowID, parentRowKey) {
-		$("#" + parentRowID)
-				.text(
-						$("#noticejqGrid").jqGrid('getRowData', parentRowKey).noticeContent);
+		var noticeContent = $("#noticejqGrid").jqGrid('getRowData', parentRowKey).noticeContent;
+		console.log(noticeContent);
+		noticeContent = noticeContent.replaceAll("\n","<br>");
+
+		$("#" + parentRowID).html(noticeContent);
 
 	}
 

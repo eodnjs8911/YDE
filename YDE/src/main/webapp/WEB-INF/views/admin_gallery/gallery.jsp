@@ -18,17 +18,17 @@ function form_save(form){
 	editor.updateElement();
 }
 </script>
-  <h2>Gallery Input</h2>
+  <h1>사진추가하기</h1>
   <form class="form-horizontal" action="${pageContext.request.contextPath}/gallery/insert.do" enctype="multipart/form-data" method="post">
     <div class="form-group">
       <label class="control-label col-sm-2" for="제목">제목</label>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <input type="text" class="form-control" id="galleryTitle" placeholder="제목을 입력하세요" name="galleryTitle">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="썸네일">썸네일</label>
-      <div class="col-sm-4">          
+      <div class="col-sm-6">          
         <input type="file" class="form-control" id="galleryImage" placeholder="그림파일 이름" name="upload" readonly="readonly">
       </div>
     </div>

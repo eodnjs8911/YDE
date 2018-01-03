@@ -6,10 +6,10 @@
       <div class="row text-center text-lg-left">
          <c:forEach var="image" items="${gallery}">
         <div class="col-lg-2 col-md-4 col-sm-6">
-          ${image.galleryNo}
           <a id="addBtn" href="${pageContext.request.contextPath}/gallery/galleryDetailAdminPage.do/Admin${image.galleryNo}" class="d-block mb-4 h-100">
             <img class="img-fluid img-thumbnail" src="${pageContext.request.contextPath}/resources/images/${image.galleryImage}"
             alt="IMAGE_${image.galleryImage}" style="width: 100%;height: 100%">
+			<font size="2px" style="padding: 5px;">${image.galleryTitle}</font>
           </a>
         </div>
         </c:forEach>

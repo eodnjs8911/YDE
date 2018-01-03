@@ -187,7 +187,7 @@ $(function(){
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="http://localhost/yde/express/expressAdminPage.do">YDE 관리페이지</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/express/expressAdminPage.do">YDE 관리페이지</a>
 			</div>
 			<!-- /.navbar-header -->
 

@@ -152,7 +152,14 @@
 			autowidth : true,
 			responsive : true,
 			multiselect : true,
-			pager : "#smsjqGridPager"
+			pager : "#smsjqGridPager",
+			onCellSelect :	function (rowid,index,content,event){
+				var cm = $(this).jqGrid('getGridParam','colModel');
+				if(cm[index].name=='expressNo'){
+					console.log("${pageContext.request.contextPath}/express/expressAdminPage.do?detailId="+content);
+					location.href="${pageContext.request.contextPath}/express/expressAdminPage.do?detailId="+content;
+				}
+			}
 		});
 
 		$('#smsjqGrid').jqGrid('filterToolbar', {

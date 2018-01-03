@@ -62,6 +62,3 @@
 		out.print("<script>window.parent.CKEDITOR.tools.callFunction(" + funcNum + ",'"+save_url+"', '업로드완료');</script>");
 	}
 %>
-
-</body>
-</html>

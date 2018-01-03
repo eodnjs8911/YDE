@@ -12,7 +12,7 @@
 		}, function(data) {
 			if (data.result == "success") {
 				$("#loginModal").modal('hide')
-				$("#loginConfirmModalText").text("로그인");
+				$("#loginConfirmModalText").text("관리자 로그인 되었습니다.");
 				$("#loginConfirmModal").modal('show')
 			} else {
 				$("#loginConfirmModalText").text("로그인 실패");

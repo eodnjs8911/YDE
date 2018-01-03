@@ -32,6 +32,7 @@
 		express_customer,
 		express_visit_time,
 		express_pay_category,
+		express_visit_estimate,
 		express_deposit,
 		express_remainder,
 		express_c_date,
@@ -58,6 +59,7 @@
 		#{expressCustomer},
 		#{expressVisitTime},
 		#{expressPayCategory},
+		#{expressVisitEstimate},
 		#{expressDeposit},
 		#{expressRemainder},
 		#{expressCDate},
@@ -94,6 +96,7 @@
 		express_deposit =#{expressDeposit},
 		express_remainder
 		=#{expressRemainder},
+		express_visit_estimate=#{expressVisitEstimate},
 		express_c_date =#{expressCDate},
 		express_arrive_addr2 =#{expressArriveAddr2}
 		where express_no =

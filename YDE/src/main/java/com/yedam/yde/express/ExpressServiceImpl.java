@@ -156,7 +156,7 @@ public class ExpressServiceImpl implements ExpressService {
 				color = "#FF9933";
 			} else if (state.equals("A05")) {
 				color = "#66FF99";
-			} else if (state.equals("A05")) {
+			} else if (state.equals("A06")) {
 				color = "#66FF00";
 			}
 			m.put("color", color);

@@ -56,7 +56,7 @@
 	</select>
 
 	<select id="selectList" resultType="SmsVO">
-		select * from sms
+		select * from sms order by sms_no desc
 	</select>
 	
 	<select id="selectListForAndroid" resultType="SmsVO">

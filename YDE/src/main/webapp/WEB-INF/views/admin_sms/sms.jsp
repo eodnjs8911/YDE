@@ -164,6 +164,8 @@ function testClick(){
 			autowidth : true,
 			responsive : true,
 			multiselect : true,
+			sortname : "smsNo",
+			sortorder : "desc",
 			pager : "#smsjqGridPager",
 			onCellSelect :	function (rowid,index,content,event){
 				var cm = $(this).jqGrid('getGridParam','colModel');

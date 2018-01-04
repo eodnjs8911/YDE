@@ -114,7 +114,13 @@
 			}, {
 				closeAfterAdd : true,
 				reloadAfterSubmit : true,
-				template : $("#dialogTemplate").html()
+				template : $("#dialogTemplate").html(),
+				afterComplete : function() {
+					$("#noticejqGrid").setGridParam({
+						datatype : 'json',
+						page : 1
+					}).trigger('reloadGrid');
+				}
 			});
 		}
 	});

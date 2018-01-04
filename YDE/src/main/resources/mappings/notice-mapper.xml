@@ -26,6 +26,6 @@
 	</select>
 	
 	<select id="selectList" resultType="NoticeVO">
-		select * from notice
+		select * from notice order by notice_w_date desc
 	</select>
 </mapper>

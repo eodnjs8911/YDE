@@ -24,7 +24,7 @@
         <height>-1</height>
         <width>-1</width>
         <x>33</x>
-        <y>298</y>
+        <y>363</y>
       </constraint>
       <sourceConnections/>
       <targetConnections/>
@@ -104,8 +104,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>32</x>
-        <y>394</y>
+        <x>33</x>
+        <y>473</y>
       </constraint>
       <sourceConnections/>
       <targetConnections/>
@@ -197,8 +197,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>35</x>
-        <y>196</y>
+        <x>34</x>
+        <y>203</y>
       </constraint>
       <sourceConnections/>
       <targetConnections/>
@@ -235,6 +235,33 @@
           <logicalName>현장갤러리 작성일</logicalName>
           <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../../../net.java.amateras.db.visual.model.TableModel/columns/net.java.amateras.db.visual.model.ColumnModel[2]/columnType"/>
           <size>10</size>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>gallery_title</columnName>
+          <logicalName>현장갤러리 제목</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType">
+            <name>VARCHAR</name>
+            <logicalName>String</logicalName>
+            <supportSize>true</supportSize>
+            <type>12</type>
+          </columnType>
+          <size>60</size>
+          <notNull>false</notNull>
+          <primaryKey>false</primaryKey>
+          <description></description>
+          <autoIncrement>false</autoIncrement>
+          <defaultValue></defaultValue>
+        </net.java.amateras.db.visual.model.ColumnModel>
+        <net.java.amateras.db.visual.model.ColumnModel>
+          <columnName>gallery_image</columnName>
+          <logicalName>현장갤러리 이미지</logicalName>
+          <columnType class="net.java.amateras.db.dialect.ColumnType" reference="../../net.java.amateras.db.visual.model.ColumnModel[4]/columnType"/>
+          <size>60</size>
           <notNull>false</notNull>
           <primaryKey>false</primaryKey>
           <description></description>
@@ -377,8 +404,8 @@
                               <constraint>
                                 <height>-1</height>
                                 <width>-1</width>
-                                <x>663</x>
-                                <y>547</y>
+                                <x>645</x>
+                                <y>526</y>
                               </constraint>
                               <sourceConnections/>
                               <targetConnections>
@@ -1068,7 +1095,7 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>38</x>
+        <x>32</x>
         <y>22</y>
       </constraint>
       <sourceConnections/>
@@ -1168,8 +1195,8 @@
       <constraint>
         <height>-1</height>
         <width>-1</width>
-        <x>27</x>
-        <y>544</y>
+        <x>600</x>
+        <y>16</y>
       </constraint>
       <sourceConnections/>
       <targetConnections/>

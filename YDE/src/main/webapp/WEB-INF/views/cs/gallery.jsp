@@ -17,7 +17,7 @@
 
 </style>
 <%@ include file="menu_CS1.jsp"%>
-
+<img src="${pageContext.request.contextPath}/resources/images/gallery.png" width="100%">
 <!--       <h1 class="my-4 text-center text-lg-left">Thumbnail Gallery</h1> -->
    
       <div class="row text-center text-lg-left">

@@ -139,7 +139,7 @@ $(function() {
 
 	<form id="myForm1">
 	<%@ include file="menu_CS1.jsp"%>
-	<br/><br/>  
+
 		<div style="text-align: center;">
 			&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/resources/images/faq.png" width="100%">
 		</div>

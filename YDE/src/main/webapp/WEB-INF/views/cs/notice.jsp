@@ -9,6 +9,7 @@
 	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
 
 <%@ include file="menu_CS1.jsp"%>
+<img src="${pageContext.request.contextPath}/resources/images/notice.png" width="100%">
 <div>
 	<table id="noticejqGrid"></table>
 	<div id="noticejqGridPager"></div>

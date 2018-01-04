@@ -9,8 +9,20 @@
 <link rel="stylesheet" type="text/css" media="screen"
 	href="${pageContext.request.contextPath}/resources/jqgrid/ui.jqgrid-bootstrap.css" />
 
+<script>
+function testClick(){
+	$.ajax({
+		url : "${pageContext.request.contextPath}/express/sendSmsInfo.do",
+		method : "post",
+		success : function(data) {
+			console.log("testClick Success");
+		}})
+}
+</script>
+
 
 <div>
+	<button onclick="testClick()">test</button>
 	<table id="smsjqGrid"></table>
 	<div id="smsjqGridPager"></div>
 </div>

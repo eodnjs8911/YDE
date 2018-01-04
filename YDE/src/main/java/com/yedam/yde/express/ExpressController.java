@@ -178,4 +178,14 @@ public class ExpressController {
 		System.out.println("[ExpressController][selectCalendarList]");
 		return expressService.selectCalendarList();
 	}
+	
+	@RequestMapping("/express/sendSmsInfo.do")
+	@ResponseBody
+	public 	HashMap<String, String> sendSmsInfo(Model model) {
+		System.out.println("[ExpressController][selectCalendarList]");
+		expressService.sendSmsInfo();
+		HashMap<String, String> rhm = new HashMap<String, String>();
+		rhm.put("result", "success");
+		return rhm;
+	}
 }

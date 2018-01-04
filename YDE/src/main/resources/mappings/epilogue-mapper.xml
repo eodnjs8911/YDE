@@ -35,7 +35,7 @@
 	</select>
 
 	<select id="selectList" resultType="EpilogueVO">
-		SELECT * FROM epilogue
+		SELECT * FROM epilogue order by epilogue_w_date desc
 	</select>
 
 </mapper>

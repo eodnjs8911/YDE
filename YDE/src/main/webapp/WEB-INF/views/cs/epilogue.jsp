@@ -93,7 +93,7 @@
 			rowNum : 10,
 			pager : "#epiloguejqGridPager",
 			sortname : "epilogueNo",
-			sortorder : "asc",
+			sortorder : "desc",
 			navOptions : {
 				reloadGridOptions : {
 					fromServer : true

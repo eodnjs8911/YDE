@@ -127,11 +127,11 @@
 				editable : true,
 				edittype : "select",
 				editoptions : {
-					value : "D01:대기;D02:발송예약;D03:발송정지;D04:발송완료"
+					value : "D01:대기;D02:발송예약;D03:발송완료"
 				},
 				stype : "select",
 				searchoptions : {
-					value : ":[All];D01:대기;D02:발송예약;D03:발송정지;D04:발송완료"
+					value : ":[All];D01:대기;D02:발송예약;D03:발송완료"
 				}
 			}, {
 				label : '이사번호',

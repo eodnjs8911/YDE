@@ -87,6 +87,14 @@ public class ExpressServiceImpl implements ExpressService {
 		if (vo.getExpressArriveFloor() > 30 || vo.getExpressDepartureFloor() > 30) {
 			price += 100000;
 		}
+		
+		if(vo.getExpressCategory().equals("B01")) {
+			price += 100000;
+		}else if(vo.getExpressCategory().equals("B03")) {
+			price -= 50000;
+		}else if(vo.getExpressCategory().equals("B04")) {
+			price += 150000;
+		}
 
 		String specialItems = vo.getExpressSpeicialItem();
 		if (specialItems != null && specialItems.length() > 0) {
